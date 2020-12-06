@@ -1,5 +1,8 @@
+
 .u-section-1 {
   background-image: url("images/banner.jpg");
+  background-size: cover;
+  
 }
 
 .u-section-1 .u-sheet-1 {

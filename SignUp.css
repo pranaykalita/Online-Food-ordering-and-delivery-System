@@ -1,7 +1,7 @@
 .u-section-1 {
   background-image: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("images/rumman-amin-k-gWRgrU2N8-unsplash.jpg");
   background-position: 50% 50%;
-  min-height: 100vh;
+  min-height: 1397px;
 }
 
 .u-section-1 .u-group-1 {
@@ -30,17 +30,18 @@
   font-family: Poppins;
   font-size: 4.5rem;
   font-weight: 200;
-  margin: 69px 419px 0 399px;
+  text-align: center;
+  margin: 80px auto 0;
 }
 
 .u-section-1 .u-text-2 {
   font-family: Poppins;
   font-weight: 300;
-  margin: 36px auto 0;
+  margin: 35px auto 0;
 }
 
 .u-section-1 .u-form-1 {
-  height: 556px;
+  height: 327px;
   width: 650px;
   margin: 36px auto 0;
 }
@@ -122,8 +123,10 @@
   }
 
   .u-section-1 .u-text-1 {
-    margin-left: 269px;
-    margin-right: 289px;
+    margin-top: 65px;
+    text-align: center;
+    /* margin-left: 269px;
+    margin-right: 289px; */
   }
 
   .u-section-1 .u-text-3 {
@@ -140,9 +143,10 @@
 
   .u-section-1 .u-text-1 {
     width: 262px;
+    text-align: center;
     margin-top: 61px;
-    margin-left: 159px;
-    margin-right: 179px;
+    /* margin-left: 159px;
+    margin-right: 179px; */
   }
 
   .u-section-1 .u-text-2 {
@@ -183,8 +187,9 @@
   .u-section-1 .u-text-1 {
     width: auto;
     margin-top: 31px;
-    margin-right: 127px;
-    margin-left: 112px;
+    text-align: center;
+    /* margin-right: 127px;
+    margin-left: 112px; */
   }
 
   .u-section-1 .u-text-2 {
@@ -219,9 +224,10 @@
   .u-section-1 .u-text-1 {
     font-size: 1.5rem;
     width: 88px;
-    margin-top: 72px;
+    text-align: center;
+    /* margin-top: 72px;
     margin-left: 12px;
-    margin-right: 27px;
+    margin-right: 27px; */
   }
 
   .u-section-1 .u-text-2 {
