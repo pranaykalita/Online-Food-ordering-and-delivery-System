@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Login Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images_login/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css_login/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css_login/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css_login/material-design-iconic-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css_login/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css_login/util.css">
+	<link rel="stylesheet" type="text/css" href="css_login/main.css">
+
+	<link rel="stylesheet" href="/static.css">
+	<link rel="stylesheet" href="/style.css">
+
+	<script class="u-script" type="text/javascript" src="/jquery.js" defer=""></script>
+	<script class="u-script" type="text/javascript" src="/static.js" defer=""></script>
+
+	<link
+            id="u-theme-google-font"
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+        <link
+            id="u-page-google-font"
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Lobster:400|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Oswald:200,300,400,500,600,700|Lobster:400|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+	<!--===============================================================================================-->
+</head>
+
+<body>
+	
+	  <!-- header start -->
+	  <header class="headsc u-clearfix u-grey-70 u-header u-sticky" id="header">
+		<div class="u-clearfix u-sheet u-sheet-1">
+			<!-- header image -->
+			<a href="/" class="u-image u-logo u-image-1" title="Coders Cafe">
+
+				<img
+					src="/images/logoNew.png"
+					class="u-logo-image u-logo-image-1"
+					data-image-width="150">
+			</a>
+			<!-- end header image -->
+			<nav
+				class="u-menu u-menu-dropdown u-offcanvas u-menu-1"
+				data-responsive-from="MD">
+				<!-- hamburger menu -->
+				<div
+					class="menu-collapse u-custom-font"
+					style="font-size: 1rem; letter-spacing: 0px; font-family: Poppins; font-weight: 400;">
+					<a
+						class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-shadow u-custom-top-bottom-menu-spacing u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1 u-text-white"
+						href="#"
+						style="text-shadow: 0 2px 8px rgba(128,128,128,1);">
+						<svg>
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use>
+						</svg>
+						<svg
+							version="1.1"
+							xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink">
+							<defs>
+								<symbol
+									id="menu-hamburger"
+									viewbox="0 0 16 16"
+									style="width: 16px; height: 16px;">
+									<rect y="1" width="16" height="2"></rect>
+									<rect y="7" width="16" height="2"></rect>
+									<rect y="13" width="16" height="2"></rect>
+								</symbol>
+							</defs>
+						</svg>
+					</a>
+				</div>
+				<!-- end ham menu -->
+				<!-- navigation menu -->
+
+				<div class="u-custom-menu u-nav-container">
+					<ul class="u-custom-font u-nav u-unstyled u-nav-1">
+						<li class="u-nav-item">
+							<a
+								class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1 u-text-white"
+								href="/"
+								style="padding: 10px 20px;">HOME</a>
+						</li>
+						<li class="u-nav-item">
+							<a
+								class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1 u-text-white"
+								href="#Aboutus"
+								data-page-id="234157864"
+								style="padding: 10px 20px;">ABOUT US</a>
+						</li>
+						<li class="u-nav-item">
+							<a
+								class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1 u-text-white"
+								href="#menu"
+								data-page-id="234157864"
+								style="padding: 10px 20px;">MENU</a>
+							<div class="u-nav-popup">
+								<ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-2">
+									<li class="u-nav-item">
+										<a
+											class="u-button-style u-nav-link u-white"
+											href="Menu.html#starters"
+											data-page-id="138143033">STARTERS</a>
+									</li>
+									<li class="u-nav-item">
+										<a
+											class="u-button-style u-nav-link u-white"
+											href="Menu.html#salad"
+											data-page-id="138143033">SALADS</a>
+									</li>
+									<li class="u-nav-item">
+										<a
+											class="u-button-style u-nav-link u-white"
+											href="Menu.html#maincourse"
+											data-page-id="138143033">MAIN COURSE</a>
+									</li>
+									<li class="u-nav-item">
+										<a
+											class="u-button-style u-nav-link u-white"
+											href="Menu.html#Deserts"
+											data-page-id="138143033">DESERTS</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="u-nav-item">
+							<a
+								class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1 u-text-white"
+								href="#reservation"
+								data-page-id="234157864"
+								style="padding: 10px 20px;">BOOK</a>
+						</li>
+						<li class="u-nav-item">
+							<a
+								class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1 u-text-white"
+								href="#contactus"
+								data-page-id="234157864"
+								style="padding: 10px 20px;">CONTACT US</a>
+						</li>
+						<li class="u-nav-item">
+							<a
+								class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1 u-text-white"
+								href="Login.html#login"
+								data-page-id="962025868"
+								style="padding: 10px 20px;">LOGIN</a>
+						</li>
+					</ul>
+				</div>
+				<!-- navigation menu end -->
+				<!-- navigation menu collapse -->
+
+				<div class="u-custom-menu u-nav-container-collapse">
+					<div
+						class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+						<div class="u-sidenav-overflow">
+							<div class="u-menu-close"></div>
+							<ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3">
+								<li class="u-nav-item">
+									<a class="u-button-style u-nav-link" href="/" style="padding: 10px 20px;">HOME</a>
+								</li>
+								<li class="u-nav-item">
+									<a
+										class="u-button-style u-nav-link"
+										href="#Aboutus"
+										data-page-id="234157864"
+										style="padding: 10px 20px;">ABOUT US</a>
+								</li>
+								<li class="u-nav-item">
+									<a
+										class="u-button-style u-nav-link"
+										href="#menu"
+										data-page-id="234157864"
+										style="padding: 10px 20px;">MENU</a>
+									<div class="u-nav-popup">
+										<ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-4">
+											<li class="u-nav-item">
+												<a class="u-button-style u-nav-link" href="#starters" data-page-id="138143033">STARTERS</a>
+											</li>
+											<li class="u-nav-item">
+												<a
+													class="u-button-style u-nav-link"
+													href="Menu.html#salad"
+													data-page-id="138143033">SALADS</a>
+											</li>
+											<li class="u-nav-item">
+												<a
+													class="u-button-style u-nav-link"
+													href="Menu.html#maincourse"
+													data-page-id="138143033">MAIN COURSE</a>
+											</li>
+											<li class="u-nav-item">
+												<a
+													class="u-button-style u-nav-link"
+													href="Menu.html#Deserts"
+													data-page-id="138143033">DESERTS</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="u-nav-item">
+									<a
+										class="u-button-style u-nav-link"
+										href="#reservation"
+										data-page-id="234157864"
+										style="padding: 10px 20px;">BOOK</a>
+								</li>
+								<li class="u-nav-item">
+									<a
+										class="u-button-style u-nav-link"
+										href="#contactus"
+										data-page-id="234157864"
+										style="padding: 10px 20px;">CONTACT US</a>
+								</li>
+								<li class="u-nav-item">
+									<a
+										class="u-button-style u-nav-link"
+										href="Login.html#login"
+										data-page-id="962025868"
+										style="padding: 10px 20px;">LOGIN</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+				</div>
+				<!-- navigatuin menu collapse end -->
+			</nav>
+		</div>
+	</header>
+	<!-- END HEADER -->
+
+	<div class="container-login100" style="background-image: url('images_login/bg-01.jpg');">
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+			<form class="login100-form validate-form">
+				<span class="login100-form-title p-b-37">
+					Sign In
+				</span>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+					<input class="input100" type="text" name="username" placeholder="username or email">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
+					<input class="input100" type="password" name="pass" placeholder="password">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn">
+						Sign In
+					</button>
+				</div>
+
+				<br>
+
+				<div class="text-center">
+					<a href="./sign UP.html" class="txt2 hov1">
+						Sign Up
+					</a>
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+
+	  <!-- include footer.html -->
+	  <div id="footer"></div>
+    
+	  <!-- load js to include footer and other static html -->
+	  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	  
+
+	  <!-- footer end -->
+
+	  <!-- external JS files -->
+	  <script src="/staticitems.js"></script>
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js_login/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js_login/popper.js"></script>
+	<script src="vendor/bootstrap/js_login/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="js_login/main.js"></script>
+
+</body>
+
+</html>
