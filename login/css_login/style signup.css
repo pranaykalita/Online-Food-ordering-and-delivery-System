@@ -171,7 +171,7 @@ body {
   color: #222;
   font-weight: 400;
   font-family: 'Montserrat';
-  background-image: url("../images/signup-bg.jpg");
+  background-image: url("./images/signup-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   -moz-background-size: cover;
@@ -185,6 +185,7 @@ body {
 .container {
   width: 660px;
   position: relative;
+  
   margin: 0 auto;
 }
 
@@ -226,6 +227,10 @@ body {
 }
 
 .signup-content {
+  -webkit-box-shadow: -7px 10px 90px -34px rgba(0,0,0,0.75);
+-moz-box-shadow: -7px 10px 90px -34px rgba(0,0,0,0.75);
+box-shadow: -7px 10px 90px -34px rgba(0,0,0,0.75);
+  margin: 80px auto;
   background: #fff;
   border-radius: 10px;
   -moz-border-radius: 10px;
@@ -494,3 +499,11 @@ input[type=checkbox]:not(old):checked+label>span:before {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+#trext{
+  color: black;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: .5px;
+}
