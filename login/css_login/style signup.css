@@ -166,19 +166,22 @@ h2 {
 }
 
 body {
+  
+  background: linear-gradient(to top, #d04ed6, #834d9b);
+  
   font-size: 14px;
   line-height: 1.8;
   color: #222;
   font-weight: 400;
   font-family: 'Montserrat';
-  background-image: url("./images/signup-bg.jpg");
+  /* background-image: url("./images/signup-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
   -ms-background-size: cover;
-  background-position: center center;
+  background-position: center center; */
   padding:  0;
 }
 
@@ -230,14 +233,14 @@ body {
   -webkit-box-shadow: -7px 10px 90px -34px rgba(0,0,0,0.75);
 -moz-box-shadow: -7px 10px 90px -34px rgba(0,0,0,0.75);
 box-shadow: -7px 10px 90px -34px rgba(0,0,0,0.75);
-  margin: 80px auto;
+  margin: 10px auto;
   background: #fff;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   -o-border-radius: 10px;
   -ms-border-radius: 10px;
-  padding: 50px 85px;
+  padding: 50px 50px;
 }
 
 .form-group {
