@@ -1,4 +1,5 @@
-
+ <link rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+ 
 <header class="u-clearfix u-header u-grey-70 u-sticky u-header headsc" id="sec-c3d4">
     <div class="u-clearfix u-sheet u-sheet-1">
         <a href="/" class="u-image u-logo u-image-1">
@@ -52,7 +53,7 @@
                         <a
                             class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1"
                             href="index.php#menu"
-                            style="padding: 10px 20px;">MENU</a>
+                            style="padding: 10px 20px;"><i class="fa fa-cutlery" aria-hidden="true"></i> MENU</a>
                         <div class="u-nav-popup">
                             <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-2">
                                 <li class="u-nav-item">
@@ -93,7 +94,7 @@
                         <a
                             class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1"
                             href="cart.php"
-                            style="padding: 10px 20px;">CART</a>
+                            style="padding: 10px 20px;"><i class="fa fa-shopping-cart"></i> CART</a>
                     </li>
                     <li class="u-nav-item">
                         <a
@@ -103,6 +104,8 @@
                     </li>
                 </ul>
             </div>
+
+            <!-- colapse menu -->
             <div class="u-custom-menu u-nav-container-collapse">
                 <div
                     class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
@@ -116,7 +119,7 @@
                                 <a class="u-button-style u-nav-link" href="index.php#Aboutu" style="padding: 10px 20px;">ABOUTUS</a>
                             </li>
                             <li class="u-nav-item">
-                                <a class="u-button-style u-nav-link" href="index.php#menu" style="padding: 10px 20px;">MENU</a>
+                                <a class="u-button-style u-nav-link" href="index.php#menu" style="padding: 10px 20px;"><i class="fa fa-cutlery" aria-hidden="true"></i> MENU</a>
                                 <div class="u-nav-popup">
                                     <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-4">
                                         <li class="u-nav-item">
@@ -149,7 +152,7 @@
                                 <a
                                     class="u-button-style u-nav-link"
                                     href="cart.php"
-                                    style="padding: 10px 20px;">CART</a>
+                                    style="padding: 10px 20px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> CART</a>
                             </li>
                             <li class="u-nav-item">
                                 <a
