@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include "/php/connection.php" ?>
+<?php include "php/connection.php" ?>
 <html style="font-size: 16px;" lang="en-IN">
 
     <head>
