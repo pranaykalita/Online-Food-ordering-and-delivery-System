@@ -47,7 +47,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-2">Original</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-3">$18.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-6">Chicken</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-7">$25.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-8">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-9">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-10">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-11">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-12">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-13">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
                                 </div>
                             </div>
@@ -207,7 +207,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-2">Original</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-3">$18.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
                                 </div>
                             </div>
@@ -255,7 +255,7 @@
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-6">Chicken</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-7">$25.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
                                 </div>
                             </div>
@@ -279,7 +279,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-8">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-9">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
                                 </div>
                             </div>
@@ -303,7 +303,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-10">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-11">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
                                 </div>
                             </div>
@@ -327,7 +327,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-12">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-13">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
                                 </div>
                             </div>
@@ -363,7 +363,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-2">Original</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-3">$18.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
                                 </div>
                             </div>
@@ -411,7 +411,7 @@
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-6">Chicken</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-7">$25.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
                                 </div>
                             </div>
@@ -435,7 +435,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-8">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-9">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
                                 </div>
                             </div>
@@ -459,7 +459,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-10">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-11">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
                                 </div>
                             </div>
@@ -483,7 +483,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-12">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-13">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
                                 </div>
                             </div>
@@ -519,7 +519,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-2">Original</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-3">$18.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
                                 </div>
                             </div>
@@ -567,7 +567,7 @@
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-6">Chicken</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-7">$25.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
                                 </div>
                             </div>
@@ -591,7 +591,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-8">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-9">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
                                 </div>
                             </div>
@@ -615,7 +615,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-10">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-11">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
                                 </div>
                             </div>
@@ -639,7 +639,7 @@
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-12">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-13">$16.00</h6>
                                     <a
-                                        href="https://nicepage.com/css-templates"
+                                        href="/"
                                         class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
                                 </div>
                             </div>
