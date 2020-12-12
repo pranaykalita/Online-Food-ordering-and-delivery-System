@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<?php include 'php/connection.php' ?>
-<?php include 'php/register.php'?>
+<?php include '/php/connection.php' ?>
+<?php include '/php/register.php'?>
 <html lang="en">
 
     <head>
