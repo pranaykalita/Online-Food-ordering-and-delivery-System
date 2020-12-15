@@ -6,11 +6,7 @@
 
         <title>Menu</title>
 
-        <link rel="stylesheet" href="css/static.css" media="screen">
         <link rel="stylesheet" href="css/Menu.css" media="screen">
-
-        <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
-        <script class="u-script" type="text/javascript" src="js/static.js" defer=""></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -46,9 +42,7 @@
                                 <div class="u-container-layout u-container-layout-2">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-2">Original</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-3">$18.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -97,9 +91,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-6">
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-6">Chicken</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-7">$25.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -122,9 +114,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-8">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-8">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-9">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -146,9 +136,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-10">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-10">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-11">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -170,9 +158,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-12">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-12">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-13">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -206,9 +192,7 @@
                                 <div class="u-container-layout u-container-layout-2">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-2">Original</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-3">$18.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -254,9 +238,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-6">
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-6">Chicken</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-7">$25.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -278,9 +260,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-8">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-8">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-9">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -302,9 +282,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-10">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-10">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-11">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -326,9 +304,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-12">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-12">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-13">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -362,9 +338,7 @@
                                 <div class="u-container-layout u-container-layout-2">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-2">Original</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-3">$18.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -410,9 +384,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-6">
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-6">Chicken</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-7">$25.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -434,9 +406,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-8">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-8">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-9">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -458,9 +428,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-10">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-10">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-11">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -482,9 +450,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-12">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-12">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-13">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -518,9 +484,7 @@
                                 <div class="u-container-layout u-container-layout-2">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-2">Original</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-3">$18.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -566,9 +530,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-6">
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-6">Chicken</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-7">$25.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-3">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -590,9 +552,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-8">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-8">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-9">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-4">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -614,9 +574,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-10">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-10">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-11">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-5">add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -638,9 +596,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-12">
                                     <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-12">Hawaiian</h3>
                                     <h6 class="u-text u-text-palette-3-base u-text-13">$16.00</h6>
-                                    <a
-                                        href="/"
-                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
+                                    <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-6">add to cart</a>
                                 </div>
                             </div>
                         </div>

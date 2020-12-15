@@ -46,11 +46,6 @@
         <link rel="stylesheet" type="text/css" href="css/logincss/util.css">
         <link rel="stylesheet" type="text/css" href="css/logincss/main.css">
 
-        <!-- for header and footer-->
-        <link rel="stylesheet" href="css/static.css" media="screen">
-        <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
-        <script class="u-script" type="text/javascript" src="js/static.js" defer=""></script>
-        <!-- end -->
 
     </head>
 

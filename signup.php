@@ -58,11 +58,7 @@
         <!--===============================================================================================-->
        
 
-        <!-- for header and footer-->
-        <link rel="stylesheet" href="css/static.css" media="screen">
-        <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
-        <script class="u-script" type="text/javascript" src="js/static.js" defer=""></script>
-        <!-- end -->
+      
 
         
     </head>

@@ -8,12 +8,10 @@
 
         <title>CodersCafe</title>
 
-        <link rel="stylesheet" href="css/static.css" media="screen">
         <link rel="stylesheet" href="css/style.css" media="screen">
         <link rel="stylesheet" href="css/testimonial.css" media="screen">
 
         <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
-        <script class="u-script" type="text/javascript" src="js/static.js" defer=""></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -22,7 +20,8 @@
 
             function clearfield() {
                 setTimeout(function () {
-                    document.getElementById("contactform")
+                    document
+                        .getElementById("contactform")
                         .reset();
 
                 }, 2000)
