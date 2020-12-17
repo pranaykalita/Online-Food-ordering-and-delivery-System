@@ -11,7 +11,7 @@
 <?php include 'header.php' ?>  
 <section class="cart">
 
-
+<h1 id="a">F*** Y**</h1>
 </section>  
 <?php include 'footer.php' ?>    
 </body>
