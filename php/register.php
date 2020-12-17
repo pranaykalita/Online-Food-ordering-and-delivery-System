@@ -12,7 +12,7 @@ if(isset($_POST['signup']))
 {
    
       // hash password
-   $hashpass = password_hash($password ,PASSWORD_DEFAULT);
+    $hashpass = md5($password);
    
    //  check exist or not
     $selquary = "SELECT * FROM `users` WHERE email = '$email' ";

@@ -56,17 +56,16 @@
             type="text/css"
             href="/vendor/daterangepicker/daterangepicker.css">
         <!--===============================================================================================-->
-       
 
-      
 
-        
     </head>
 
     <body
+        
         class="u-body u-overlap u-overlap-transparent"
         style="background-image: url('/images/blog_bg.jpg');">
 
+  
         <?php include 'header.php' ?>
 
         <div class="main">
@@ -75,7 +74,7 @@
                 <div class="container">
                     <div class="signup-content">
 
-                        <form action="" method="POST" id="signup-form" class="signup-form">
+                        <form action="" method="POST" id="signup-form" class="signup-form" autocomplete="off">
 
                             <h2 class="form-title">Create account</h2>
                             <p style="color:red;" id="phperror"><?php echo $msg; ?></p>
@@ -158,28 +157,27 @@
 
         </div>
         <?php include 'footer.php'?>
-     
 
         <!-- JS -->
-        < src="vendor/jquery/jquery-3.2.1.min.js"></>
-        < src="js/loginjs/signup.js"></>
-      
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="js/loginjs/signup.js"></script>
+
         <!--===============================================================================================-->
-        < src="vendor/jquery/jquery-3.2.1.min.js"></>
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
         <!--===============================================================================================-->
-        < src="vendor/animsition/js/animsition.min.js"></>
+        <script src="vendor/animsition/js/animsition.min.js"></script>
         <!--===============================================================================================-->
-        < src="vendor/bootstrap/js/popper.js"></>
-        < src="vendor/bootstrap/js/bootstrap.min.js"></>
+        <script src="vendor/bootstrap/js/popper.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <!--===============================================================================================-->
-        < src="vendor/select2/select2.min.js"></>
+        <script src="vendor/select2/select2.min.js"></script>
         <!--===============================================================================================-->
-        < src="vendor/daterangepicker/moment.min.js"></>
-        < src="vendor/daterangepicker/daterangepicker.js"></>
+        <script src="vendor/daterangepicker/moment.min.js"></script>
+        <script src="vendor/daterangepicker/daterangepicker.js"></script>
         <!--===============================================================================================-->
-        < src="vendor/countdowntime/countdowntime.js"></>
+        <script src="vendor/countdowntime/countdowntime.js"></script>
         <!--===============================================================================================-->
-        < src="js/loginjs/main.js"></>
+        <script src="js/loginjs/main.js"></script>
     </body>
 
 </html>

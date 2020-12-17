@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<?php include 'php/connection.php' ?>
+<?php include 'php/login_check.php' ?>
+
 <html lang="en">
 
     <head>
@@ -54,15 +58,17 @@
         <!-- header -->
         <?php include 'header.php' ?>
         <!-- end -->
-
+        
+        
         <div
             class="container-login100"
             style="background-image: url('/images/bg-01.jpg');">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-                <form class="login100-form validate-form">
+                <form action="" method="post" class="login100-form validate-form"> 
                     <span class="login100-form-title p-b-37">
                         Sign In
                     </span>
+                    <div><?php echo $msg ?></div>
 
                     <div
                         class="wrap-input100 validate-input m-b-20"
@@ -81,7 +87,7 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button name="login" class="login100-form-btn">
                             Sign In
                         </button>
                     </div>
@@ -94,6 +100,7 @@
                         </a>
                     </div>
                 </form>
+            
 
             </div>
         </div>

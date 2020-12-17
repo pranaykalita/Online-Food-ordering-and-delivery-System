@@ -4,7 +4,8 @@
 <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript" src="js/static.js" defer=""></script>
 <!-- end -->
-
+<?php include 'php/connection.php' ?>
+<?php include 'php/header_name.php' ?>
 
         <header
             class="u-clearfix u-header u-grey-70 u-sticky u-header headsc"
@@ -107,12 +108,15 @@
                                         <i class="fa fa-shopping-cart"></i>
                                         CART</a>
                                 </li>
-                                <li class="u-nav-item">
+                                <?php $user(); ?>
+                                <!-- <li class="u-nav-item">
                                     <a
                                         class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1"
                                         href="login.php"
-                                        style="padding: 10px 20px;">LOGIN</a>
-                                </li>
+                                        style="padding: 10px 20px;"></a>
+                                </li> -->
+
+
                             </ul>
                         </div>
 
