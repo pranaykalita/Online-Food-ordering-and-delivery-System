@@ -4,7 +4,7 @@ error_reporting(0);
 $username = $_POST['name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
-$password = $_POST['passwd'];
+$password = $_POST['password'];
 $terms = $_POST['agree-term'];
 $msg = "";
 
