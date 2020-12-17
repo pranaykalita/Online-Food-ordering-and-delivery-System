@@ -12,7 +12,7 @@ if(isset($_POST['signup']))
 {
    
       // hash password
-    $hashpass = md5($password);
+    // $hashpass = md5($password);
    
    //  check exist or not
     $selquary = "SELECT * FROM `users` WHERE email = '$email' ";
@@ -24,7 +24,7 @@ if(isset($_POST['signup']))
       } 
       //if not
       else{
-         $query =  "INSERT INTO users(`name`, `email`, `phone`, `password`, `terms`) VALUES ('$username','$email','$phone','$hashpass','$terms')";
+         $query =  "INSERT INTO users(`name`, `email`, `phone`, `password`, `terms`) VALUES ('$username','$email','$phone','$password','$terms')";
          $data = mysqli_query($conn,$query);
          $msg = "account created. please login";
          $conn -> close();
