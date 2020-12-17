@@ -179,12 +179,13 @@
                                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                 CART</a>
                                         </li>
-                                        <li class="u-nav-item">
+                                        <?php $user(); ?>
+                                        <!-- <li class="u-nav-item">
                                             <a
                                                 class="u-button-style u-nav-link"
                                                 href="login.php"
                                                 style="padding: 10px 20px;">LOGIN</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>

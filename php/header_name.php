@@ -6,7 +6,7 @@ $user = 'LOGIN';
 if(!isset($_SESSION['username'])){
 
     // set only login if sesson not valid
-    
+
     $user = function(){
         ?>
 <li class="u-nav-item">
@@ -38,7 +38,7 @@ else{
             <li class="u-nav-item">
                 <a
                     class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1 u-white"
-                    href="menu.php#starters">LOGOUT
+                    href="php/logout.php">LOGOUT
                 </a>
             </li>
         </div>
