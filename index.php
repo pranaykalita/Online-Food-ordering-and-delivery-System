@@ -32,8 +32,7 @@
     </head>
 
     <body
-        data-home-page="CodersCafe.html"
-        data-home-page-title="CodersCafe"
+       
         class="u-body u-overlap u-overlap-transparent">
 
         <!-- header -->
@@ -210,7 +209,7 @@
                                 <div class="u-container-layout u-container-layout-2">
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-2">APPETIZERS</h3>
                                     <a
-                                        href="Menu.html#starter"
+                                        href="Menu.php#starter"
                                         class="u-btn u-btn-rectangle u-button-style u-custom-color-2 u-hover-custom-color-3 u-btn-1">
                                         BROWSE MENU<br>
                                     </a>
@@ -234,7 +233,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-4">
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-3">MAIN COURSE</h3>
                                     <a
-                                        href="Menu.html#maincourse"
+                                        href="Menu.php#maincourse"
                                         class="u-btn u-btn-rectangle u-button-style u-custom-color-2 u-hover-custom-color-3 u-btn-2">
                                         BROWSE MENU<br>
                                     </a>
@@ -258,7 +257,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-6">
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-4">DESERT</h3>
                                     <a
-                                        href="Menu.html#Deserts"
+                                        href="Menu.php#Deserts"
                                         class="u-btn u-btn-rectangle u-button-style u-custom-color-2 u-hover-custom-color-3 u-btn-3">
                                         BROWSE MENU</a>
                                 </div>
@@ -281,7 +280,7 @@
                                 <div class="u-container-layout u-valign-middle-xs u-container-layout-8">
                                     <h3 class="u-custom-font u-font-oswald u-text u-text-5">SALADS &amp; MOMOS</h3>
                                     <a
-                                        href="Menu.html#salad"
+                                        href="Menu.php#salad"
                                         class="u-btn u-btn-rectangle u-button-style u-custom-color-2 u-hover-custom-color-3 u-btn-4">
                                         BROWSE MENU</a>
                                 </div>

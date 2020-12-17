@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-    
+
  <!-- footer -->
  <footer
  class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-footer u-image u-shading u-footer"
