@@ -29,7 +29,7 @@ else{
 <li class="u-nav-item">
     <a
         class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1"
-        href="#"
+        href="index.php"
         style="padding: 10px 20px;">
         <?php echo $_SESSION['username']; ?>
     </a>

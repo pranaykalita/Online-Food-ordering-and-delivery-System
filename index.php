@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php include "php/connection.php" ?>
+<?php include "php/feedback.php" ?>
 <html style="font-size: 16px;" lang="en-IN">
 
     <head>
@@ -317,7 +318,7 @@
             <div class="u-carousel-inner" role="listbox">
                 <div class="u-active u-align-center u-carousel-item u-clearfix u-section-4-1">
                     <div class="u-clearfix u-sheet u-sheet-1">
-                        <h1 class="u-align-center u-custom-font u-font-montserrat u-text u-text-1">what&nbsp; &nbsp;they&nbsp; &nbsp;say&nbsp; &nbsp;about&nbsp; &nbsp;us</h1>
+                        <h1 class="u-align-center u-custom-font u-font-montserrat u-text u-text-1">what  they say about us</h1>
                         <div
                             class="u-clearfix u-expanded-width-sm u-expanded-width-xs u-layout-wrap u-layout-wrap-1">
                             <div class="u-layout">
@@ -379,7 +380,7 @@
                 </div>
                 <div class="u-align-center u-carousel-item u-clearfix u-section-4-2">
                     <div class="u-clearfix u-sheet u-sheet-1">
-                        <h1 class="u-align-center u-custom-font u-font-montserrat u-text u-text-1">what&nbsp; &nbsp;they&nbsp; &nbsp;say&nbsp; &nbsp;about&nbsp; &nbsp;us</h1>
+                        <h1 class="u-align-center u-custom-font u-font-montserrat u-text u-text-1">what they say about us</h1>
                         <div
                             class="u-clearfix u-expanded-width-sm u-expanded-width-xs u-layout-wrap u-layout-wrap-1">
                             <div class="u-layout">
@@ -441,7 +442,7 @@
                 </div>
                 <div class="u-align-center u-carousel-item u-clearfix u-section-4-3">
                     <div class="u-clearfix u-sheet u-sheet-1">
-                        <h1 class="u-align-center u-custom-font u-font-montserrat u-text u-text-1">what&nbsp; &nbsp;they&nbsp; &nbsp;say&nbsp; &nbsp;about&nbsp; &nbsp;us</h1>
+                        <h1 class="u-align-center u-custom-font u-font-montserrat u-text u-text-1">what they say about us</h1>
                         <div
                             class="u-clearfix u-expanded-width-sm u-expanded-width-xs u-layout-wrap u-layout-wrap-1">
                             <div class="u-layout">
