@@ -103,7 +103,7 @@ if ($result->num_rows > 0) {
 ?>
 <br>
 <?php
-echo "available categorys rn"."<br><br><br>";
+echo "available items rn"."<br><br><br>";
 $sql = "SELECT * FROM menu";
 $result = $conn->query($sql);
 
