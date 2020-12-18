@@ -62,8 +62,10 @@ while($ret_item =mysqli_fetch_assoc($data_1))
                             <div class="u-container-layout u-container-layout-2">
                                 <h3 class="u-align-center u-custom-font u-font-oswald u-text u-text-2"><?php echo $ret['item']; ?></h3>
                                 <h6 class="u-text u-text-palette-3-base u-text-3">₹<?php echo $ret['price'] ?></h6>
-                                <a href="/" class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
-                            </div>
+                                <?php
+                               echo "<a href='?id=".$ret['id']."' class='u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1'>add to cart</a>";
+                                ?>
+                                </div>
                         </div>
                     </div>
                 </div>
