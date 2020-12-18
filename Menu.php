@@ -68,7 +68,7 @@ while($ret_item =mysqli_fetch_assoc($data_1))
                                 <?php
                                echo "<a href='?id=".$ret['id']."' class='u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1'>add to cart</a>";
                                 ?>
-                                <p id="details"><?php echo $ret['details']; ?></p>
+                                
                                 </div>
                         </div>
                     </div>
