@@ -19,11 +19,11 @@
 <!-- end -->
 
 
-    <?php 
+<?php 
 
 $sql_1 = "SELECT * FROM `category` where active = 1" ;
 $data_1 = mysqli_query($conn, $sql_1);
-$store_data = mysqli_fetch_assoc($data_1);
+
 
 
 
