@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php include 'php/connection.php' ?>
+<?php 
+define('dish_image' , "../images/dish/");
+
+?>
+
 
 <html style="font-size: 16px;" lang="en-IN">
     <head><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,14 +30,12 @@ $sql_1 = "SELECT * FROM `category` where active = 1" ;
 $data_1 = mysqli_query($conn, $sql_1);
 
 
-
-
 while($ret_item =mysqli_fetch_assoc($data_1))
 {
     ?>
    
 
-    <section class="u-align-center u-clearfix u-white u-section-2" id="<?php echo $ret_item['category']; ?>">
+    <section class="u-align-center u-clearfix u-white u-section-1" id="<?php echo $ret_item['category']; ?>">
         <div class="u-clearfix u-sheet u-sheet-1"><br><br>
             <h1 class="u-custom-font u-font-Lobster u-text u-title u-text-1"><?php echo $ret_item['category']; ?></h1>
             <!-- item list 2 -->
@@ -56,7 +59,7 @@ while($ret_item =mysqli_fetch_assoc($data_1))
                         <img
                             alt=""
                             class="u-align-center u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-1"
-                            src="images/39814172.jpg">
+                            src="<?php echo dish_image.$ret['image'] ?>">
                         <div
                             class="u-align-center u-container-style u-expanded-width u-group u-video-cover u-group-1">
                             <div class="u-container-layout u-container-layout-2">
@@ -65,6 +68,7 @@ while($ret_item =mysqli_fetch_assoc($data_1))
                                 <?php
                                echo "<a href='?id=".$ret['id']."' class='u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1'>add to cart</a>";
                                 ?>
+                                <p id="details"><?php echo $ret['details']; ?></p>
                                 </div>
                         </div>
                     </div>
@@ -82,8 +86,6 @@ while($ret_item =mysqli_fetch_assoc($data_1))
     <?php
 
 }
-
-
      ?>
 
     <!-- include footer.html -->
