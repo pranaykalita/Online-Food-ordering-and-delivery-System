@@ -13,7 +13,7 @@ if(isset($_POST['psubmit'])){
   $psellingcost = $_POST['cat'];
   $pimage = $_POST['image'];
 
-   $sql = "INSERT INTO `menu`(`item`, `details`, `price`, `quantity`, `category`, `image`) VALUES ('$pname','$pava','$ptotal','$poriginalcost','$psellingcost','$pimage')";
+   $sql = "INSERT INTO `menu`(`item`,  `price`, `quantity`, `category`, `image`) VALUES ('$pname','$ptotal','$poriginalcost','$psellingcost','$pimage')";
    echo $sql;
    $data = mysqli_query($conn, $sql);
    $return = mysqli_num_rows($data);
@@ -36,14 +36,7 @@ if(isset($_POST['psubmit'])){
         <label for="pname">Product Name</label>
         <input type="text" class="form-control" id="pname" name="item"></div>
 
-    <div class="form-group">
-        <label for="pava">details</label>
-        <input
-            type="text"
-            class="form-control"
-            id="pava"
-            name="details"
-            ></div>
+   
     <div class="form-group">
         <label for="ptotal">price</label>
         <input
