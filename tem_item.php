@@ -13,18 +13,18 @@ if(isset($_POST['psubmit'])){
   $psellingcost = $_POST['cat'];
   $pimage = $_POST['image'];
 
-   $sql = "INSERT INTO `menu`(`id`, `item`, `details`, `price`, `quantity`, `category`, `image`) VALUES ('$pname','$pava','$ptotal','$poriginalcost','$psellingcost','$pimage')";
+   $sql = "INSERT INTO `menu`(`item`, `details`, `price`, `quantity`, `category`, `image`) VALUES ('$pname','$pava','$ptotal','$poriginalcost','$psellingcost','$pimage')";
    echo $sql;
    $data = mysqli_query($conn, $sql);
    $return = mysqli_num_rows($data);
 
    if($return>0 ){
   
-    $msg = ' Added Successfully </div>';
+    $msg = ' no add';
 
    } else {
     
-    $msg = 'Unable to Add ';
+    $msg =  'Added Successfully';
    }
  }
  
@@ -99,25 +99,25 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$conn->close();
+
 ?>
+<br>
 <?php
-echo "<br><br>"."available menu items rn"."<br><br><br>";
+echo "available categorys rn"."<br><br><br>";
 $sql = "SELECT * FROM menu";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo  " Name: ". $row["item"]. "<br>";
+        echo  " item name: ". $row["item"]. "<br>";
     }
 } else {
     echo "0 results";
 }
 
-$conn->close();
-?>
 
+?>
 <!-- Only Number for input fields -->
 <script>
 function isInputNumber(evt) {
