@@ -15,7 +15,7 @@
     <div class="u-clearfix u-sheet u-sheet-1">
         <a href="/" class="u-image u-logo u-image-1">
             <img
-                src="images/logoNew.png"
+                src="/images/logoNew.png"
                 class="u-logo-image u-logo-image-1"
                 data-image-width="145"></a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
