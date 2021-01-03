@@ -22,6 +22,7 @@ if(isset($_POST['login']))
         {
             session_start();
             $_SESSION['username'] = $row['name'];
+            $_SESSION['adminimg'] = $row['adminimg'];
             header("location: /index.php");
         }
     }

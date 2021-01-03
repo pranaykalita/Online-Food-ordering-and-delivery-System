@@ -1,12 +1,9 @@
 <!-- for header and footer-->
-<link
-    rel="stylesheet"
-    href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/static.css" media="screen">
-<script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript" src="js/static.js" defer=""></script>
 <!-- end -->
-<?php include 'php/connection.php' ?>
+<?php include 'php/connection.php'; ?>
 <?php include 'php/header_name.php' ?>
 
 <header
@@ -101,18 +98,20 @@
                             style="padding: 10px 20px;">CONTACT US</a>
                     </li>
                     <li class="u-nav-item">
+                    <?php
+                    $count = '0';
+                    if(isset($_SESSION['cart'])){
+                        $count = count($_SESSION['cart']);
+                    } 
+                    ?>
                         <a
                             class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1"
                             href="cart.php"
                             style="padding: 10px 20px;">
                             <i class="fa fa-shopping-cart"></i>
-                            CART</a>
+                            CART <?php echo $count;?></a>
                     </li>
                     <?php $user(); ?>
-                    <!-- <li class="u-nav-item"> <a class="u-button-style u-nav-link
-                    u-text-active-custom-color-1 u-text-hover-custom-color-1" href="login.php"
-                    style="padding: 10px 20px;"></a> </li> -->
-
                 </ul>
             </div>
 
