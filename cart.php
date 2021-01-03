@@ -33,6 +33,7 @@ session_start();
                         <?php
     $total ='0';
 
+<<<<<<< HEAD
     //   get array
     if(isset($_SESSION['cart'])){
 
@@ -108,3 +109,10 @@ session_start();
 
             <?php include 'footer.php'?>
     </html>
+=======
+<h1 id="a">HI</h1>
+</section>  
+<?php include 'footer.php' ?>    
+</body>
+</html>
+>>>>>>> eff7db7048468e7936a7dc9fca08552e6d164ce1
