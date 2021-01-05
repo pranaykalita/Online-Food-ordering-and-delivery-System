@@ -24,9 +24,10 @@ else{
     // set username after checking login and set drop down login
     
     $user = function(){
-        ?>
 
-<li class="u-nav-item">
+    ?>
+
+    <li class="u-nav-item">
     <a
         class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-hover-custom-color-1"
         href="index.php"
@@ -43,6 +44,8 @@ else{
             </li>
         </div>
     </li>
+
+    
     <?php
     };
 
