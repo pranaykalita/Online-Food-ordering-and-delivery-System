@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		/>
+		<title>Resturant</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" />
+
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
+
+      
+
+		<link rel="stylesheet" href="css/orders.css" />
+	</head>
+	<body>
+        
+       <!-- header -->
+		<section class="header">
+			<nav class="navbar navbar-expand-lg text-uppercase fixed-top" >
+				<a class="navbar-brand" href="/">Coders <span>.</span> Cafe</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menus" aria-controls="navbar_menus" aria-expanded="true" aria-label="Toggle navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			
+				<div class="collapse navbar-collapse justify-content-between" id="navbar_menus">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+					<a class="nav-link " href="/" data-scroll-to>Home</a>
+					</li>
+					<li class="nav-item ">
+					<a class="nav-link" href="index.html#about"  data-scroll-to>About</a>
+					</li>
+					<li class="nav-item ">
+					<a class="nav-link" href="index.html#menu"  data-scroll-to>Menu</a>
+					</li>
+					<li class="nav-item ">
+					<a class="nav-link" href="index.html#contact"  data-scroll-to>ContactUS</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto navbarright">
+					<li class="nav-item ">
+						<a class="nav-link" href="orders.html"  data-scroll-to>Orders</a>
+						<a class="nav-link" href="cart.html"  data-scroll-to><i class="fas fa-shopping-bag text-danger"></i> Cart 0</a>
+					</li>
+					<a href="login.html" class="btn btn-primary">Login</a>
+				</ul>
+				</div>
+			</nav>
+				</nav>
+			</div>
+		</section>
+
+        <!-- orders -->
+        <section class="orders_page">
+
+            <div class="container-fluid">
+                <h2 class="py-5 text-center font-weight-bold">MANAGE ACCOUNT</h2>
+                <div class="row py-3 justify-content-center">
+                    <div class="col-md-11 col-11">
+                        <ul class="nav " id="navtabs">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#account">Account</a></span></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#order">Orders</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#manageac">Manage Ac</a></li>
+                        </ul>
+                        <!-- contents-->
+                        <div class="tab-content py-2" id="maincontents">
+
+                            <div class="tab-pane fade show active" id="account">
+                                <div class="card shadow p-4">
+                                    <div class="row">
+                                        <div class="col-md-4 col-6">
+                                            <label>First Name</label>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <p>Pranay</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-6">
+                                            <label>Last Name</label>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <p>Kalita</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-6">
+                                            <label>Phone</label>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <p>+911234567890</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-6">
+                                            <label>Address</label>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <address>Jorhat tarajan puja mandir</address>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <p>pranaykalita2@gmail.com</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="order">
+                               <div class="card shadow p-3">
+                                   <table class="table mytable display nowrap" style="width: 100%;">
+                                       <thead>
+                                           <tr class="tableheader">
+                                               <th>Order#</th>
+                                               <th>order Date</th>
+                                               <th>Items</th>
+                                               <th>total</th>
+                                               <th>status</th>
+                                           </tr>
+                                       </thead>
+                                       <tbody class="tabledata">
+                                           <tr>
+                                               <td>123258456</td>
+                                               <td>10-jan-2021</td>
+                                               <td>pizza,roll,sandwich,paneer</td>
+                                               <td>₹ 1045.46</td>
+                                               <td class="text-danger">pending</td>
+                                           </tr>
+                                           <tr>
+                                               <td>1232588745</td>
+                                               <td>1-jan-2021</td>
+                                               <td>pizza</td>
+                                               <td>₹ 105.46</td>
+                                               <td class="text-success">Delivered</td>
+                                              
+                                           </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
+                            </div>
+                            <div class="tab-pane fade " id="manageac">
+                                <div class="card shadow p-4">
+                                    <form>
+                                        <div class="form-group">
+                                          <label for="name">First Name</label>
+                                          <input type="text" class="form-control name" placeholder="john" required>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="name">Last Name</label>
+                                          <input type="text" class="form-control name" placeholder="Doe" required>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="name">Phone</label>
+                                          <input type="number" class="form-control name" placeholder="1234567890" required>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="name">Address</label>
+                                          <textarea type="text" rows="3" class="form-control name" placeholder="Address,landmark,house no" required></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="name"> Password reset</label>
+                                          <input type="text" class="form-control name" placeholder="enter new Pssword (optional)">
+                                        </div>
+                                        <div class="form-group text-center">
+                                        	<input class="btn btn-success submit-btn px-2" type="submit" value="submit">
+                                        </div>
+                                      </form>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>  
+
+				<!-- footer -->
+                <footer id="footer">
+                    <div class="glassmorph">
+                    <div class="container">
+                         <div class="row">
+          
+                              <div class="col-md-3 col-sm-8">
+                                   <div class="footer-info">
+                                        <div class="section-title">
+                                             <h2><i class="fas fa-map-marker-alt"></i> Find us</h2>
+                                        </div>
+                                        <address>
+                                             <p>Jorhat tarajan,<br> Assam<br>India 785001</p>
+                                        </address>
+                                   </div>
+                              </div>
+          
+                              <div class="col-md-3 col-sm-8">
+                                   <div class="footer-info">
+                                        <div class="section-title">
+                                             <h2 >Get in Touch</h2>
+                                        </div>
+                                        <address>
+                                             <p>090-1234-56789</p>
+                                             <p><a href="mailto:info@coderscafe.com">info@coderscafe.com</a></p>
+                                        </address>
+                                   </div>
+                              </div>
+          
+                              <div class="col-md-4 col-sm-8">
+                                   <div class="footer-info footer-open-hour">
+                                        <div class="section-title">
+                                             <h2 class="wow fadeInUp" data-wow-delay="0.2s">Open Hours</h2>
+                                        </div>
+                                        <div class="timings">
+                                             <p>Monday: Closed</p>
+                                             <div>
+                                                  <strong>Tuesday to Friday</strong>
+                                                  <p>7:00 AM - 9:00 PM</p>
+                                             </div>
+                                             <div>
+                                                  <strong>Saturday - Sunday</strong>
+                                                  <p>11:00 AM - 10:00 PM</p>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+          
+                              <div class="col-md-2 col-sm-4">
+                                   <ul class="social-icon">
+                                        <li><a href="github.com/n0v4c0r3">Project Source <i class="fab fa-github"></i></a></li>
+                                   </ul>
+          
+                                   <div class="copyright-text"> 
+                                        <p><br>Copyright &copy; 2021 <br>Pranay Kalita & Priyanshu Dutta
+                                        
+                                        <br><br>Site Design: <a rel="nofollow" href="#" target="_parent">Pranay Kalita</a></p>
+                                   </div>
+                              </div>
+                              
+                         </div>
+                    </div>
+                </div>
+               </footer>
+
+               <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+               <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+               <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+               
+               <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+               <script src="js/owl.carousel.min.js"></script>
+               <script src="js/smoothscroll.js"></script>
+               <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+               
+               <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+               <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+           
+               <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+               <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+                   
+               <script src="js/custom.js"></script>
+	</body>
+</html>
