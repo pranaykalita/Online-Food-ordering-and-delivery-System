@@ -4,7 +4,7 @@
 
 body {
 	background: linear-gradient(45deg, #FC466B, #3F5EFB);
-	font-family: "poppins", sans-serif;
+	font-family: "poppins"!important;
 	overflow-x: hidden;
 	margin: 0;
 	padding: 0;
@@ -111,7 +111,99 @@ ul {
 }
 
 
+/*---------------------------------------
+    footer              
+-----------------------------------------*/
 
+#footer {
+	background: linear-gradient(to left,#0797FF,#4F95FF);
+	padding: 20px 2px;
+	color: #6d6d6d;
+	font-size: 12px;
+	text-align: center;
+}
+
+#footer .glassmorph{
+	background: rgb(255, 255, 255);
+	border-radius: 10px;
+	margin-top: 80px;
+	margin: 0 30px;
+}
+
+footer .section-title {
+	padding-bottom: 10px;
+}
+
+footer h2 {
+	font-size: 20px;
+}
+
+footer a,
+footer p {
+	color: #000000;
+}
+
+footer strong {
+	color: #d9d9d9;
+}
+
+footer address p {
+	margin-bottom: 0;
+}
+
+.footer-info,
+footer .social-icon {
+	margin-top: 20px;
+	padding-bottom: 20px !important;
+}
+.footer-open-hour h2 {
+	color: #ffffff;
+}
+
+.footer-open-hour p {
+	color: #ffffff;
+}
+
+.footer-open-hour strong {
+	color: #f9f9f9;
+}
+
+.footer-open-hour {
+	background: #ce3232;
+	background: url("/images/footer_image.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	border-radius: 20px;
+	margin-top: 0;
+	padding: 4px 0 4px 8px;
+	overflow: hidden;
+	position: relative;
+	z-index: 22;
+	right: 20px;
+}
+
+.footer-open-hour::after {
+	background: rgba(29, 29, 29, 0.85);
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -2222;
+}
+
+.copyright-text p{
+	font-size: 12px;
+	color: rgb(0, 0, 0) !important;
+}
+.social-icon{
+	font-size: 13px;
+}
 
 
 /* @extend display-flex; */
