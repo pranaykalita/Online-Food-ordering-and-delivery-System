@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('include/functions.php'); 
 ?>
 <!DOCTYPE html>
@@ -18,3 +19,6 @@ include('include/functions.php');
 
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
+
+	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

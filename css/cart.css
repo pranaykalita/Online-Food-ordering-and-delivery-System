@@ -141,6 +141,14 @@ ul {
 	min-width: 200px;
 	height: 180px;
 }
+.remove_item{
+	background: transparent;
+	border: none;
+}
+.remove_item:focus{
+	box-shadow: none;
+	outline:0;
+}
 .remove_item p{
 	color: rgb(110, 110, 110);
 }
@@ -173,7 +181,15 @@ ul {
 	transform: scale(1.1);
 }
 
-
+.syncbtn{
+	border: none;
+}
+.syncbtn:hover{
+	border: none;
+	transition: .2s;
+	transform: scale(1.2) rotate(45deg);
+	background: transparent;
+}
 /*---------------------------------------
     footer              
 -----------------------------------------*/

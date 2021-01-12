@@ -1,4 +1,11 @@
 <!-- header -->
+<?php
+$count = 0;
+if(isset($_SESSION['cart']))
+{
+    $count =  count($_SESSION['cart']);
+}
+?>
 <section class="header">
     <nav class="navbar navbar-expand-lg text-uppercase fixed-top">
         <a class="navbar-brand" href="/">Coders <span>.</span> Cafe</a>
@@ -28,7 +35,7 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="account.php" data-scroll-to>Account</a>
                     <a class="nav-link" href="cart.php" data-scroll-to><i class="fas fa-shopping-bag text-danger"></i>
-                        Cart 0</a>
+                        Cart <?php echo $count; ?></a>
                 </li>
                 <a href="login.php" class="btn btn-primary">Login</a>
             </ul>

@@ -538,6 +538,7 @@ footer .social-icon {
 .msg {
 	transition: 0.3s;
 }
+
 .cform .submit-btn:hover {
 	transition: 0.3s;
 	transform: scale(1.1);

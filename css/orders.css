@@ -130,7 +130,7 @@ ul {
     footer              
 -----------------------------------------*/
 
-#footer {
+footer {
 	background: linear-gradient(to left,#0797FF,#4F95FF);
 	padding: 20px 2px;
 	color: #6d6d6d;
@@ -266,6 +266,12 @@ table tbody tr:hover{
 /*---------------------------------------
     account              
 -----------------------------------------*/
+.manageac{
+	margin-bottom: 50em;
+}
+.he{
+	position: relative;
+}
 /*---------------------------------------
     setting              
 -----------------------------------------*/

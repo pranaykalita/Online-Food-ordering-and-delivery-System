@@ -1,0 +1,2 @@
+1. edit signup alignment
+2.Replace the whole login signup from previous version as i want that in my style 
