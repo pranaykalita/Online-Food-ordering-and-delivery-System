@@ -62,12 +62,11 @@ include('include/head.php');
 							<h2 class="py-4 font-weight-bold">Cart Items</h2>
 
 							<?php 
-							$total = 0;
 							if(isset($_SESSION['cart']))
 							{
 								foreach($_SESSION['cart'] as $key => $value)
 								{
-									$total = $total+$value['Item_price'];
+									$total = $total+$value['Item_price']*$value['quantity'];
 									
 									?>
 							<!-- item 1 -->
@@ -95,17 +94,17 @@ include('include/head.php');
 												<ul class="pagination justify-content-end set_quantity">
 													<ul class="pagination justify-content-end set_quantity">
 
-														<li class="page-item"><a class="page-link dec"
-														data-type="minus" data-field=""><i
-																	class="fas fa-minus"></i></a></li>
+														<!-- <li class="page-item"><a class="page-link"onclick="decreaseNumber('textbox')"><i
+																	class="fas fa-minus"></i></a></li> -->
+														<a onclick="this.parentNode.querySelector('.qtyitm').stepDown()" class="page-link"><i
+																	class="fas fa-minus"></i></a>			
 
-														<li class="page-item"><input class="page-link" id="textbox"
-																name="itmquantity" type="text" value='<?php echo $value['quantity'];?>'></input></li>
+														<li class="page-item"><input class="page-link qtyitm" id="textbox"
+																name="itmquantity" type="number" min="0" max="5" value='<?php echo $value['quantity'];?>'></input></li>
 
-														<li class="page-item"><a class="page-link inc"
-														data-type="plus" data-field=""><i
-																	class="fas fa-plus"></i></a></li>
-													</ul>
+														<!-- <li class="page-item"><a class="page-link" onclick="IncreseNumber('textbox')"><i
+																	class="fas fa-plus"></i></a></li> -->
+														<a onclick="this.parentNode.querySelector('.qtyitm').stepUp()" class="page-link"><i class='fas fa-plus'></i></a>
 
 													<button class='btn btn-sm btn-outline-danger' name='itmqty'><i class='fas fa-sync'></i></button>
 													<input type='hidden' name='item_qty' value='<?php echo $value['Item_name'];?>'>

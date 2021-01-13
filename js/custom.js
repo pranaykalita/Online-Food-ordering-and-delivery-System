@@ -62,32 +62,32 @@ $('.menu_product').owlCarousel({
 
 // inc dec
 
-// const decreaseNumber = (incdec) => {
-//   var itemval = document.getElementById(incdec);
-//   if(itemval.value <= 1){
-//     itemval.value = 1;
-//     alert('minimum 1');
-//   }else{
-//     itemval.value = parseInt(itemval.value ) -1;
+const decreaseNumber = (incdec) => {
+  var itemval = document.getElementById(incdec);
+  if(itemval.value <= 1){
+    itemval.value = 1;
+    alert('minimum 1');
+  }else{
+    itemval.value = parseInt(itemval.value ) -1;
     
-//     itemval.style.background = '#ff';
-//     itemval.style.color = '#000';
-//   }
-// }
+    itemval.style.background = '#ff';
+    itemval.style.color = '#000';
+  }
+}
 
-// const IncreseNumber = (incdec) => {
-//   var itemval = document.getElementById(incdec);
+const IncreseNumber = (incdec) => {
+  var itemval = document.getElementById(incdec);
 
-//   if(itemval.value >= 5) {
+  if(itemval.value >= 5) {
 
-//     itemval.value = 5;
-//     alert('max 5');
-//     itemval.style.background = 'red';
-//     itemval.style.color = '#fff';
-//   }else{
-//     itemval.value = parseInt(itemval.value) + 1;
-//   }
-// }
+    itemval.value = 5;
+    alert('max 5');
+    itemval.style.background = 'red';
+    itemval.style.color = '#fff';
+  }else{
+    itemval.value = parseInt(itemval.value) + 1;
+  }
+}
 
 // table
 
@@ -118,45 +118,3 @@ $(document).ready(function() {
   } );
 } );
 
-// alert
-
-function sucess(){
-  swal("Good job!", "You clicked the button!", "success");
-}
-
-// cursor
-// inc qty
-$(document).ready(function(){
-
-  var quantitiy=0;
-     $('.inc').click(function(e){
-          
-          // Stop acting like a button
-          e.preventDefault();
-          // Get the field name
-          var quantity = parseInt($('#textbox').val());
-          
-          // If is not undefined
-              
-              $('#textbox').val(quantity + 1);
-  
-            
-              // Increment
-          
-      });
-  
-       $('.dec').click(function(e){
-          // Stop acting like a button
-          e.preventDefault();
-          // Get the field name
-          var quantity = parseInt($('#textbox').val());
-          
-          // If is not undefined
-        
-              // Increment
-              if(quantity>0){
-              $('#textbox').val(quantity - 1);
-              }
-      });
-      
-  });
