@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 define("TITLE" , "Coders Cafe");
 include('include/dbcon.php');
 include('include/head.php');
@@ -15,7 +14,24 @@ include('include/head.php');
     <?php include('include/header.php'); ?>
 
     <!-- content -->
+	<?php
+		
+	if(isset($_REQUEST['sendmsg'])){
+		$name = $_REQUEST['sname'];
+		$email = $_REQUEST['semail'];
+		$msg = $_REQUEST['smsg'];
 
+		$sql = "INSERT INTO `user_messages`(`msg_name`, `msg_email`, `msg_body`) VALUES ('$name','$email','$msg')";
+		$conn->query($sql);
+		echo '<script>
+			swal({
+				title: "Message Sent successfully",
+				button: "close",
+				type: "error"
+			});
+			</script>';
+	}
+	?>
     <!-- home -->
 	<section class="slider" id="home">
 		<div class="row">
@@ -194,21 +210,20 @@ include('include/head.php');
 
 			<div class="row ">
 				<div class="col cform">
-					<form>
+					<form action="" method="POST">
 						<div class="form-group">
 							<label for="name">Name</label>
-							<input type="text" class="form-control name" placeholder="Your Name" required>
+							<input type="text" class="form-control name" placeholder="Your Name" name="sname" required>
 						</div>
 						<div class="form-group">
 							<label for="main">Email</label>
-							<input type="email" class="form-control name" placeholder="name@example.com" required>
+							<input type="email" class="form-control name" placeholder="name@example.com" name="semail" required>
 						</div>
 						<div class="form-group">
-							<textarea class="form-control" rows="3" placeholder="Your Message" required></textarea>
+							<textarea class="form-control" rows="3" placeholder="Your Message" name="smsg" required></textarea>
 						</div>
-						<div class="text-danger msg">Message Send Succesfully</div>
 						<div class="form-group text-center">
-							<input class="submit-btn" type="submit" value="submit">
+							<input class="submit-btn" type="submit" value="Send Message" name="sendmsg">
 						</div>
 
 					</form>

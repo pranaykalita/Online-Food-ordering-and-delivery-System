@@ -1,8 +1,8 @@
 <?php
+error_reporting(0);
 session_start();
 include('include/dbcon.php');
 include('include/functions.php');
-
 $sql1 = "SELECT `cat_name` FROM `menu_category`";
 $data1 = $conn->query($sql1);
 while($row = $data1->fetch_assoc()){

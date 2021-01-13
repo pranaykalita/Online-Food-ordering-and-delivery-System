@@ -153,9 +153,6 @@ ul {
 .dropdown .dropdown-menu a{
 	color: rgb(0, 0, 0) !important;
 }
-.dropdown:hover>.dropdown-menu {
-	display: block;
-}
 
 
 .navbar {

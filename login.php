@@ -1,8 +1,42 @@
 <?php
-error_reporting(0);
 define("TITLE" , "Coders Cafe");
-include('include/dbcon.php');
 include('include/head.php'); 
+$msg = '';
+if(isset($_POST['login']))
+{
+	include('include/dbcon.php');
+
+	$username = $_POST["username"];
+	$password = $_POST["password"];
+
+	$sql = "SELECT `uid`, `uname`, `umail`,`upass` FROM `user_details` WHERE `umail` = '{$username}' AND `upass` = '{$password}'";
+	
+	// echo $sql;
+	// die();
+	$result = $conn->query($sql);
+
+	if($row = mysqli_num_rows($result) > 0)
+	{
+		while($row = $result->fetch_assoc())
+		{
+		session_start();
+		$_SESSION["username"] = $row["uname"];
+		$_SESSION["userid"] = $row["uid"];
+		$_SESSION["useremail"] = $row["umail"];
+		echo $_SESSION["useremail"];
+		echo $_SESSION["username"];
+		echo $_SESSION["userid"];
+		
+
+		header("LOCATION: account.php");
+		}
+	
+	}
+	else
+	{
+		$msg = "EMAIL OR PASSWORD ARE NOT MATCHED";
+	}
+}
 ?>
 
 <!-- include custom stylesheet -->
@@ -22,7 +56,7 @@ include('include/head.php');
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form action="" method="post" class="login100-form validate-form">
 				<span class="login100-form-title p-b-37"> Sign In </span>
-				<p class="text-danger warning">Wrong username or password</p>
+				<p class="text-danger warning"><?php echo $msg; ?></p>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
 					<input class="input100" type="text" name="username" placeholder="username or email" />
@@ -30,12 +64,12 @@ include('include/head.php');
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password" />
+					<input class="input100" type="password" name="password" placeholder="password" />
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="container-login100-form-btn">
-					<button name="login" class="login100-form-btn">Sign In</button>
+					<button name="login" class="login100-form-btn" name="login">Sign In</button>
 				</div>
 
 				<br />

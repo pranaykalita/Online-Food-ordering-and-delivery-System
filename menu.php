@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 define("TITLE" , "Coders Cafe | Menu");
 include('include/head.php'); 
 ?>
@@ -42,7 +41,7 @@ include('include/head.php');
 		}
 		else
 		{
-			$_SESSION['cart'][0] = array('Item_name'=>$itm_name,'Item_price'=>$itm_price,'quantity' => 1);
+			$_SESSION['cart'][0] = array('Item_img'=>$itm_img,'Item_name'=>$itm_name,'Item_price'=>$itm_price,'quantity' => 1);
 			// echo "<script>alert('Item Added');window.location.href='menu.php';</script>";
 			echo "<script>swal('Item Added', '', 'success');</script>";
 		}

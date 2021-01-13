@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-2 col-sm-4">
                     <ul class="social-icon">
-                        <li><a href="github.com/n0v4c0r3">Project Source <i class="fab fa-github"></i></a></li>
+                        <li><a href="https://github.com/n0v4c0r3/coderscafe_new/" add target="_blank">Project Source <i class="fab fa-github"></i></a></li>
                     </ul>
                     <div class="copyright-text">
                         <p><br>Copyright &copy; 2021 <br>Pranay Kalita & Priyanshu Dutta

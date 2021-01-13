@@ -2,20 +2,80 @@
 error_reporting(0);
 define("TITLE" , "Coders Cafe | payment");
 include('include/dbcon.php');
-include('include/head.php'); 
+include('include/head.php');
+date_default_timezone_set("Asia/kolkata");
+$date = date("Y/m/d");
+$time = date("h:i a");
+
+if(!isset($_SESSION["username"]))
+{
+	header("LOCATION: /login.php");
+}
 ?>
 
 <!-- include custom stylesheet -->
 <link rel="stylesheet" href="css/payment.css" />
 
-</head>
+</head>   
 
 <body>
 
     <?php include('include/header.php'); ?>
-
     <!-- content -->
+    <?php 
+    if(isset($_REQUEST["cnforder"])){
+        
+        if(empty($_SESSION['cart']))
+        {
+            echo '<script>
+            swal({
+                title: "Cart Empty",
+                text: "Add item to cart",
+                icon: "error",
+                button: "Add Item",
+                type: "error"
+            }).then(function() {
+                window.location = "menu.php";
+            });
+            </script>';
+        
+        }
+        else
+        {
+            $umail = $_REQUEST["usermail"];
+            $uname = $_REQUEST["username"];
+            $name = $_REQUEST["bname"];
+            $phone = $_REQUEST["bphn"];
+            $addrs = $_REQUEST["badd"];
+            $landmrk = $_REQUEST["bland"];
+            $items = $_SESSION["cart"];
+            foreach($_SESSION['cart'] as $key => $value)
+            {
+                $stotal = $value["Item_price"]*$value["quantity"];
+                $total = $total + $stotal;
+            }
+            $serializeItm = serialize($items);
 
+            $sql = "INSERT INTO `orders_all`(`ord_items`, `ord_totlprice`, `ord_uname`, `ord_user`, `ord_phone`, `ord_email`, `ord_addrs`, `ord_lmark`, `ord_date`, `ord_time`, `ord_status`) 
+                    VALUES ('$serializeItm' , '$total' , '$name' ,'$uname' ,'$phone' ,'$umail' ,'$addrs' ,'$landmrk' ,'$date' ,'$time' ,'0')";
+            $conn->query($sql);
+            unset($_SESSION["cart"]);
+            echo '<script>
+            swal({
+                title: "Order Placed",
+                text: "Order Placed",
+                icon: "success",
+                button: "check order",
+                type: "success"
+            }).then(function() {
+                window.location = "account.php";
+            });
+            </script>';
+            
+        }
+    }
+
+    ?>
     <!-- home -->		
     <section id="payment">
           <div class="container-fluid">
@@ -31,28 +91,36 @@ include('include/head.php');
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <!-- side left -->
                                             <div class="col-md-5">
-                                             <form>
+                                             <form method="POST" action="">
                                                   <div class="form-group">
-                                                    <input type="text" class="form-control name" placeholder="john" required>
+                                                    <input type="text" class="form-control name" name="username" value="<?php echo $_SESSION["username"]; ?>" readonly>
                                                   </div>
                                                   <div class="form-group">
-                                                    <input type="tel" class="form-control name" placeholder="phone number" required>
+                                                    <input type="text" class="form-control name" name="usermail" value="<?php echo  $_SESSION["useremail"]; ?>" readonly>
                                                   </div>
                                                   <div class="form-group">
-                                                    <textarea type="text" rows="3" class="form-control name" placeholder="Address,house no" required></textarea>
+                                                    <input type="text" class="form-control name" name="bname" placeholder="Your Name" required>
                                                   </div>
                                                   <div class="form-group">
-                                                    <input type="text" class="form-control name" placeholder="landmark">
+                                                    <input type="tel" class="form-control name" maxlength="10" name="bphn" placeholder="phone number (1234567890)" pattern="[0-9]{10}" required>
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <textarea type="text" rows="3" class="form-control name" name="badd" placeholder="Address,house no" required></textarea>
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <input type="text" class="form-control name" name="bland" placeholder="landmark">
                                                   </div>
                                                   <div class="form-group">
                                                     <p class="mode">payment Mode: <span class="text-danger">Cash</span></p>
                                                   </div>
                                                   <div class="form-group text-center">
-                                                      <input class="btn btn-primary submit-btn px-4" type="submit" onclick="sucess()" value="Order">
+                                                      <input class="btn btn-primary submit-btn px-4" name="cnforder" type="submit" onclick="sucess()" value="Order">
                                                   </div>
                                                 </form>
                                             </div>
+                                            <!-- side right -->
                                             <div class="col-md-7">
                                              <div class="card shadow rounded-lg p-2">
                                                   <div class="col-md-12">
@@ -66,25 +134,33 @@ include('include/head.php');
                                                               </tr>
                                                           </thead>
                                                           <tbody>
-                                                              <tr>
-                                                                  <td>ice cream</td>
-                                                                  <td>2</td>
-                                                                  <td>150.00</td>
-                                                                  <td>300.00</td>
-                                                              </tr>
-                                                              <tr>
-                                                                  <td>pizza</td>
-                                                                  <td>1</td>
-                                                                  <td>200.00</td>
-                                                                  <td>400.00</td>
-                                                              </tr>
-
+                                                              <?php
+                                                              $stotal = 0;
+                                                              $total = 0;
+                                                                if(isset($_SESSION['cart']))
+                                                                {
+                                                                    foreach($_SESSION['cart'] as $key => $value)
+                                                                    {
+                                                                        $stotal = $value["Item_price"]*$value["quantity"];
+                                                                        $total = $total + $stotal;
+                                                                        echo '
+                                                                        <tr>
+                                                                            <td>'.$value["Item_name"].'</td>
+                                                                            <td>'.$value["quantity"].'</td>
+                                                                            <td>'.$value["Item_price"].'</td>
+                                                                            <td>'.$stotal.'</td>
+                                                                        </tr>';
+                                                                    }
+                                                                }
+                                                                ?>
+                                                              
+                                                              
                                                           </tbody>
                                                       </table>
                                                   </div>
                                                   <div class="py-3 px-5 text-right">
-                                                      <div class="mb-2 font-weight-bold">Total amount</div>
-                                                      <div class="h3 font-weight-light">₹ 600.00</div>
+                                                    <div class="mb-2 font-weight-bold">Total amount</div>
+                                                    <div class="h3 font-weight-light">₹ <?php echo $total; ?></div>
                                                   </div>
                                           </div>
                                             </div>

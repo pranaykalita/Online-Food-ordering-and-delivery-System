@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 define("TITLE" , "coders Cafe | Cart");
 include('include/dbcon.php');
 include('include/head.php'); 
@@ -15,7 +14,7 @@ include('include/head.php');
 	<?php
 	   // if update
 	   if(isset($_REQUEST['itmqty']))
-	   {
+	   	{
 		   $nq = $_REQUEST['itmquantity'];
 		  
 		   echo $nq;
@@ -30,10 +29,10 @@ include('include/head.php');
 			  }
 		  
 			}
-	   }
+	   	}
 		// remove item
 	   if(isset($_POST['remove_item']))
-	   {
+	   	{
 		   foreach($_SESSION['cart'] as $key => $value)
 		   {
 			  
@@ -41,10 +40,10 @@ include('include/head.php');
 			   {
 			   unset($_SESSION['cart'][$key]);
 			   $_SESSION['cart'] = array_values($_SESSION['cart']);
-			   echo "<script>alert('Item Removed');window.location.href='cart.php';</script>";
+			   echo "<script>swal('Item Removed', '', 'success');</script>";
 			   }
 		   }
-	   }
+		}
 	?>
 	<?php include('include/header.php'); ?>
 
@@ -116,7 +115,7 @@ include('include/head.php');
 										</div>
 
 										<!-- item remove  -->
-										<form action="managecart.php" method="POST">
+										<form action="" method="POST">
 											<div class="row pt-4">
 
 												<button class="col-8 d-flex justify-content-between remove_item"
@@ -149,7 +148,7 @@ include('include/head.php');
 							<form>
 								<div class="rightside p-3 shadow bg-white mt-5">
 									<h2 class="product_name">Total Amount Of</h2>
-									<?php
+								<?php
 								$stotal = 0;
 								foreach($_SESSION['cart'] as $key => $minval)
 								{
@@ -168,8 +167,8 @@ include('include/head.php');
 										<p>total amount</p>
 										<p>₹ <span id="total_cart_amt"><span><?php echo $total; ?></span> </p>
 									</div>
-									<button type="submit" class="btn btn-primary checkoutbtn text-uppercase"
-										name="checkout">Checkout</button>
+									<a type="submit" class="btn btn-primary checkoutbtn text-uppercase"
+										name="checkout" href="payment.php">Checkout</a>
 									<input type="hidden" name="" value="<?php echo $minval['Item_name']; ?>">
 									<input type="hidden" name="" value="<?php echo $stotal; ?>">
 								</div>
