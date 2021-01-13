@@ -30,6 +30,8 @@ a:hover {
 /*---------------------------------------
     Header              
 -----------------------------------------*/
+
+
 .navbar-toggler:focus {
 	outline: none;
 }
@@ -76,6 +78,12 @@ ul {
 	opacity: 0;
 }
 
+.dropdown .dropdown-menu a{
+	color: rgb(0, 0, 0) !important;
+}
+.dropdown:hover>.dropdown-menu {
+	display: block;
+}
 .navbar {
 	transition: 0.4s;
 	padding: 1rem 1rem;

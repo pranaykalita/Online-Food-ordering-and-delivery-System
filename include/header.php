@@ -24,8 +24,17 @@ if(isset($_SESSION['cart']))
                 <li class="nav-item ">
                     <a class="nav-link" href="index.php#about" data-scroll-to>About</a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="index.php#menu" data-scroll-to>Menu</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php
+                        $sql = "SELECT * FROM `menu_category` WHERE `cat_status` = 1";
+                        $data = $conn->query($sql);
+                        while($row = $data->fetch_assoc()){
+                            echo '<a class="dropdown-item" href="menu.php#'.$row["cat_name"].'">'.$row["cat_name"].'</a>';
+                        }
+                        ?>
+                    </div>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="index.php#contact" data-scroll-to>ContactUS</a>

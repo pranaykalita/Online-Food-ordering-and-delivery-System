@@ -1,7 +1,6 @@
 <?php
 error_reporting(0);
 define("TITLE" , "Coders Cafe | Menu");
-include('include/dbcon.php');
 include('include/head.php'); 
 ?>
 

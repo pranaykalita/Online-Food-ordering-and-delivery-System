@@ -1,6 +1,25 @@
 <?php
 session_start();
-include('include/functions.php'); 
+include('include/dbcon.php');
+include('include/functions.php');
+
+$sql1 = "SELECT `cat_name` FROM `menu_category`";
+$data1 = $conn->query($sql1);
+while($row = $data1->fetch_assoc()){
+
+	$sql = "SELECT * FROM `menu_items` WHERE `menu_category` = '{$row["cat_name"]}'";
+	$data = $conn->query($sql);
+	$ne = mysqli_num_rows($data);
+	if( $ne > 0){
+		$sq = "UPDATE `menu_category` SET `cat_status`= '1' WHERE `cat_name` = '{$row["cat_name"]}'";
+		$conn->query($sq);
+	}else if($ne = 1)
+	{
+		$sq = "UPDATE `menu_category` SET `cat_status`= '0' WHERE `cat_name` = '{$row["cat_name"]}'";
+		$conn->query($sq);
+	}
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
