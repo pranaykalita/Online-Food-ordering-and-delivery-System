@@ -99,7 +99,7 @@ include('include/head.php');
 																	class="fas fa-minus"></i></a>			
 
 														<li class="page-item"><input class="page-link qtyitm" id="textbox"
-																name="itmquantity" type="number" min="0" max="5" value='<?php echo $value['quantity'];?>'></input></li>
+																name="itmquantity" type="number" min="1" max="5" value='<?php echo $value['quantity'];?>'></input></li>
 
 														<!-- <li class="page-item"><a class="page-link" onclick="IncreseNumber('textbox')"><i
 																	class="fas fa-plus"></i></a></li> -->

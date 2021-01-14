@@ -73,7 +73,6 @@ include('include/head.php');
 						<div class="col-md-8 col-sm-12">
 							<h3>Eatery Cafe &amp; Restaurant</h3>
 							<h1>Our mission is to provide an unforgettable experience</h1>
-							<a href="#items" class="btn btn-default">ORDER</a>
 						</div>
 					</div>
 				</div>
