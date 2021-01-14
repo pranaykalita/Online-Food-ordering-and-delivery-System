@@ -124,7 +124,7 @@ $(document).ready(function(){
   $('#username').blur(function(){
     var username = $ (this).val();
     $.ajax({
-      url: 'chekuser.php',
+      url: 'checkuser.php',
       method: "POST",
       data: {user_name: username},
       success: function(data){
@@ -136,9 +136,32 @@ $(document).ready(function(){
         else
         {
           $('#usermsg').html('<span class="text-success">Username available</span>');
-          $('#submit').attr("disabled", true);
+          $('#submit').attr("disabled", false);
         }
       }
     })
   })
+});
+
+
+// confirm password
+
+$(document).ready(function(){
+
+  $('#re_password').keyup(function(){
+
+    var pwd = $('#password').val();
+    var cpwd = $('#re_password').val();
+    if(cpwd != pwd){
+      $('#passwordcnf').html('<span class="text-danger">Password Not Matching</span>');
+      return false;
+    }
+    else if(cpwd = pwd)
+    {
+      $('#passwordcnf').html('');
+      return false;
+    }
+    
+  });
+
 });

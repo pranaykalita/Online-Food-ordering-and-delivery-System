@@ -72,14 +72,17 @@ include('include/head.php');
                     <p style="color:red;" id="phperror"></p>
 
                     <div class="form-group">
-                        <input type="text" class="form-input" name="uname" id="username" required placeholder="username" />
-                        <p class="text-success" id="usermsg">username Available</p>
+                        <input type="text" class="form-input" name="uname" id="username" required
+                            placeholder="username" />
+                        <span id="usermsg"></span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-input" name="fname" id="name" required placeholder="First Name" />
+                        <input type="text" class="form-input" name="fname" id="fname" required
+                            placeholder="First Name" />
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-input" name="lname" id="name" required placeholder="Last Name" />
+                        <input type="text" class="form-input" name="lname" id="lname" required
+                            placeholder="Last Name" />
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-input" name="email" id="email" required
@@ -103,9 +106,8 @@ include('include/head.php');
                     <div class="form-group">
                         <input type="password" class="form-input" name="re_password" id="re_password" required
                             placeholder="Repeat your password" />
-                        <span toggle="#re_password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                     </div>
-                    <span id='message'></span>
+                    <span id='passwordcnf'></span>
                     <div class="form-group">
                         <input type="checkbox" required name="agree-term" id="agree-term" class="agree-term" />
                         <label for="agree-term" class="label-agree-term">
@@ -135,7 +137,7 @@ include('include/head.php');
     <?php 
     include('include/cmonscripts.php');
     ?>
-    
+
 </body>
 
 </html>

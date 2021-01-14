@@ -172,7 +172,7 @@ if(isset($_REQUEST['uupdate'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="num">Phone</label>
-                                    <input type="tel" class="form-control name" maxlength="10" pattern="[0-9]{10}" name="uphn"  value="'.$row['uphone'].'" required>
+                                    <input type="tel" class="form-control name" placeholder="phone (e.g. +91155552675)" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" name="uphn"  value="'.$row['uphone'].'" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="add">Address</label>
