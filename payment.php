@@ -104,7 +104,7 @@ if(!isset($_SESSION["username"]))
                                                     <input type="text" class="form-control name" name="bname" placeholder="Your Name" required>
                                                   </div>
                                                   <div class="form-group">
-                                                    <input type="tel" class="form-control name" maxlength="10" name="bphn" placeholder="phone number (1234567890)" pattern="[0-9]{10}" required>
+                                                    <input type="tel" class="form-control name" name="bphn" placeholder="phone (e.g. +91155552675)" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" required>
                                                   </div>
                                                   <div class="form-group">
                                                     <textarea type="text" rows="3" class="form-control name" name="badd" placeholder="Address,house no" required></textarea>

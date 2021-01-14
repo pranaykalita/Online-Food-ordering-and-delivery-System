@@ -71,7 +71,7 @@ include('include/head.php');
 				<div class="caption">
 					<div class="container">
 						<div class="col-md-8 col-sm-12">
-							<h3>Eatery Cafe &amp; Restaurant</h3>
+							<h3>Coders Cafe &amp; Restaurant</h3>
 							<h1>Our mission is to provide an unforgettable experience</h1>
 						</div>
 					</div>

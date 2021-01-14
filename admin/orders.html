@@ -1,758 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
-		<meta name="description" content="" />
-		<meta name="author" content="" />
 
-		<title>SB Admin 2 - Tables</title>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
 
-		<!-- Custom fonts for this template -->
-		<link
-			href="vendor/fontawesome-free/css/all.min.css"
-			rel="stylesheet"
-			type="text/css"
-		/>
-		<link
-			href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-			rel="stylesheet"
-		/>
+	<title>SB Admin 2 - Tables</title>
 
-		<!-- Custom styles for this template -->
-		<link href="css/sb-admin-2.min.css" rel="stylesheet" />
+	<!-- Custom fonts for this template -->
+	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet" />
 
-		<!-- Custom styles for this page -->
-		<link
-			href="vendor/datatables/dataTables.bootstrap4.min.css"
-			rel="stylesheet"
-		/>
-	</head>
+	<!-- Custom styles for this template -->
+	<link href="css/sb-admin-2.min.css" rel="stylesheet" />
 
-	<body id="page-top">
-		<!-- Page Wrapper -->
-		<div id="wrapper">
-			<!-- Sidebar -->
-			<ul
-				class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-				id="accordionSidebar"
-			>
-				<!-- Sidebar - Brand -->
-				<a
-					class="sidebar-brand d-flex align-items-center justify-content-center"
-					href="index.html"
-				>
-					<div class="sidebar-brand-icon">
-						<i class="fas fa-coffee"></i>
-					</div>
-					<div class="sidebar-brand-text mx-3">Coders Cafe</div>
-				</a>
+	<!-- Custom styles for this page -->
+	<link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+</head>
 
-				<!-- Divider -->
-				<hr class="sidebar-divider my-0" />
-
-				<!-- Nav Item - Dashboard -->
-				<li class="nav-item active">
-					<a class="nav-link" href="index.html">
-						<i class="fas fa-fw fa-tachometer-alt"></i>
-						<span>Dashboard</span></a
-					>
-				</li>
-
-				<!-- Divider -->
-				<hr class="sidebar-divider" />
-
-				<!-- Nav Item - -->
-				<li class="nav-item">
-					<a
-						class="nav-link collapsed"
-						href="#"
-						data-toggle="collapse"
-						data-target="#collapseTwo"
-						aria-expanded="true"
-						aria-controls="collapseTwo"
-					>
-						<i class="fas fa-fw fa-cog"></i>
-						<span>Category</span>
-					</a>
-					<div
-						id="collapseTwo"
-						class="collapse"
-						aria-labelledby="headingTwo"
-						data-parent="#accordionSidebar"
-					>
-						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="managecategory.html"
-								>Manage Catagory</a
-							>
-							<a class="collapse-item" href="category.html">View Catagory</a>
-						</div>
-					</div>
-				</li>
-				<!-- Nav Item - -->
-				<li class="nav-item">
-					<a
-						class="nav-link collapsed"
-						href="#"
-						data-toggle="collapse"
-						data-target="#collapseItems"
-						aria-expanded="true"
-						aria-controls="collapseItems"
-					>
-						<i class="fas fa-cookie-bite"></i>
-						<span>Items</span>
-					</a>
-					<div
-						id="collapseItems"
-						class="collapse"
-						aria-labelledby="headingUtilities"
-						data-parent="#accordionSidebar"
-					>
-						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="manageitem.html">Manage Items </a>
-							<a class="collapse-item" href="items.html">View Items</a>
-						</div>
-					</div>
-				</li>
-				<!-- Nav Item - -->
-				<li class="nav-item">
-					<a
-						class="nav-link collapsed"
-						href="#"
-						data-toggle="collapse"
-						data-target="#collapseOrders"
-						aria-expanded="true"
-						aria-controls="collapseOrders"
-					>
-						<i class="fas fa-utensils"></i>
-						<span>Orders</span>
-					</a>
-					<div
-						id="collapseOrders"
-						class="collapse"
-						aria-labelledby="headingUtilities"
-						data-parent="#accordionSidebar"
-					>
-						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="orders.html">View Orders </a>
-							<a class="collapse-item" href="manageorder.html">manage Orders</a>
-						</div>
-					</div>
-				</li>
-				<!-- Nav Item - -->
-				<li class="nav-item">
-					<a class="nav-link" href="users.html">
-						<i class="fas fa-users"></i>
-						<span>Users</span></a
-					>
-				</li>
-				<!-- Nav Item - -->
-				<li class="nav-item">
-					<a
-						class="nav-link collapsed"
-						href="#"
-						data-toggle="collapse"
-						data-target="#collapseStaff"
-						aria-expanded="true"
-						aria-controls="collapseStaff"
-					>
-						<i class="fas fa-utensils"></i>
-						<span>Staff</span>
-					</a>
-					<div
-						id="collapseStaff"
-						class="collapse"
-						aria-labelledby="headingUtilities"
-						data-parent="#accordionSidebar"
-					>
-						<div class="bg-white py-2 collapse-inner rounded">
-							<a class="collapse-item" href="managestaff.html">Manage Staff </a>
-							<a class="collapse-item" href="staff.html">View Staff</a>
-						</div>
-					</div>
-				</li>
-				<!-- Nav Item - -->
-				<li class="nav-item">
-					<a class="nav-link" href="settings.html">
-						<i class="fas fa-cogs"></i>
-						<span>Settings</span></a
-					>
-				</li>
-				<!-- Nav Item - -->
-				<li class="nav-item">
-					<a class="nav-link" href="settings.html">
-						<i class="fas fa-sign-out-alt"></i>
-						<span>Logout</span></a
-					>
-				</li>
-
-				<!-- Divider -->
-				<hr class="sidebar-divider" />
-				<!-- Sidebar Toggler (Sidebar) -->
-				<div class="text-center d-none d-md-inline">
-					<button class="rounded-circle border-0" id="sidebarToggle"></button>
+<body id="page-top">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+		<!-- Sidebar -->
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+			<!-- Sidebar - Brand -->
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+				<div class="sidebar-brand-icon">
+					<i class="fas fa-coffee"></i>
 				</div>
-			</ul>
-			<!-- End of Sidebar -->
+				<div class="sidebar-brand-text mx-3">Coders Cafe</div>
+			</a>
 
-			<!-- Content Wrapper -->
-			<div id="content-wrapper" class="d-flex flex-column">
-				<!-- Main Content -->
-				<div id="content">
-					<!-- Topbar -->
-					<nav
-						class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
-					>
-						<!-- Sidebar Toggle (Topbar) -->
-						<button
-							id="sidebarToggleTop"
-							class="btn btn-link d-md-none rounded-circle mr-3"
-						>
-							<i class="fa fa-bars"></i>
-						</button>
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0" />
 
-						<!-- Topbar Navbar -->
-						<ul class="navbar-nav ml-auto">
-							<div class="topbar-divider d-none d-sm-block"></div>
+			<!-- Nav Item - Dashboard -->
+			<li class="nav-item active">
+				<a class="nav-link" href="index.html">
+					<i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Dashboard</span></a>
+			</li>
 
-							<!-- Nav Item - User Information -->
-							<li class="nav-item dropdown no-arrow">
-								<a
-									class="nav-link dropdown-toggle"
-									href="#"
-									id="userDropdown"
-									role="button"
-									data-toggle="dropdown"
-									aria-haspopup="true"
-									aria-expanded="false"
-								>
-									<span class="mr-2 d-none d-lg-inline text-gray-600 small"
-										>Admin</span
-									>
-									<img
-										class="img-profile rounded-circle"
-										src="img/undraw_profile.svg"
-									/>
-								</a>
-							</li>
-						</ul>
-					</nav>
+			<!-- Divider -->
+			<hr class="sidebar-divider" />
 
-					<!-- End of Topbar -->
+			<!-- Nav Item - -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+					aria-expanded="true" aria-controls="collapseTwo">
+					<i class="fas fa-fw fa-cog"></i>
+					<span>Category</span>
+				</a>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="managecategory.html">Manage Catagory</a>
+						<a class="collapse-item" href="category.html">View Catagory</a>
+					</div>
+				</div>
+			</li>
+			<!-- Nav Item - -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseItems"
+					aria-expanded="true" aria-controls="collapseItems">
+					<i class="fas fa-cookie-bite"></i>
+					<span>Items</span>
+				</a>
+				<div id="collapseItems" class="collapse" aria-labelledby="headingUtilities"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="manageitem.html">Manage Items </a>
+						<a class="collapse-item" href="items.html">View Items</a>
+					</div>
+				</div>
+			</li>
+			<!-- Nav Item - -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
+					aria-expanded="true" aria-controls="collapseOrders">
+					<i class="fas fa-utensils"></i>
+					<span>Orders</span>
+				</a>
+				<div id="collapseOrders" class="collapse" aria-labelledby="headingUtilities"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="orders.html">View Orders </a>
+						<a class="collapse-item" href="manageorder.html">manage Orders</a>
+					</div>
+				</div>
+			</li>
+			<!-- Nav Item - -->
+			<li class="nav-item">
+				<a class="nav-link" href="users.html">
+					<i class="fas fa-users"></i>
+					<span>Users</span></a>
+			</li>
+			<!-- Nav Item - -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStaff"
+					aria-expanded="true" aria-controls="collapseStaff">
+					<i class="fas fa-utensils"></i>
+					<span>Staff</span>
+				</a>
+				<div id="collapseStaff" class="collapse" aria-labelledby="headingUtilities"
+					data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="managestaff.html">Manage Staff </a>
+						<a class="collapse-item" href="staff.html">View Staff</a>
+					</div>
+				</div>
+			</li>
+			<!-- Nav Item - -->
+			<li class="nav-item">
+				<a class="nav-link" href="settings.html">
+					<i class="fas fa-cogs"></i>
+					<span>Settings</span></a>
+			</li>
+			<!-- Nav Item - -->
+			<li class="nav-item">
+				<a class="nav-link" href="settings.html">
+					<i class="fas fa-sign-out-alt"></i>
+					<span>Logout</span></a>
+			</li>
 
-					<!-- Begin Page Content -->
-					<div class="container-fluid">
-						<!-- Page Heading -->
-						<div
-							class="d-sm-flex align-items-center justify-content-between mb-4"
-						>
-							<h1 class="h3 mb-0 text-gray-800">All Orders</h1>
-						</div>
+			<!-- Divider -->
+			<hr class="sidebar-divider" />
+			<!-- Sidebar Toggler (Sidebar) -->
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
+		</ul>
+		<!-- End of Sidebar -->
 
-						<!-- DataTales Example -->
-						<div class="card shadow mb-4">
-							<div class="card-body">
-								<!-- add content here  -->
-								<div class="table-responsive">
-									<table class="table " id="dataTable" width="100%" cellspacing="0">
-										<thead>
-											<tr>
-												<th>Id</th>
-												<th>Buyer</th>
-												<th>Items</th>
-												<th>Date</th>
-												<th>Time</th>
-												<th>Total</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Allen</td>
-												<td>Orlando, Althea, Hakeem, Charity</td>
-												<td>20-11-20</td>
-												<td>-83.40227, -162.73029</td>
-												<td>717</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Deirdre</td>
-												<td>Deanna, Nasim, Salvador, Cullen</td>
-												<td>06-06-21</td>
-												<td>59.5047, -85.55877</td>
-												<td>704</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>Brittany</td>
-												<td>Leonard, Samuel, Mariko, Marcia</td>
-												<td>07-08-20</td>
-												<td>-36.09578, 98.34101</td>
-												<td>233</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td>Kendall</td>
-												<td>Kyle, Alexandra, Bevis, Rigel</td>
-												<td>08-02-21</td>
-												<td>42.80047, 177.45038</td>
-												<td>651</td>
-											</tr>
-											<tr>
-												<td>5</td>
-												<td>Illiana</td>
-												<td>Price, Wynter, Jeanette, Grant</td>
-												<td>14-04-21</td>
-												<td>71.28403, -31.95516</td>
-												<td>622</td>
-											</tr>
-											<tr>
-												<td>6</td>
-												<td>Quintessa</td>
-												<td>Amity, Jenette, Hamish, Kiona</td>
-												<td>20-06-20</td>
-												<td>-76.26612, 148.1262</td>
-												<td>850</td>
-											</tr>
-											<tr>
-												<td>7</td>
-												<td>Libby</td>
-												<td>Florence, Indira, Unity, Kelly</td>
-												<td>04-07-21</td>
-												<td>34.85992, -104.24052</td>
-												<td>891</td>
-											</tr>
-											<tr>
-												<td>8</td>
-												<td>Sydney</td>
-												<td>Brian, Laura, Sloane, Scott</td>
-												<td>27-06-21</td>
-												<td>-24.77688, 142.11477</td>
-												<td>276</td>
-											</tr>
-											<tr>
-												<td>9</td>
-												<td>Clark</td>
-												<td>Chelsea, Octavius, Dai, Fleur</td>
-												<td>05-12-20</td>
-												<td>-7.46607, -168.06858</td>
-												<td>960</td>
-											</tr>
-											<tr>
-												<td>10</td>
-												<td>Zelenia</td>
-												<td>Brennan, Halee, Medge, Illiana</td>
-												<td>02-08-20</td>
-												<td>50.36063, -110.01459</td>
-												<td>428</td>
-											</tr>
-											<tr>
-												<td>11</td>
-												<td>Leah</td>
-												<td>Lionel, April, Sarah, Vera</td>
-												<td>24-06-20</td>
-												<td>47.43203, 154.06038</td>
-												<td>364</td>
-											</tr>
-											<tr>
-												<td>12</td>
-												<td>Hedley</td>
-												<td>Nasim, Bruce, Montana, Colin</td>
-												<td>23-01-21</td>
-												<td>88.34714, -65.15787</td>
-												<td>603</td>
-											</tr>
-											<tr>
-												<td>13</td>
-												<td>Hiroko</td>
-												<td>Mary, Perry, Walker, Jelani</td>
-												<td>23-02-20</td>
-												<td>-15.26092, 159.04777</td>
-												<td>551</td>
-											</tr>
-											<tr>
-												<td>14</td>
-												<td>Lois</td>
-												<td>Paloma, Lydia, Hadassah, Ingrid</td>
-												<td>12-06-21</td>
-												<td>67.37638, -72.10597</td>
-												<td>161</td>
-											</tr>
-											<tr>
-												<td>15</td>
-												<td>Burke</td>
-												<td>Ezra, Vivien, Gregory, Jackson</td>
-												<td>07-09-20</td>
-												<td>6.93689, -103.65907</td>
-												<td>442</td>
-											</tr>
-											<tr>
-												<td>16</td>
-												<td>Edan</td>
-												<td>Lucas, Breanna, Lillian, Nolan</td>
-												<td>23-04-21</td>
-												<td>-31.52279, -167.27423</td>
-												<td>333</td>
-											</tr>
-											<tr>
-												<td>17</td>
-												<td>Wallace</td>
-												<td>Kane, Chloe, Colleen, Kellie</td>
-												<td>31-10-21</td>
-												<td>49.12257, -128.18722</td>
-												<td>650</td>
-											</tr>
-											<tr>
-												<td>18</td>
-												<td>Imogene</td>
-												<td>Upton, MacKensie, Maxwell, Donna</td>
-												<td>16-01-21</td>
-												<td>56.23596, 43.5782</td>
-												<td>572</td>
-											</tr>
-											<tr>
-												<td>19</td>
-												<td>Kristen</td>
-												<td>Hope, Lee, Chaim, Harrison</td>
-												<td>19-04-21</td>
-												<td>81.00395, -48.32878</td>
-												<td>691</td>
-											</tr>
-											<tr>
-												<td>20</td>
-												<td>Scarlett</td>
-												<td>Craig, Macey, Sigourney, Eliana</td>
-												<td>24-02-21</td>
-												<td>2.92582, -102.54044</td>
-												<td>832</td>
-											</tr>
-											<tr>
-												<td>21</td>
-												<td>Cain</td>
-												<td>Tarik, Leah, Garth, Hiram</td>
-												<td>28-01-21</td>
-												<td>23.2899, 63.49138</td>
-												<td>767</td>
-											</tr>
-											<tr>
-												<td>22</td>
-												<td>Hedley</td>
-												<td>Teagan, Veronica, Harlan, Shoshana</td>
-												<td>02-05-20</td>
-												<td>37.37725, 18.34299</td>
-												<td>999</td>
-											</tr>
-											<tr>
-												<td>23</td>
-												<td>Emerson</td>
-												<td>Lucy, Hammett, Justina, Allistair</td>
-												<td>08-01-22</td>
-												<td>-13.86381, -71.01541</td>
-												<td>271</td>
-											</tr>
-											<tr>
-												<td>24</td>
-												<td>Leo</td>
-												<td>Virginia, Ivan, Bradley, Donna</td>
-												<td>08-05-20</td>
-												<td>-50.52309, 122.16198</td>
-												<td>471</td>
-											</tr>
-											<tr>
-												<td>25</td>
-												<td>Josephine</td>
-												<td>Alec, Ariana, Stone, Dante</td>
-												<td>07-02-20</td>
-												<td>52.47262, -101.60177</td>
-												<td>127</td>
-											</tr>
-											<tr>
-												<td>26</td>
-												<td>Kitra</td>
-												<td>Ella, Burke, Barry, Emma</td>
-												<td>02-04-21</td>
-												<td>-22.40071, -18.43764</td>
-												<td>718</td>
-											</tr>
-											<tr>
-												<td>27</td>
-												<td>Octavius</td>
-												<td>Barclay, Sybill, Zenaida, Michelle</td>
-												<td>04-03-21</td>
-												<td>-7.50707, 102.59271</td>
-												<td>759</td>
-											</tr>
-											<tr>
-												<td>28</td>
-												<td>Martin</td>
-												<td>Theodore, James, Tanisha, Bevis</td>
-												<td>17-07-21</td>
-												<td>52.23233, 168.5553</td>
-												<td>981</td>
-											</tr>
-											<tr>
-												<td>29</td>
-												<td>Oren</td>
-												<td>Hayfa, Hedda, Kimberley, Warren</td>
-												<td>18-11-21</td>
-												<td>32.48112, -14.70031</td>
-												<td>808</td>
-											</tr>
-											<tr>
-												<td>30</td>
-												<td>Daryl</td>
-												<td>Cheyenne, Garth, Kathleen, Neve</td>
-												<td>07-04-21</td>
-												<td>-1.11756, 106.30824</td>
-												<td>118</td>
-											</tr>
-											<tr>
-												<td>31</td>
-												<td>Vincent</td>
-												<td>Darius, Kevin, Gail, Chastity</td>
-												<td>09-03-21</td>
-												<td>80.25195, 162.33346</td>
-												<td>602</td>
-											</tr>
-											<tr>
-												<td>32</td>
-												<td>Ivor</td>
-												<td>Len, Kirk, Petra, Jeremy</td>
-												<td>27-09-20</td>
-												<td>-49.50529, -60.01768</td>
-												<td>781</td>
-											</tr>
-											<tr>
-												<td>33</td>
-												<td>Barry</td>
-												<td>Stewart, Hop, Preston, Upton</td>
-												<td>03-11-20</td>
-												<td>41.27492, 17.34158</td>
-												<td>402</td>
-											</tr>
-											<tr>
-												<td>34</td>
-												<td>Brittany</td>
-												<td>Daquan, Ella, Nathan, Griffin</td>
-												<td>03-02-20</td>
-												<td>60.80022, 86.09379</td>
-												<td>478</td>
-											</tr>
-											<tr>
-												<td>35</td>
-												<td>Abdul</td>
-												<td>Rae, Gareth, Talon, Phoebe</td>
-												<td>26-10-20</td>
-												<td>-8.51754, -127.14027</td>
-												<td>997</td>
-											</tr>
-											<tr>
-												<td>36</td>
-												<td>Beverly</td>
-												<td>Theodore, Ora, Rashad, Vladimir</td>
-												<td>22-01-21</td>
-												<td>-17.82381, -138.50389</td>
-												<td>198</td>
-											</tr>
-											<tr>
-												<td>37</td>
-												<td>Rooney</td>
-												<td>Georgia, Faith, Wylie, Solomon</td>
-												<td>02-08-20</td>
-												<td>13.05277, -178.57063</td>
-												<td>201</td>
-											</tr>
-											<tr>
-												<td>38</td>
-												<td>Vincent</td>
-												<td>Amanda, Jana, Solomon, Martha</td>
-												<td>07-07-21</td>
-												<td>33.8002, 16.56598</td>
-												<td>278</td>
-											</tr>
-											<tr>
-												<td>39</td>
-												<td>Ora</td>
-												<td>Warren, Faith, Simone, Ali</td>
-												<td>07-11-21</td>
-												<td>80.08908, -159.64552</td>
-												<td>995</td>
-											</tr>
-											<tr>
-												<td>40</td>
-												<td>Allistair</td>
-												<td>Madison, Dylan, Jackson, Martin</td>
-												<td>20-11-20</td>
-												<td>-28.14083, -144.78617</td>
-												<td>696</td>
-											</tr>
-											<tr>
-												<td>41</td>
-												<td>Samson</td>
-												<td>Maryam, Brendan, Peter, Georgia</td>
-												<td>08-08-20</td>
-												<td>-26.34042, 85.2009</td>
-												<td>817</td>
-											</tr>
-											<tr>
-												<td>42</td>
-												<td>Lev</td>
-												<td>Colin, Aquila, Fatima, Ivana</td>
-												<td>18-04-21</td>
-												<td>-27.33294, -120.08072</td>
-												<td>692</td>
-											</tr>
-											<tr>
-												<td>43</td>
-												<td>Ira</td>
-												<td>Len, Ulla, Octavia, Coby</td>
-												<td>08-03-20</td>
-												<td>-67.54442, -177.26565</td>
-												<td>154</td>
-											</tr>
-											<tr>
-												<td>44</td>
-												<td>Lucius</td>
-												<td>Janna, Hop, Seth, Clayton</td>
-												<td>07-04-20</td>
-												<td>-7.66316, -11.88295</td>
-												<td>551</td>
-											</tr>
-											<tr>
-												<td>45</td>
-												<td>Yardley</td>
-												<td>Kyla, Hilel, Hakeem, Zephania</td>
-												<td>14-03-20</td>
-												<td>-87.28169, -74.36095</td>
-												<td>634</td>
-											</tr>
-											<tr>
-												<td>46</td>
-												<td>Briar</td>
-												<td>Zephr, Hu, Sean, Kareem</td>
-												<td>20-06-20</td>
-												<td>-37.73811, -165.07032</td>
-												<td>640</td>
-											</tr>
-											<tr>
-												<td>47</td>
-												<td>Dillon</td>
-												<td>Zelenia, Mannix, Jamal, Colorado</td>
-												<td>08-07-21</td>
-												<td>10.39187, 120.63661</td>
-												<td>537</td>
-											</tr>
-											<tr>
-												<td>48</td>
-												<td>Addison</td>
-												<td>Acton, Merritt, Plato, Charissa</td>
-												<td>09-01-22</td>
-												<td>-83.84616, 158.01079</td>
-												<td>949</td>
-											</tr>
-											<tr>
-												<td>49</td>
-												<td>Cade</td>
-												<td>Cherokee, Constance, Elmo, Odysseus</td>
-												<td>05-09-21</td>
-												<td>-8.98543, 145.70699</td>
-												<td>401</td>
-											</tr>
-											<tr>
-												<td>50</td>
-												<td>Bert</td>
-												<td>Pamela, Tiger, Kyra, Breanna</td>
-												<td>12-03-21</td>
-												<td>36.48608, -27.2321</td>
-												<td>802</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+			<!-- Main Content -->
+			<div id="content">
+				<!-- Topbar -->
+				<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+						<div class="topbar-divider d-none d-sm-block"></div>
+
+						<!-- Nav Item - User Information -->
+						<li class="nav-item dropdown no-arrow">
+							<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+								<img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
+							</a>
+						</li>
+					</ul>
+				</nav>
+
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+					<!-- Page Heading -->
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">All Orders</h1>
+					</div>
+
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4">
+						<div class="card-body">
+							<!-- add content here  -->
+							<div class="table-responsive">
+								<table class="table " id="dataTable" width="100%" cellspacing="0">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Buyer</th>
+											<th>Items</th>
+											<th>Date</th>
+											<th>Time</th>
+											<th>Total</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>Allen</td>
+											<td>Orlando, Althea, Hakeem, Charity</td>
+											<td>20-11-20</td>
+											<td>-83.40227, -162.73029</td>
+											<td>717</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>Deirdre</td>
+											<td>Deanna, Nasim, Salvador, Cullen</td>
+											<td>06-06-21</td>
+											<td>59.5047, -85.55877</td>
+											<td>704</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>Brittany</td>
+											<td>Leonard, Samuel, Mariko, Marcia</td>
+											<td>07-08-20</td>
+											<td>-36.09578, 98.34101</td>
+											<td>233</td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>Kendall</td>
+											<td>Kyle, Alexandra, Bevis, Rigel</td>
+											<td>08-02-21</td>
+											<td>42.80047, 177.45038</td>
+											<td>651</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>Illiana</td>
+											<td>Price, Wynter, Jeanette, Grant</td>
+											<td>14-04-21</td>
+											<td>71.28403, -31.95516</td>
+											<td>622</td>
+										</tr>
+										<tr>
+											<td>6</td>
+											<td>Quintessa</td>
+											<td>Amity, Jenette, Hamish, Kiona</td>
+											<td>20-06-20</td>
+											<td>-76.26612, 148.1262</td>
+											<td>850</td>
+										</tr>
+										<tr>
+											<td>7</td>
+											<td>Libby</td>
+											<td>Florence, Indira, Unity, Kelly</td>
+											<td>04-07-21</td>
+											<td>34.85992, -104.24052</td>
+											<td>891</td>
+										</tr>
+										<tr>
+											<td>8</td>
+											<td>Sydney</td>
+											<td>Brian, Laura, Sloane, Scott</td>
+											<td>27-06-21</td>
+											<td>-24.77688, 142.11477</td>
+											<td>276</td>
+										</tr>
+										<tr>
+											<td>9</td>
+											<td>Clark</td>
+											<td>Chelsea, Octavius, Dai, Fleur</td>
+											<td>05-12-20</td>
+											<td>-7.46607, -168.06858</td>
+											<td>960</td>
+										</tr>
+										<tr>
+											<td>10</td>
+											<td>Zelenia</td>
+											<td>Brennan, Halee, Medge, Illiana</td>
+											<td>02-08-20</td>
+											<td>50.36063, -110.01459</td>
+											<td>428</td>
+										</tr>
+										<tr>
+											<td>11</td>
+											<td>Leah</td>
+											<td>Lionel, April, Sarah, Vera</td>
+											<td>24-06-20</td>
+											<td>47.43203, 154.06038</td>
+											<td>364</td>
+										</tr>
+										<tr>
+											<td>12</td>
+											<td>Hedley</td>
+											<td>Nasim, Bruce, Montana, Colin</td>
+											<td>23-01-21</td>
+											<td>88.34714, -65.15787</td>
+											<td>603</td>
+										</tr>
+										<tr>
+											<td>13</td>
+											<td>Hiroko</td>
+											<td>Mary, Perry, Walker, Jelani</td>
+											<td>23-02-20</td>
+											<td>-15.26092, 159.04777</td>
+											<td>551</td>
+										</tr>
+										<tr>
+											<td>14</td>
+											<td>Lois</td>
+											<td>Paloma, Lydia, Hadassah, Ingrid</td>
+											<td>12-06-21</td>
+											<td>67.37638, -72.10597</td>
+											<td>161</td>
+										</tr>
+										<tr>
+											<td>15</td>
+											<td>Burke</td>
+											<td>Ezra, Vivien, Gregory, Jackson</td>
+											<td>07-09-20</td>
+											<td>6.93689, -103.65907</td>
+											<td>442</td>
+										</tr>
+										<tr>
+											<td>16</td>
+											<td>Edan</td>
+											<td>Lucas, Breanna, Lillian, Nolan</td>
+											<td>23-04-21</td>
+											<td>-31.52279, -167.27423</td>
+											<td>333</td>
+										</tr>
+										<tr>
+											<td>17</td>
+											<td>Wallace</td>
+											<td>Kane, Chloe, Colleen, Kellie</td>
+											<td>31-10-21</td>
+											<td>49.12257, -128.18722</td>
+											<td>650</td>
+										</tr>
+										<tr>
+											<td>18</td>
+											<td>Imogene</td>
+											<td>Upton, MacKensie, Maxwell, Donna</td>
+											<td>16-01-21</td>
+											<td>56.23596, 43.5782</td>
+											<td>572</td>
+										</tr>
+										<tr>
+											<td>19</td>
+											<td>Kristen</td>
+											<td>Hope, Lee, Chaim, Harrison</td>
+											<td>19-04-21</td>
+											<td>81.00395, -48.32878</td>
+											<td>691</td>
+										</tr>
+										<tr>
+											<td>20</td>
+											<td>Scarlett</td>
+											<td>Craig, Macey, Sigourney, Eliana</td>
+											<td>24-02-21</td>
+											<td>2.92582, -102.54044</td>
+											<td>832</td>
+										</tr>
+										<tr>
+											<td>21</td>
+											<td>Cain</td>
+											<td>Tarik, Leah, Garth, Hiram</td>
+											<td>28-01-21</td>
+											<td>23.2899, 63.49138</td>
+											<td>767</td>
+										</tr>
+										<tr>
+											<td>22</td>
+											<td>Hedley</td>
+											<td>Teagan, Veronica, Harlan, Shoshana</td>
+											<td>02-05-20</td>
+											<td>37.37725, 18.34299</td>
+											<td>999</td>
+										</tr>
+										<tr>
+											<td>23</td>
+											<td>Emerson</td>
+											<td>Lucy, Hammett, Justina, Allistair</td>
+											<td>08-01-22</td>
+											<td>-13.86381, -71.01541</td>
+											<td>271</td>
+										</tr>
+										<tr>
+											<td>24</td>
+											<td>Leo</td>
+											<td>Virginia, Ivan, Bradley, Donna</td>
+											<td>08-05-20</td>
+											<td>-50.52309, 122.16198</td>
+											<td>471</td>
+										</tr>
+										<tr>
+											<td>25</td>
+											<td>Josephine</td>
+											<td>Alec, Ariana, Stone, Dante</td>
+											<td>07-02-20</td>
+											<td>52.47262, -101.60177</td>
+											<td>127</td>
+										</tr>
+										<tr>
+											<td>26</td>
+											<td>Kitra</td>
+											<td>Ella, Burke, Barry, Emma</td>
+											<td>02-04-21</td>
+											<td>-22.40071, -18.43764</td>
+											<td>718</td>
+										</tr>
+										<tr>
+											<td>27</td>
+											<td>Octavius</td>
+											<td>Barclay, Sybill, Zenaida, Michelle</td>
+											<td>04-03-21</td>
+											<td>-7.50707, 102.59271</td>
+											<td>759</td>
+										</tr>
+										<tr>
+											<td>28</td>
+											<td>Martin</td>
+											<td>Theodore, James, Tanisha, Bevis</td>
+											<td>17-07-21</td>
+											<td>52.23233, 168.5553</td>
+											<td>981</td>
+										</tr>
+										<tr>
+											<td>29</td>
+											<td>Oren</td>
+											<td>Hayfa, Hedda, Kimberley, Warren</td>
+											<td>18-11-21</td>
+											<td>32.48112, -14.70031</td>
+											<td>808</td>
+										</tr>
+										<tr>
+											<td>30</td>
+											<td>Daryl</td>
+											<td>Cheyenne, Garth, Kathleen, Neve</td>
+											<td>07-04-21</td>
+											<td>-1.11756, 106.30824</td>
+											<td>118</td>
+										</tr>
+										<tr>
+											<td>31</td>
+											<td>Vincent</td>
+											<td>Darius, Kevin, Gail, Chastity</td>
+											<td>09-03-21</td>
+											<td>80.25195, 162.33346</td>
+											<td>602</td>
+										</tr>
+										<tr>
+											<td>32</td>
+											<td>Ivor</td>
+											<td>Len, Kirk, Petra, Jeremy</td>
+											<td>27-09-20</td>
+											<td>-49.50529, -60.01768</td>
+											<td>781</td>
+										</tr>
+										<tr>
+											<td>33</td>
+											<td>Barry</td>
+											<td>Stewart, Hop, Preston, Upton</td>
+											<td>03-11-20</td>
+											<td>41.27492, 17.34158</td>
+											<td>402</td>
+										</tr>
+										<tr>
+											<td>34</td>
+											<td>Brittany</td>
+											<td>Daquan, Ella, Nathan, Griffin</td>
+											<td>03-02-20</td>
+											<td>60.80022, 86.09379</td>
+											<td>478</td>
+										</tr>
+										<tr>
+											<td>35</td>
+											<td>Abdul</td>
+											<td>Rae, Gareth, Talon, Phoebe</td>
+											<td>26-10-20</td>
+											<td>-8.51754, -127.14027</td>
+											<td>997</td>
+										</tr>
+										<tr>
+											<td>36</td>
+											<td>Beverly</td>
+											<td>Theodore, Ora, Rashad, Vladimir</td>
+											<td>22-01-21</td>
+											<td>-17.82381, -138.50389</td>
+											<td>198</td>
+										</tr>
+										<tr>
+											<td>37</td>
+											<td>Rooney</td>
+											<td>Georgia, Faith, Wylie, Solomon</td>
+											<td>02-08-20</td>
+											<td>13.05277, -178.57063</td>
+											<td>201</td>
+										</tr>
+										<tr>
+											<td>38</td>
+											<td>Vincent</td>
+											<td>Amanda, Jana, Solomon, Martha</td>
+											<td>07-07-21</td>
+											<td>33.8002, 16.56598</td>
+											<td>278</td>
+										</tr>
+										<tr>
+											<td>39</td>
+											<td>Ora</td>
+											<td>Warren, Faith, Simone, Ali</td>
+											<td>07-11-21</td>
+											<td>80.08908, -159.64552</td>
+											<td>995</td>
+										</tr>
+										<tr>
+											<td>40</td>
+											<td>Allistair</td>
+											<td>Madison, Dylan, Jackson, Martin</td>
+											<td>20-11-20</td>
+											<td>-28.14083, -144.78617</td>
+											<td>696</td>
+										</tr>
+										<tr>
+											<td>41</td>
+											<td>Samson</td>
+											<td>Maryam, Brendan, Peter, Georgia</td>
+											<td>08-08-20</td>
+											<td>-26.34042, 85.2009</td>
+											<td>817</td>
+										</tr>
+										<tr>
+											<td>42</td>
+											<td>Lev</td>
+											<td>Colin, Aquila, Fatima, Ivana</td>
+											<td>18-04-21</td>
+											<td>-27.33294, -120.08072</td>
+											<td>692</td>
+										</tr>
+										<tr>
+											<td>43</td>
+											<td>Ira</td>
+											<td>Len, Ulla, Octavia, Coby</td>
+											<td>08-03-20</td>
+											<td>-67.54442, -177.26565</td>
+											<td>154</td>
+										</tr>
+										<tr>
+											<td>44</td>
+											<td>Lucius</td>
+											<td>Janna, Hop, Seth, Clayton</td>
+											<td>07-04-20</td>
+											<td>-7.66316, -11.88295</td>
+											<td>551</td>
+										</tr>
+										<tr>
+											<td>45</td>
+											<td>Yardley</td>
+											<td>Kyla, Hilel, Hakeem, Zephania</td>
+											<td>14-03-20</td>
+											<td>-87.28169, -74.36095</td>
+											<td>634</td>
+										</tr>
+										<tr>
+											<td>46</td>
+											<td>Briar</td>
+											<td>Zephr, Hu, Sean, Kareem</td>
+											<td>20-06-20</td>
+											<td>-37.73811, -165.07032</td>
+											<td>640</td>
+										</tr>
+										<tr>
+											<td>47</td>
+											<td>Dillon</td>
+											<td>Zelenia, Mannix, Jamal, Colorado</td>
+											<td>08-07-21</td>
+											<td>10.39187, 120.63661</td>
+											<td>537</td>
+										</tr>
+										<tr>
+											<td>48</td>
+											<td>Addison</td>
+											<td>Acton, Merritt, Plato, Charissa</td>
+											<td>09-01-22</td>
+											<td>-83.84616, 158.01079</td>
+											<td>949</td>
+										</tr>
+										<tr>
+											<td>49</td>
+											<td>Cade</td>
+											<td>Cherokee, Constance, Elmo, Odysseus</td>
+											<td>05-09-21</td>
+											<td>-8.98543, 145.70699</td>
+											<td>401</td>
+										</tr>
+										<tr>
+											<td>50</td>
+											<td>Bert</td>
+											<td>Pamela, Tiger, Kyra, Breanna</td>
+											<td>12-03-21</td>
+											<td>36.48608, -27.2321</td>
+											<td>802</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
-					<!-- /.container-fluid -->
 				</div>
-				<!-- End of Main Content -->
-
-				<!-- Footer -->
-				<footer class="sticky-footer bg-white">
-					<div class="container my-auto">
-						<div class="copyright text-center my-auto">
-							<span>Copyright &copy; Your Website 2020</span>
-						</div>
-					</div>
-				</footer>
-				<!-- End of Footer -->
+				<!-- /.container-fluid -->
 			</div>
-			<!-- End of Content Wrapper -->
-		</div>
-		<!-- End of Page Wrapper -->
+			<!-- End of Main Content -->
 
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top">
-			<i class="fas fa-angle-up"></i>
-		</a>
-
-		<!-- Logout Modal-->
-		<div
-			class="modal fade"
-			id="logoutModal"
-			tabindex="-1"
-			role="dialog"
-			aria-labelledby="exampleModalLabel"
-			aria-hidden="true"
-		>
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-						<button
-							class="close"
-							type="button"
-							data-dismiss="modal"
-							aria-label="Close"
-						>
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						Select "Logout" below if you are ready to end your current session.
-					</div>
-					<div class="modal-footer">
-						<button
-							class="btn btn-secondary"
-							type="button"
-							data-dismiss="modal"
-						>
-							Cancel
-						</button>
-						<a class="btn btn-primary" href="login.html">Logout</a>
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2020</span>
 					</div>
 				</div>
-			</div>
+			</footer>
+			<!-- End of Footer -->
 		</div>
+		<!-- End of Content Wrapper -->
+	</div>
+	<!-- End of Page Wrapper -->
 
-		<!-- Bootstrap core JavaScript-->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top">
+		<i class="fas fa-angle-up"></i>
+	</a>
 
-		<!-- Core plugin JavaScript-->
-		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-		<!-- Custom scripts for all pages-->
-		<script src="js/sb-admin-2.min.js"></script>
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-		<!-- Page level plugins -->
-		<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-		<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-		<!-- Page level custom scripts -->
-		<script src="js/demo/datatables-demo.js"></script>
-	</body>
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
+
+	<!-- Page level plugins -->
+	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+	<!-- Page level custom scripts -->
+	<script src="js/demo/datatables-demo.js"></script>
+</body>
+
 </html>
