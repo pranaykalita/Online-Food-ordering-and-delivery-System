@@ -180,7 +180,74 @@
 
 						<div class="card-body">
 							<!-- add content here  -->
-							<!-- modal 1 add items -->
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Image</th>
+										<th>Category </th>
+										<th>status</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+								<?php
+								// delet item
+								if(isset($_REQUEST["delete"]))
+								{
+								
+									$sqlD = "DELETE FROM `menu_category` where `cat_id` = '{$_REQUEST['id']}'";
+									$conn->query($sqlD);
+									// echo $sqlD;
+									// die();
+									echo '<script>
+									swal({
+										title: "category Deleted",
+										icon: "success",
+										button: "close",
+										type: "success"
+									});
+									</script>'; 
+								}
+									$query = "SELECT * FROM `menu_category` order by `cat_status` desc";
+									$result = $conn->query($query);
+
+									while($row = $result->fetch_assoc()){
+										echo '
+										<tr>
+										<td>'.$row["cat_id"].'</td>
+										<td><img src="'.catg_img.$row["cat_image"].'" alt="" border=3 height=80 width=80></img></td>
+										<td>'.$row["cat_name"].'</td>';
+
+										if($row["cat_status"] == 1){
+											echo '<td class="text-success">available</td>';
+										}
+										else if($row["cat_status"] == 0){
+											echo '<td class="text-danger">Empty Items</td>';
+										}
+										
+										echo '<td>
+											<form action="" method="post" class="d-inline">
+												<input type="hidden" name="id" value='.$row["cat_id"].'>
+												<button class="btn btn-primary" type="submit" name="update">
+												<i class="fas fa-pen"></i>
+												</button>
+											</form>
+											
+											<form action="" method="post" class="d-inline">
+												<input type="hidden" name="id" value='.$row["cat_id"].'>
+												<button class="btn btn-danger" type="submit" name="delete">
+												<i class="fas fa-trash "></i>
+												</button>
+											</form>
+										</td>
+									</tr>';
+									}
+								?>
+								</tbody>
+							</table>
+
+							<!-- modal 1 add category -->
 							<div class="modal fade" id="addcate" tabindex="-1" role="dialog" aria-labelledby="addcate" aria-hidden="true">
 								<div class="modal-dialog" role="document">
 								  <div class="modal-content">
