@@ -85,7 +85,7 @@ include('include/head.php');
 	<section id="about">
 		<div class="container">
 			<div class="row p-5">
-				<div class="col-md-6 col-sm-12 ">
+				<div class="col-md-6 col-sm-12">
 					<div class="about-title">
 						<h1>Coders.</h1>
 						<h1>Cafe</h1>
