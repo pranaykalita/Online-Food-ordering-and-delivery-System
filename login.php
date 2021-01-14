@@ -9,7 +9,7 @@ if(isset($_POST['login']))
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 
-	$sql = "SELECT `uid`, `uname`, `umail`,`upass` FROM `user_details` WHERE `umail` = '{$username}' AND `upass` = '{$password}'";
+	$sql = "SELECT `uid`, `uname`, `umail`,`upass` FROM `user_details` WHERE (`umail` = '{$username}' OR `uname`= '{$username}') AND `upass` = '{$password}'";
 	
 	// echo $sql;
 	// die();

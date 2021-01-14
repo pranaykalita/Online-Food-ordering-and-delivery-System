@@ -118,3 +118,27 @@ $(document).ready(function() {
   } );
 } );
 
+// check username availability
+
+$(document).ready(function(){
+  $('#username').blur(function(){
+    var username = $ (this).val();
+    $.ajax({
+      url: 'chekuser.php',
+      method: "POST",
+      data: {user_name: username},
+      success: function(data){
+        if(data != '0')
+        {
+          $('#usermsg').html('<span class="text-danger">Username Not available</span>');
+          $('#submit').attr("disabled", true);
+        }
+        else
+        {
+          $('#usermsg').html('<span class="text-success">Username available</span>');
+          $('#submit').attr("disabled", true);
+        }
+      }
+    })
+  })
+});

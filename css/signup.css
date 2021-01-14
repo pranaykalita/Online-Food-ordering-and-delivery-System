@@ -77,7 +77,9 @@ ul {
 
 .navbar .navbar-nav a:hover {
 	color: rgb(214, 48, 49);
-	font-weight: 600;
+  font-weight: 700;
+  transition: .2s;
+  font-family: montserrat;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -657,7 +659,7 @@ display-flex, .display-flex, .display-flex-center {
   .label-agree-term {
     font-size: 12px;
     font-weight: 600;
-    color: #555;
+    color: rgb(255, 57, 57);
   }
   
   .term-service {
