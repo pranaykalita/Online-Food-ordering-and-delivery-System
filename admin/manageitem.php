@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include('../include/dbcon.php');include('../include/functions.php'); ?>
 <html lang="en">
 
 <head>
@@ -9,6 +10,8 @@
 	<meta name="author" content="" />
 
 	<title>SB Admin 2 - Tables</title>
+
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<!-- Custom fonts for this template -->
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
@@ -168,20 +171,180 @@
 				<div class="container-fluid">
 					<!-- Page Heading -->
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+						<h1 class="h3 mb-0 text-gray-800">Food Items</h1>
+					</div>
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<button href="#" type="button" data-toggle="modal" data-target="#additem" class="btn btn-success"><i class="fas fa-plus"></i> Add items</button>
 					</div>
 
 					<!-- DataTales Example -->
-					<div class="card  mb-4">
+					<div class="card shadow mb-4">
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">
-								header title example
+								items
 							</h6>
 						</div>
-
+					
 						<div class="card-body">
 							<!-- add content here  -->
-							<p>hi everyone</p>
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Item Image</th>
+										<th>Item Name</th>
+										<th>Item price</th>
+										<th>available</th>
+										<th>status</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+								<?php
+								// delet item
+									if(isset($_REQUEST["delete"]))
+									{
+									
+										$sqlD = "DELETE FROM `menu_items` where `menu_id` = '{$_REQUEST['id']}'";
+										$conn->query($sqlD);
+										// echo $sqlD;
+										// die();
+										echo '<script>
+										swal({
+											title: "Item Deleted",
+											icon: "success",
+											button: "close",
+											type: "success"
+										});
+										</script>'; 
+									}
+
+									$query = "SELECT * FROM `menu_items`";
+									$result = $conn->query($query);
+
+									while($row = $result->fetch_assoc()){
+										echo '
+										<tr>
+										<td>'.$row["menu_id"].'</td>
+										<td><img src="'.menu_img.$row["menu_image"].'" alt="" border=3 height=80 width=80></img></td>
+										<td>'.$row["menu_name"].'</td>
+										<td>'.$row["menu_price"].'</td>
+										<td>'.$row["menu_avlable"].'</td>';
+										if($row["menu_status"] == 1){
+											echo '<td class="text-success">available</td>';
+										}
+										else if($row["menu_status"] == 0){
+											echo '<td class="text-danger">Out of order</td>';
+										}
+										
+										echo '<td>
+											<form action="" method="post" class="d-inline">
+												<input type="hidden" name="id" value='.$row["menu_id"].'>
+												<button class="btn btn-primary" type="submit" name="update">
+												<i class="fas fa-pen"></i>
+												</button>
+											</form>
+											
+											<form action="" method="post" class="d-inline">
+												<input type="hidden" name="id" value='.$row["menu_id"].'>
+												<button class="btn btn-danger" type="submit" name="delete">
+												<i class="fas fa-trash "></i>
+												</button>
+											</form>
+										</td>
+									</tr>';
+									}
+								?>
+								</tbody>
+							</table>
+
+							<!-- modal 1 add items -->
+							<div class="modal fade" id="additem" tabindex="-1" role="dialog" aria-labelledby="additem" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
+									  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									  </button>
+									</div>
+									<?php 
+									// add item
+									if(isset($_REQUEST["additm"]))
+									{
+										// PICTURE UPLOAD
+										$file = $_FILES['itmimg'];
+
+										$photo_name = $_FILES['itmimg']['name'];
+										$file_type = $_FILES['itmimg']['type'];
+										$file_size =$_FILES['itmimg']['size'];
+										$file_tmp_loc = $_FILES['itmimg']['tmp_name'];
+										$file_store_path = "../images/items/menu/".$photo_name;
+										move_uploaded_file($file_tmp_loc,$file_store_path);
+
+										$itmname = $_REQUEST["iname"];
+										$itm_price = $_REQUEST["iprice"];
+										$itm_cat = $_REQUEST["icat"];
+										$itmquantity = $_REQUEST["iqty"];
+
+										$query = "INSERT INTO `menu_items`(`menu_name`, `menu_price`, `menu_category`, `menu_image`, `menu_avlable`, `menu_status`) 
+												VALUES ('$itmname', '$itm_price', '$itm_cat', '$photo_name', '$itmquantity' , '1')";
+										$conn->query($query);
+										echo '<script>
+										swal({
+											title: "Item Added",
+											icon: "success",
+											button: "close",
+											type: "success"
+										});
+										</script>';
+										echo '<meta http-equiv="refresh" content= "0;URL=?ItemADded" />'; 
+									}
+									?>
+									<form action="" method="POST" enctype="multipart/form-data">
+										<div class="modal-body">
+											<div class="form-group">
+												<label for="exampleFormControlFile1">Item Image</label>
+												<input type="file" name="itmimg" class="form-control-file" required>
+											</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">Item Name</label>
+												<input type="text" class="form-control" name="iname" placeholder="Enter Item Name" required>
+											</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">Item Price</label>
+												<input type="number" class="form-control" name="iprice" placeholder="Enter Item price" required>
+											</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">Item categoty</label>
+												<select type="text" class="form-control" name="icat" required>
+													<?php 
+													$sql = "SELECT * FROM `menu_category`";
+													$data = $conn->query($sql);
+													while($ret = $data->fetch_assoc())
+													{
+														echo '<option>'.$ret["cat_name"].'</option>';
+													}
+													?>
+													
+												</select>
+											</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">Item Quantity</label>
+												<input type="number" class="form-control" name="iqty" placeholder="Enter Item Quantity" required>
+											</div>
+										</div>
+										<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										<button type="submit" name ="additm" class="btn btn-primary">Add item</button>
+										</div>
+									</form>
+									
+								  </div>
+								</div>
+							  </div>
+							<!-- end modal -->
+							
 						</div>
 					</div>
 				</div>

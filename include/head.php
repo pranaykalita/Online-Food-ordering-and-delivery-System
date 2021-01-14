@@ -28,6 +28,8 @@ while($row = $data1->fetch_assoc()){
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<title><?php echo TITLE ?></title>
+	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
@@ -40,4 +42,4 @@ while($row = $data1->fetch_assoc()){
 	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
 
 	
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	

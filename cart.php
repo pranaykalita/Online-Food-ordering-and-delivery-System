@@ -17,7 +17,7 @@ include('include/head.php');
 	   	{
 		   $nq = $_REQUEST['itmquantity'];
 		  
-		   echo $nq;
+		   
 			foreach($_SESSION['cart'] as $key => $value)
 			{
 

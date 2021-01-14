@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include('../include/dbcon.php');include('../include/functions.php'); ?>
 <html lang="en">
 
 <head>
@@ -168,19 +169,77 @@
 				<div class="container-fluid">
 					<!-- Page Heading -->
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+						<h1 class="h3 mb-0 text-gray-800">Category</h1>
 					</div>
-
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<button href="#" type="button" data-toggle="modal" data-target="#addcate" class="btn btn-success"><i class="fas fa-plus"></i> Add Category</button>
+					</div>
 					<!-- DataTales Example -->
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">
-								header title example
-							</h6>
-						</div>
+					<div class="card  mb-4">
+						
 
 						<div class="card-body">
 							<!-- add content here  -->
+							<!-- modal 1 add items -->
+							<div class="modal fade" id="addcate" tabindex="-1" role="dialog" aria-labelledby="addcate" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
+									  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									  </button>
+									</div>
+									<?php 
+									if(isset($_REQUEST["additm"]))
+									{	
+										// PICTURE UPLOAD
+										$file = $_FILES['cimg'];
+
+										$photo_name = $_FILES['cimg']['name'];
+										$file_type = $_FILES['cimg']['type'];
+										$file_size =$_FILES['cimg']['size'];
+										$file_tmp_loc = $_FILES['cimg']['tmp_name'];
+										$file_store_path = "../images/items/".$photo_name;
+										move_uploaded_file($file_tmp_loc,$file_store_path);
+
+										$caname = $_REQUEST["cname"];
+
+										$query = "INSERT INTO `menu_category`(`cat_name`, `cat_image`, `cat_status`) VALUES ('$caname','$photo_name', '0')";
+										echo $query;
+										$conn->query($query);
+										echo '<script>
+										swal({
+											title: "Category Added",
+											icon: "success",
+											button: "close",
+											type: "success"
+										});
+										</script>';
+										echo '<meta http-equiv="refresh" content= "0;URL=?CategoryAdded" />'; 
+									}
+									?>
+									<form action="" method="POST" enctype="multipart/form-data">
+										<div class="modal-body">
+											<div class="form-group">
+												<label for="exampleFormControlFile1">category Image</label>
+												<input type="file" name="cimg" class="form-control-file" required>
+											</div>
+											<div class="form-group">
+												<label for="exampleInputEmail1">category Name</label>
+												<input type="text" class="form-control" name="cname" placeholder="Enter category Name" required>
+											</div>
+										</div>
+										<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										<button type="submit" name ="additm" class="btn btn-primary">Add Category</button>
+										</div>
+									</form>
+									
+								  </div>
+								</div>
+							  </div>
+							<!-- end modal -->
 						</div>
 					</div>
 				</div>
