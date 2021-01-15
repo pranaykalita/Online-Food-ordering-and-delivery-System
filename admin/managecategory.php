@@ -192,7 +192,7 @@
 								</thead>
 								<tbody>
 								<?php
-								// delet item
+								// delete item
 								if(isset($_REQUEST["delete"]))
 								{
 								
