@@ -1,14 +1,17 @@
 <?php 
-include('../include/dbcon.php');
+include('include/dbcon.php');
 
 if(isset($_POST['chek_viewBtn']))
 {
-	$id = $_POST['stud_ifBtn'];
-	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+    $id = $_POST['ord_ifBtn'];
+    
+    $query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+    
 	$data = $conn->query($query);
 	$row = $data->fetch_assoc();
 
-	$array = $row["ord_items"];
+    $array = $row["ord_items"];
+    
 	$unser_itm = unserialize($array);
 	
 	foreach($unser_itm as $key => $value)
@@ -24,8 +27,4 @@ if(isset($_POST['chek_viewBtn']))
 	
 	
 }
-else{
-	echo $return =  "empty";
-}
-
 ?>

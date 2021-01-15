@@ -16,8 +16,8 @@ if(!isset($_SESSION["username"]))
 <body>
 
     <?php include('include/header.php'); ?>
-<!-- content -->
-<?php
+    <!-- content -->
+    <?php
 if(isset($_REQUEST['uupdate'])){
 
     $firstname = $_REQUEST['ufname'];
@@ -38,19 +38,19 @@ if(isset($_REQUEST['uupdate'])){
     </script>';
 }
 ?>
-<!-- home -->
-<section id="cart">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-11 col-11 mx-auto mt-5">
-                <ul class="nav " id="navtabs">
-                    <li class="nav-item"><a class="nav-link actice" data-toggle="pill" href="#order">Orders</a></li>
-                    <li class="nav-item"><a class="nav-link " data-toggle="pill"
-                    href="#account">Account</a></span></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#manageac">Manage Ac</a></li>
-                </ul>
-               
-                <?php
+    <!-- home -->
+    <section id="cart">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-11 col-11 mx-auto mt-5">
+                    <ul class="nav " id="navtabs">
+                        <li class="nav-item"><a class="nav-link actice" data-toggle="pill" href="#order">Orders</a></li>
+                        <li class="nav-item"><a class="nav-link " data-toggle="pill" href="#account">Account</a></span>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#manageac">Manage Ac</a></li>
+                    </ul>
+
+                    <?php
                 // data ac detaila
                 $sql = "SELECT * FROM `user_details` WHERE uname = '{$_SESSION["username"]}'";
                 $data = $conn->query($sql);
@@ -132,8 +132,9 @@ if(isset($_REQUEST['uupdate'])){
                                </thead>
                                <tbody class="tabledata">';
                                while($row2 = $data2->fetch_assoc()){
-                                   echo '<tr>
-                                       <td>'.$row2["ord_id"].'</td>
+                                   echo '
+                                <tr>
+                                       <td class="ord_id">'.$row2["ord_id"].'</td>
                                        <td>'.$row2["ord_date"].'</td>';
                                        echo '<td>₹ '.$row2["ord_totlprice"].'</td>';
                                        if($row2["ord_status"] == 1){
@@ -144,11 +145,11 @@ if(isset($_REQUEST['uupdate'])){
                                        }
                                        echo'
                                        <td>
-                                   <button type="submit" class="btn btn-info mr-3" id="ordnum" name="view" data-toggle="modal" data-target="#exampleModalLong" value='. $row2["ord_id"].'>
+                                   <button type="button" class="btn btn-info mr-3 view_btn" data-toggle="modal" data-target="#vieworders">
                                    <i class="fas fa-eye"></i>
                                    </button>
                                     </td>
-                                    </tr>';
+                                </tr>';
                                 }
                                 echo '</tbody>
                            </table>
@@ -185,72 +186,78 @@ if(isset($_REQUEST['uupdate'])){
                         </div>   
                         </div>
                 </div>'; 
-                    $sql3 = "SELECT * FROM `orders_all` WHERE ord_user = '{$_SESSION["username"]}'";
-                    $data3 = $conn->query($sql3);
-                    $row3 = $data3->fetch_assoc();
-                    $items = $row3["ord_items"];
-                    $unser_itm = unserialize($items);
-
-
+                  
                     // modal template   
                     ?>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">View Orders</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
+                    <div class="modal fade" id="vieworders" tabindex="-1" role="dialog"
+                        aria-labelledby="vieworders" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">View Orders</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- order id table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Qty</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="orddet">
+														
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
-                          <div class="modal-body">
-                          <!-- order id table -->
-                          <table class="table">
-                          <thead>
-                          <tr>
-                          <th>Item</th>
-                                        <th>Qty</th>
-                                        <th>Price</th>
-                                        </tr>
-                                </thead>
-                                <tbody>
-                                        
-                                        <?php
-                                        foreach($unser_itm as $key => $value)
-                                        {
-                                            echo '<tr>
-                                            <td>'.$value["Item_name"].'</td>
-                                            <td>'.$value["quantity"].'</td>
-                                            <td>'.$value["Item_price"].'</td>
-                                            </tr>';
-                                        }
-                                        ?>
-                                        
-                                </tbody>
-                            </table>  
                         </div>
-                         <div class="modal-footer">
-                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                         </div>
-                         </div>
-                      </div>
-                      </div>
-                      <?php
-                      ?>   
-              <p id="msg"></p>
+                    </div>
+                    <?php
+                      ?>
+                    <p id="msg"></p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- end contant -->
-<!-- footer common with common scripts -->
-<?php 
+    <!-- end contant -->
+    <!-- footer common with common scripts -->
+    <?php 
 include('include/footer.php');
 include('include/cmonscripts.php');
 ?>
+<script>
+$(document).ready(function(){
 
+$('.view_btn').click(function(e){
+    e.preventDefault();
+
+    var stud_id = $(this).closest("tr").find(".ord_id").text();
+
+    $.ajax({
+        type: 'POST',
+        url:'orderac.php',
+        data: {
+            'chek_viewBtn':true,
+            'ord_ifBtn': stud_id,
+        },
+        success: function(response){
+
+        $('.orddet').html(response);
+        }
+    });
+});
+});
+</script>
 
 </body>
 
