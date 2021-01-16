@@ -61,7 +61,7 @@
 				</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="managecategory.html">Manage Catagory</a>
+						<a class="collapse-item" href="managecategory.php">Manage Catagory</a>
 						<a class="collapse-item" href="category.html">View Catagory</a>
 					</div>
 				</div>
@@ -76,7 +76,7 @@
 				<div id="collapseItems" class="collapse" aria-labelledby="headingUtilities"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="manageitem.html">Manage Items </a>
+						<a class="collapse-item" href="manageitem.php">Manage Items </a>
 						<a class="collapse-item" href="items.html">View Items</a>
 					</div>
 				</div>
@@ -91,8 +91,8 @@
 				<div id="collapseOrders" class="collapse" aria-labelledby="headingUtilities"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="orders.html">View Orders </a>
-						<a class="collapse-item" href="manageorder.html">manage Orders</a>
+						<a class="collapse-item" href="orders.php">View Orders </a>
+						<a class="collapse-item" href="manageorder.php">manage Orders</a>
 					</div>
 				</div>
 			</li>
@@ -194,66 +194,65 @@
 										<th>Item Image</th>
 										<th>Item Name</th>
 										<th>Item price</th>
-										<th>available</th>
-										<th>status</th>
+										<th>category</th>
+										<th>Quantity</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 								<?php
 								// delet item
-									if(isset($_REQUEST["delete"]))
+								if(isset($_REQUEST["delete"]))
+								{
+								
+									$sqlD = "DELETE FROM `menu_items` where `menu_id` = '{$_REQUEST['id']}'";
+									$conn->query($sqlD);
+									echo '<script>
+									swal({
+										title: "Item Deleted",
+										icon: "success",
+										button: "close",
+										type: "success"
+									});
+									</script>'; 
+								}
+
+								$query = "SELECT * FROM `menu_items`";
+								$result = $conn->query($query);
+
+								while($row = $result->fetch_assoc())
+								{
+									echo '
+									<tr>
+									<td>'.$row["menu_id"].'</td>
+									<td><img src="'.menu_img.$row["menu_image"].'" alt="" border=3 height=80 width=80></img></td>
+									<td>'.$row["menu_name"].'</td>
+									<td>'.$row["menu_price"].'</td>
+									<td>'.$row["menu_category"].'</td>';
+									if($row["menu_quantity"] == 0)
 									{
+										echo '<td class="text-danger">Empty</td>';
+									}else{
+										echo '<td>'.$row["menu_quantity"].'</td>';
+									}
 									
-										$sqlD = "DELETE FROM `menu_items` where `menu_id` = '{$_REQUEST['id']}'";
-										$conn->query($sqlD);
-										// echo $sqlD;
-										// die();
-										echo '<script>
-										swal({
-											title: "Item Deleted",
-											icon: "success",
-											button: "close",
-											type: "success"
-										});
-										</script>'; 
-									}
-
-									$query = "SELECT * FROM `menu_items`";
-									$result = $conn->query($query);
-
-									while($row = $result->fetch_assoc()){
-										echo '
-										<tr>
-										<td>'.$row["menu_id"].'</td>
-										<td><img src="'.menu_img.$row["menu_image"].'" alt="" border=3 height=80 width=80></img></td>
-										<td>'.$row["menu_name"].'</td>
-										<td>'.$row["menu_price"].'</td>
-										<td>'.$row["menu_avlable"].'</td>';
-										if($row["menu_status"] == 1){
-											echo '<td class="text-success">available</td>';
-										}
-										else if($row["menu_status"] == 0){
-											echo '<td class="text-danger">Out of order</td>';
-										}
+									echo '<td>
+										<form action="" method="post" class="d-inline">
+											<input type="hidden" name="id" value='.$row["menu_id"].'>
+											<button class="btn btn-primary" type="submit" name="update">
+											<i class="fas fa-pen"></i>
+											</button>
+										</form>
 										
-										echo '<td>
-											<form action="" method="post" class="d-inline">
-												<input type="hidden" name="id" value='.$row["menu_id"].'>
-												<button class="btn btn-primary" type="submit" name="update">
-												<i class="fas fa-pen"></i>
-												</button>
-											</form>
-											
-											<form action="" method="post" class="d-inline">
-												<input type="hidden" name="id" value='.$row["menu_id"].'>
-												<button class="btn btn-danger" type="submit" name="delete">
-												<i class="fas fa-trash "></i>
-												</button>
-											</form>
-										</td>
-									</tr>';
-									}
+										<form action="" method="post" class="d-inline">
+											<input type="hidden" name="id" value='.$row["menu_id"].'>
+											<button class="btn btn-danger" type="submit" name="delete">
+											<i class="fas fa-trash "></i>
+											</button>
+										</form>
+									</td>
+								</tr>';
+								}
 								?>
 								</tbody>
 							</table>

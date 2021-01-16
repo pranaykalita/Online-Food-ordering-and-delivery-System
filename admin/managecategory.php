@@ -59,7 +59,7 @@
 				</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="managecategory.html">Manage Catagory</a>
+						<a class="collapse-item" href="managecategory.php">Manage Catagory</a>
 						<a class="collapse-item" href="category.html">View Catagory</a>
 					</div>
 				</div>
@@ -74,7 +74,7 @@
 				<div id="collapseItems" class="collapse" aria-labelledby="headingUtilities"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="manageitem.html">Manage Items </a>
+						<a class="collapse-item" href="manageitem.php">Manage Items </a>
 						<a class="collapse-item" href="items.html">View Items</a>
 					</div>
 				</div>
@@ -89,8 +89,8 @@
 				<div id="collapseOrders" class="collapse" aria-labelledby="headingUtilities"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="orders.html">View Orders </a>
-						<a class="collapse-item" href="manageorder.html">manage Orders</a>
+						<a class="collapse-item" href="orders.php">View Orders </a>
+						<a class="collapse-item" href="manageorder.php">manage Orders</a>
 					</div>
 				</div>
 			</li>
