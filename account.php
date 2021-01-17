@@ -137,11 +137,14 @@ if(isset($_REQUEST['uupdate'])){
                                        <td class="ord_id">'.$row2["ord_id"].'</td>
                                        <td>'.$row2["ord_date"].'</td>';
                                        echo '<td>₹ '.$row2["ord_totlprice"].'</td>';
-                                       if($row2["ord_status"] == 1){
-                                           echo '<td class="text-success"><i class="fas fa-check-circle"></i> Delevered</td>';
+                                       if($row2["ord_status"] == 0){
+                                           echo '<td class="text-success"><i class="fas fa-check-circle"></i> pending</td>';
                                        }else 
-                                       if ($row2["ord_status"] == 0){
-                                        echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i> pending</td>';
+                                       if ($row2["ord_status"] == 1){
+                                        echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i>On Process </td>';
+                                       }else 
+                                       if ($row2["ord_status"] == 2){
+                                        echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i> Delivered</td>';
                                        }
                                        echo'
                                        <td>
@@ -252,7 +255,7 @@ $('.view_btn').click(function(e){
         },
         success: function(response){
 
-        $('.orddet').html(response);
+        
         }
     });
 });

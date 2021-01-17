@@ -1,251 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+define("TITLE" , "Coders Cafe | ADMIN");
+include('common/header.php');
+?>
 
-<head>
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Tables</title>
-
-    <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-</head>
-
-<body id="page-top">
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                    <i class="fas fa-coffee"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Coders Cafe</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Nav Item - -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Category</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-
-                        <a class="collapse-item" href="managecategory.php">Manage Catagory</a>
-                        <a class="collapse-item" href="category.html">View Catagory</a>
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseItems"
-                    aria-expanded="true" aria-controls="collapseItems">
-                    <i class="fas fa-cookie-bite"></i>
-                    <span>Items</span>
-                </a>
-                <div id="collapseItems" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-
-                        <a class="collapse-item" href="manageitem.php">Manage Items </a>
-                        <a class="collapse-item" href="items.html">View Items</a>
-
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
-                    aria-expanded="true" aria-controls="collapseOrders">
-                    <i class="fas fa-utensils"></i>
-                    <span>Orders</span>
-                </a>
-                <div id="collapseOrders" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-
-                        <a class="collapse-item" href="orders.php">View Orders </a>
-                        <a class="collapse-item" href="manageorder.php">manage Orders</a>
-
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - -->
-            <li class="nav-item">
-                <a class="nav-link" href="users.html">
-                    <i class="fas fa-users"></i>
-                    <span>Users</span></a>
-            </li>
-            <!-- Nav Item - -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStaff"
-                    aria-expanded="true" aria-controls="collapseStaff">
-                    <i class="fas fa-utensils"></i>
-                    <span>Staff</span>
-                </a>
-                <div id="collapseStaff" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-
-                        <a class="collapse-item" href="managestaff.php">Manage Staff </a>
-                        <a class="collapse-item" href="staff.php">View Staff</a>
-
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - -->
-            <li class="nav-item">
-                <a class="nav-link" href="settings.html">
-                    <i class="fas fa-cogs"></i>
-                    <span>Settings</span></a>
-            </li>
-            <!-- Nav Item - -->
-            <li class="nav-item">
-                <a class="nav-link" href="settings.html">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                    </div>
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">header title example</h6>
-                        </div>
-
-                        <div class="card-body">
-                            <!-- add content here  -->
-                        </div>
-                    </div>
-
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">MANAGE</h1>
     </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">confirm manage</h6>
+        </div>
 
-    
+        <div class="card-body">
+            <!-- add content here  -->
+            <table class="table">
+                <thead>
+                    <th>id</th>
+                    <th>User</th>
+                    <th>Total</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                    <th>status</th>
+                    <th>action</th>
+                </thead>
+                <tbody>
+                    <?php
+                                 // approve order
+                                 if(isset($_REQUEST["approve"]))
+                                 {
+                                     $id = $_REQUEST["id"];
+ 
+                                     $sql = "UPDATE `orders_all` SET `ord_status`= '1' WHERE `ord_id` = '{$id}'";
+                                     $conn->query($sql);
+                                     echo '<script>
+                                     swal({
+                                         title: "Order Accepted",
+                                         icon: "success",
+                                         button: "close",
+                                         type: "success"
+                                     });
+                                     </script>';
+                                 }
+                                 // delivered order
+                                 if(isset($_REQUEST["delivered"]))
+                                 {
+                                     $id = $_REQUEST["id"];
+ 
+                                     $sql = "UPDATE `orders_all` SET `ord_status`= '2' WHERE `ord_id` = '{$id}'";
+                                     $conn->query($sql);
+                                     echo '<script>
+                                     swal({
+                                         title: "Order Delivered",
+                                         icon: "success",
+                                         button: "close",
+                                         type: "success"
+                                     });
+                                     </script>';
+                                 }
+                                $sql = "SELECT * FROM `orders_all` WHERE `ord_status` = '0' or `ord_status` = '1' order by `ord_id` desc";
+                                $data = $conn->query($sql);
+                                while($row = $data->fetch_assoc()){
+                                    echo '
+                                    <tr>
+                                    <td class="ord_id">'.$row["ord_id"].'</td>
+                                    <td>'.$row["ord_user"].'</td>
+                                    <td>'.$row["ord_totlprice"].'</td>
+                                    <td>'.$row["ord_date"].'</td>
+                                    <td>
+										<button type="button" class="btn btn-info mr-3  viewdetails"  data-toggle="modal" data-target="#viewdetails">
+										<i class="fas fa-eye"></i>
+										</button>
+                                    </td>';
+                                    if($row["ord_status"] == 0){
+                                        echo '<td class="text-success"><i class="fas fa-check-circle"></i>New Order</td>';
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                                    }else
+                                    if($row["ord_status"] == 1){
+                                        echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i>On Process </td>';
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                                    }
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+                                    if($row["ord_status"] == 1){
+                                        echo'
+                                        <td>
+                                            <form action="" method="post" class="d-inline">
+                                                <input type="hidden" name="id" value='.$row["ord_id"].'>
+                                                <button class="btn btn-success" type="submit" name="delivered">
+                                                <i class="fas fa-clipboard-check "></i> Delivered
+                                                </button>
+                                            </form>
+                                        </td>';
+                                    }else{
 
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+                                    echo '
+                                    <td>
+                                        <form action="" method="post" class="d-inline">
+                                            <input type="hidden" name="id" value='.$row["ord_id"].'>
+                                            <button class="btn btn-primary" type="submit" name="approve">
+                                            <i class="fas fa-hamburger "></i> Approve
+                                            </button>
+                                         </form>
+                                    </td>'; 
+                                    }
+                                }
+                               
+                                ?>
+                </tbody>
+            </table>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+            <!-- modal section  -->
+            <!-- modal view details -->
+            <div class="modal fade" id="viewdetails" tabindex="-1" role="dialog" aria-labelledby="viewdetails"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="viewdetails">Update category</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
-</body>
+                        <div class="row p-2">
+                            <div class="col">
+                                <p class="text-dark">User:</p>
+                                <p class="text-dark">Address:</p>
+                                <p class="text-dark">Total:</p>
+                                <p class="text-dark">items</p>
+                            </div>
+                            <div class="col">
+                                <p class="text-dark font-weight-bold">nova99</p>
+                                <p class="text-dark font-weight-bold">jorhat</p>
+                                <p class="text-dark font-weight-bold">5000</p>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>item</th>
+                                            <th>qty</th>
+                                            <th>price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="ordview">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-</html>
+                    </div>
+                </div>
+            </div>
+            <!-- end modal -->
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+<?php include('common/footer.php')?>

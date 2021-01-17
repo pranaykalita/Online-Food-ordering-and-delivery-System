@@ -12,6 +12,7 @@ include('include/head.php');
 </head>
 
 <body>
+	
 	<!-- manage cart -->
 	<?php
 	if(isset($_REQUEST["atcart"])){
@@ -141,10 +142,8 @@ include('include/head.php');
 						<form method="POST" action="">
 							<div class="product-grid">
 								<div class="product-image">
-									<a href="#" class="image">
-										<img class="pic-1"
-											src='.menu_img.$itm["menu_image"].'>
-									</a>
+								<img class="image"
+								src='.menu_img.$itm["menu_image"].'>
 								</div>
 								<div class="product-content">
 									
