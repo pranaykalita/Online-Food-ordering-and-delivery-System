@@ -59,7 +59,7 @@
 				</a>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="managecategory.php">Manage Catagory</a>
+						<a class="collapse-item" href="managecategory.html">Manage Catagory</a>
 						<a class="collapse-item" href="category.html">View Catagory</a>
 					</div>
 				</div>
@@ -74,7 +74,7 @@
 				<div id="collapseItems" class="collapse" aria-labelledby="headingUtilities"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="manageitem.php">Manage Items </a>
+						<a class="collapse-item" href="manageitem.html">Manage Items </a>
 						<a class="collapse-item" href="items.html">View Items</a>
 					</div>
 				</div>
@@ -89,8 +89,8 @@
 				<div id="collapseOrders" class="collapse" aria-labelledby="headingUtilities"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="orders.php">View Orders </a>
-						<a class="collapse-item" href="manageorder.php">manage Orders</a>
+						<a class="collapse-item" href="orders.html">View Orders </a>
+						<a class="collapse-item" href="manageorder.html">manage Orders</a>
 					</div>
 				</div>
 			</li>
@@ -169,73 +169,88 @@
 				<div class="container-fluid">
 					<!-- Page Heading -->
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Category</h1>
+						<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 					</div>
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<button href="#" type="button" data-toggle="modal" data-target="#addcate" class="btn btn-success"><i class="fas fa-plus"></i> Add Category</button>
+						<button href="#" type="button" data-toggle="modal" data-target="#addstaff"
+							class="btn btn-success"><i class="fas fa-plus"></i> Add Staff</button>
 					</div>
 					<!-- DataTales Example -->
-					<div class="card  mb-4">
-						
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">
+								Our Staff
+							</h6>
+						</div>
 
 						<div class="card-body">
-							<!-- add content here  -->
-							<table class="table">
-								<thead>
-									<tr>
-										<th>Id</th>
-										<th>Image</th>
-										<th>Category </th>
-										<th>status</th>
-										<th>Action</th>
-									</tr>
-								</thead>
-								<tbody>
-								<?php
+
+							<!-- Content Wrapper -->
+							<div id="content-wrapper" class="d-flex flex-column">
+
+								<!-- Main Content -->
+								<div id="content">
+
+									<!-- Begin Page Content -->
+									<div class="container-fluid">
+
+
+										<div class="card-body">
+											<div class="table-responsive">
+												<table class="table " id="dataTable" width="100%" cellspacing="0">
+													<thead>
+														<tr>
+															<th>Id</th>
+															<th>Name</th>
+															<th>email</th>
+															<th>phone</th>
+															<th>Address</th>
+															<th>Occupation</th>
+															<th>action</th>
+														</tr>
+													</thead>
+													<tbody>
+
+														<?php
 								// delete item
 								if(isset($_REQUEST["delete"]))
 								{
 								
-									$sqlD = "DELETE FROM `menu_category` where `cat_id` = '{$_REQUEST['id']}'";
+									$sqlD = "DELETE FROM `staff_tb` where `staff_id` = '{$_REQUEST['id']}'";
 									$conn->query($sqlD);
 									// echo $sqlD;
 									// die();
 									echo '<script>
 									swal({
-										title: "category Deleted",
+										title: " Deleted",
 										icon: "success",
 										button: "close",
 										type: "success"
 									});
 									</script>'; 
 								}
-									$query = "SELECT * FROM `menu_category` order by `cat_status` desc";
+									$query = "SELECT * FROM `staff_tb`";
 									$result = $conn->query($query);
 
 									while($row = $result->fetch_assoc()){
-										echo '
+									echo '
 										<tr>
-										<td>'.$row["cat_id"].'</td>
-										<td><img src="'.catg_img.$row["cat_image"].'" alt="" border=3 height=80 width=80></img></td>
-										<td>'.$row["cat_name"].'</td>';
-
-										if($row["cat_status"] == 1){
-											echo '<td class="text-success">available</td>';
-										}
-										else if($row["cat_status"] == 0){
-											echo '<td class="text-danger">Empty Items</td>';
-										}
-										
-										echo '<td>
+										<td>'.$row["staff_id"].'</td>
+										<td>'.$row["staff_name"].'</td>
+										<td>'.$row["staff_email"].'</td>
+										<td> '.$row["staff_number"].'</td> 
+										<td> '.$row["staff_address"].'</td>
+										<td> '.$row["occupation"].'</td>
+										<td>
 											<form action="" method="post" class="d-inline">
-												<input type="hidden" name="id" value='.$row["cat_id"].'>
+												<input type="hidden" name="id" value='.$row["staff_id"].'>
 												<button class="btn btn-primary" type="submit" name="update">
 												<i class="fas fa-pen"></i>
 												</button>
 											</form>
 											
 											<form action="" method="post" class="d-inline">
-												<input type="hidden" name="id" value='.$row["cat_id"].'>
+												<input type="hidden" name="id" value='.$row["staff_id"].'>
 												<button class="btn btn-danger" type="submit" name="delete">
 												<i class="fas fa-trash "></i>
 												</button>
@@ -244,113 +259,98 @@
 									</tr>';
 									}
 								?>
-								</tbody>
-							</table>
-
-							<!-- modal 1 add category -->
-							<div class="modal fade" id="addcate" tabindex="-1" role="dialog" aria-labelledby="addcate" aria-hidden="true">
-								<div class="modal-dialog" role="document">
-								  <div class="modal-content">
-									<div class="modal-header">
-									  <h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
-									  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									  </button>
+														<!-- Modal -->
+														<div class="modal fade" id="addstaff" tabindex="-1"
+															role="dialog" aria-labelledby="addstaff" aria-hidden="true">
+															<div class="modal-dialog" role="document">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title" id="addstaff">
+																			Modal title</h5>
+																		<button type="button" class="close"
+																			data-dismiss="modal" aria-label="Close">
+																			<span aria-hidden="true">&times;</span>
+																		</button>
+																	</div>
+																	<div class="modal-body">
+																		<form action="" method="post">
+																			<div class="form-group">
+																				<label for="exampleInputEmail1">Email
+																					address</label>
+																				<input type="email" class="form-control"
+																					id="exampleInputEmail1"
+																					aria-describedby="emailHelp"
+																					placeholder="Enter email">
+																				<small id="emailHelp"
+																					class="form-text text-muted">We'll
+																					never share your email with anyone
+																					else.</small>
+																			</div>
+																			<button type="submit"
+																				class="btn btn-primary">Submit</button>
+																		</form>
+																	</div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-secondary"
+																			data-dismiss="modal">Close</button>
+																		<button type="button"
+																			class="btn btn-primary">Add</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</tbody>
+												</table>
+											</div>
+										</div>
 									</div>
-									<?php 
-									if(isset($_REQUEST["additm"]))
-									{	
-										// PICTURE UPLOAD
-										$file = $_FILES['cimg'];
 
-										$photo_name = $_FILES['cimg']['name'];
-										$file_type = $_FILES['cimg']['type'];
-										$file_size =$_FILES['cimg']['size'];
-										$file_tmp_loc = $_FILES['cimg']['tmp_name'];
-										$file_store_path = "../images/items/".$photo_name;
-										move_uploaded_file($file_tmp_loc,$file_store_path);
-
-										$caname = $_REQUEST["cname"];
-
-										$query = "INSERT INTO `menu_category`(`cat_name`, `cat_image`, `cat_status`) VALUES ('$caname','$photo_name', '0')";
-										echo $query;
-										$conn->query($query);
-										echo '<script>
-										swal({
-											title: "Category Added",
-											icon: "success",
-											button: "close",
-											type: "success"
-										});
-										</script>';
-										echo '<meta http-equiv="refresh" content= "0;URL=?CategoryAdded" />'; 
-									}
-									?>
-									<form action="" method="POST" enctype="multipart/form-data">
-										<div class="modal-body">
-											<div class="form-group">
-												<label for="exampleFormControlFile1">category Image</label>
-												<input type="file" name="cimg" class="form-control-file" required>
-											</div>
-											<div class="form-group">
-												<label for="exampleInputEmail1">category Name</label>
-												<input type="text" class="form-control" name="cname" placeholder="Enter category Name" required>
-											</div>
-										</div>
-										<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										<button type="submit" name ="additm" class="btn btn-primary">Add Category</button>
-										</div>
-									</form>
-									
-								  </div>
 								</div>
-							  </div>
-							<!-- end modal -->
+								<!-- /.container-fluid -->
+							</div>
 						</div>
 					</div>
+					<!-- /.container-fluid -->
 				</div>
-				<!-- /.container-fluid -->
-			</div>
-			<!-- End of Main Content -->
+				<!-- End of Main Content -->
 
-			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2020</span>
+				<!-- Footer -->
+				<footer class="sticky-footer bg-white">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>Copyright &copy; Your Website 2020</span>
+						</div>
 					</div>
-				</div>
-			</footer>
-			<!-- End of Footer -->
+				</footer>
+				<!-- End of Footer -->
+			</div>
+			<!-- End of Content Wrapper -->
 		</div>
-		<!-- End of Content Wrapper -->
-	</div>
-	<!-- End of Page Wrapper -->
+		<!-- End of Page Wrapper -->
 
-	<!-- Scroll to Top Button-->
-	<a class="scroll-to-top rounded" href="#page-top">
-		<i class="fas fa-angle-up"></i>
-	</a>
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top">
+			<i class="fas fa-angle-up"></i>
+		</a>
 
-	
 
-	<!-- Bootstrap core JavaScript-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-	<!-- Core plugin JavaScript-->
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<!-- Bootstrap core JavaScript-->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-	<!-- Custom scripts for all pages-->
-	<script src="js/sb-admin-2.min.js"></script>
+		<!-- Core plugin JavaScript-->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-	<!-- Page level plugins -->
-	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+		<!-- Custom scripts for all pages-->
+		<script src="js/sb-admin-2.min.js"></script>
 
-	<!-- Page level custom scripts -->
-	<script src="js/demo/datatables-demo.js"></script>
+		<!-- Page level plugins -->
+		<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+		<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+		<!-- Page level custom scripts -->
+		<script src="js/demo/datatables-demo.js"></script>
 </body>
 
 </html>

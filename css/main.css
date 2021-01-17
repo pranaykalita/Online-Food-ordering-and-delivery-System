@@ -40,7 +40,7 @@
 
 html{
 	scroll-behavior: smooth;
-	cursor: url(https://cdn.custom-cursor.com/db/6392/32/coca-cola-cursor.png) , auto!important;
+	/* cursor: url(https://cdn.custom-cursor.com/db/6392/32/coca-cola-cursor.png) , auto!important; */
 	
 }
 
@@ -61,7 +61,7 @@ a {
 
 a:hover {
 	color: rgb(214, 48, 49);
-	cursor: url(https://cdn.custom-cursor.com/db/6623/32/food-and-drinks-lasagna-pointer.png) , pointer!important
+	/* cursor: url(https://cdn.custom-cursor.com/db/6623/32/food-and-drinks-lasagna-pointer.png) , pointer!important */
 
 }
 
@@ -298,7 +298,7 @@ footer .social-icon {
 -----------------------------------------*/
 
 #home:hover {
-	cursor: url(https://cdn.custom-cursor.com/db/6623/32/food-and-drinks-lasagna-pointer.png) , pointer!important
+	/* cursor: url(https://cdn.custom-cursor.com/db/6623/32/food-and-drinks-lasagna-pointer.png) , pointer!important */
 }
 
 .caption {

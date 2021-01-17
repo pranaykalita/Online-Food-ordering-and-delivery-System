@@ -111,8 +111,8 @@ include('../include/functions.php'); ?>
 				<div id="collapseStaff" class="collapse" aria-labelledby="headingUtilities"
 					data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<a class="collapse-item" href="managestaff.html">Manage Staff </a>
-						<a class="collapse-item" href="staff.html">View Staff</a>
+						<a class="collapse-item" href="managestaff.php">Manage Staff </a>
+						<a class="collapse-item" href="staff.php">View Staff</a>
 					</div>
 				</div>
 			</li>
