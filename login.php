@@ -11,8 +11,6 @@ if(isset($_POST['login']))
 
 	$sql = "SELECT `uid`, `uname`, `umail`,`upass` FROM `user_details` WHERE (`umail` = '{$username}' OR `uname`= '{$username}') AND `upass` = '{$password}'";
 	
-	// echo $sql;
-	// die();
 	$result = $conn->query($sql);
 
 	if($row = mysqli_num_rows($result) > 0)
@@ -23,9 +21,6 @@ if(isset($_POST['login']))
 		$_SESSION["username"] = $row["uname"];
 		$_SESSION["userid"] = $row["uid"];
 		$_SESSION["useremail"] = $row["umail"];
-		echo $_SESSION["useremail"];
-		echo $_SESSION["username"];
-		echo $_SESSION["userid"];
 		
 
 		header("LOCATION: account.php");

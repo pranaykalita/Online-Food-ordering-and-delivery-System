@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
 $msg = '';
-
-if(isset($_POST['login'])){
+if(isset($_POST['loginadmin']))
+{
   include('../include/dbcon.php');
 
   $uname = $_POST['aUname'];
@@ -11,17 +11,22 @@ if(isset($_POST['login'])){
   $sql = "SELECT `admin_id`,`admin_name`,`admin_email`,`admin_pass`,`admin_image`  FROM `admin_tb` WHERE  `admin_email` = '{$uname}'  AND `admin_pass` = '{$pass}'";
   $result = $conn->query($sql);
   
-  if(mysqli_num_rows($result) > 0){
-    while($row = $result->fetch_assoc()){
+  if(mysqli_num_rows($result) > 0)
+  {
+    while($row = $result->fetch_assoc())
+    {
       session_start();
       $_SESSION["adminid"] = $row['admin_id'];
       $_SESSION["adminname"] = $row['admin_name'];
+      $_SESSION["adminemail"] = $row['admin_email'];
       $_SESSION["adminprofile"] = $row['admin_image'];
 
-
       header("LOCATION: dashboard.php");
+
     }
-  }else
+
+  }
+  else
   {
     $msg = "USERNAME OR PASSWORD ARE NOT MATCHED.";
   }
@@ -69,7 +74,7 @@ if(isset($_POST['login'])){
                                 <div class="msg text-danger"><?php echo $msg; ?></div>
                                 </div>
                                 <div class="col-lg-6 login-btm login-button">
-                                    <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                                    <button type="submit" class="btn btn-outline-primary" name="loginadmin" >LOGIN</button>
                                 </div>
                             </div>
                         </form>

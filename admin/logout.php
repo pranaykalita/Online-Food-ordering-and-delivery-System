@@ -4,6 +4,6 @@ session_start();
 session_unset();
 session_destroy();
 
-header("LOCATION: /admin/login.php");
+header("LOCATION: /admin/index.php");
 
 ?>

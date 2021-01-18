@@ -3,7 +3,7 @@
 include('../include/dbcon.php');
 include('../include/functions.php'); 
 session_start();
-if(!isset($_SESSION["adminname"]))
+if(!isset($_SESSION["adminemail"]))
 {
     header("LOCATIONL: /index.php");
 }
@@ -143,8 +143,8 @@ if(!isset($_SESSION["adminname"]))
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["adminname"]; ?></span>
+                                <img class="img-profile rounded-circle" src='<?php echo  admin_img.$_SESSION["adminprofile"]; ?>' />
                             </a>
                         </li>
                     </ul>
