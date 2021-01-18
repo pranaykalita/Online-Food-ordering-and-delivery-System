@@ -41,17 +41,21 @@ include('common/header.php');
 						
 
 								// PICTURE UPLOAD
-								$file = $_FILES['proupimg'];
+								$file = $_FILES["aimg"];
 
-								$photo_name = $_FILES['proupimg']['name'];
-								$file_type = $_FILES['proupimg']['type'];
-								$file_size =$_FILES['proupimg']['size'];
-								$file_tmp_loc = $_FILES['proupimg']['tmp_name'];
+								
+								$photo_name = $_FILES['aimg']['name'];
+								$file_type = $_FILES['aimg']['type'];
+								$file_size =$_FILES['aimg']['size'];
+								$file_tmp_loc = $_FILES['aimg']['tmp_name'];
 								$file_store_path = "../images/items/".$photo_name;
+
 								move_uploaded_file($file_tmp_loc,$file_store_path);
 
 								
-								    $sql = "INSERT INTO `admin_tb`( `admin_name`,'admin_email', `admin_password`, `a_name`) VALUES ('$uname', '$email' ,'$pass')";
+								    $sql = "INSERT INTO `admin_tb`( `admin_name`, `admin_pass`, `admin_email`, `admin_image`) 
+									VALUES ('$name','$password','$email', '$photo_name')";
+									
 									$conn->query($sql);
 									echo '<script>
 										swal({
@@ -61,15 +65,15 @@ include('common/header.php');
 											type: "success"
 										});
 										</script>';
-										echo '<meta http-equiv="refresh" content= "0;URL=?updated" />';
+										// @adasd.comecho '<meta http-equiv="refresh" content= "0;URL=?updated" />';
 								
 							}
 							?>
 			<div class=" card rounded shadow mb-4 p-4">
-				<form action="" enctype="multipart/form-data">
+				<form action="" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
-						<label for="exampleFormControlFile1">Profile Photo</label>
-						<input type="file" name="proupimg" class="form-control-file">
+						<label for="image">Profile Photo</label>
+						<input type="file" name="aimg" class="form-control-file">
 					</div>
 					<div class="form-group">
 						<label for="name">Name</label>
