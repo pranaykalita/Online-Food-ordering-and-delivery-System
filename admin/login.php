@@ -19,7 +19,7 @@ if(isset($_POST['login'])){
       $_SESSION["adminprofile"] = $row['admin_image'];
 
 
-      header("LOCATION: index.php");
+      header("LOCATION: dashboard.php");
     }
   }else
   {
@@ -54,7 +54,7 @@ if(isset($_POST['login'])){
 
                 <div class="col-lg-12 login-form">
                     <div class="col-lg-12 login-form">
-                        <form>
+                        <form method="POST" action="">
                             <div class="form-group">
                                 <label class="form-control-label">USERNAME</label>
                                 <input type="text" name="aUname" class="form-control">

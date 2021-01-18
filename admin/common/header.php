@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <?php 
 include('../include/dbcon.php');
-include('../include/functions.php'); ?>
+include('../include/functions.php'); 
+session_start();
+if(!isset($_SESSION["adminname"]))
+{
+    header("LOCATIONL: /index.php");
+}
+
+?>
+
+
 <html lang="en">
 
 <head>
@@ -95,7 +104,7 @@ include('../include/functions.php'); ?>
 
             <!-- Nav Item - -->
             <li class="nav-item">
-                <a class="nav-link" href="settings.html">
+                <a class="nav-link" href="settings.php">
                     <i class="fas fa-cogs"></i>
                     <span>Settings</span></a>
             </li>
