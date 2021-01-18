@@ -33,12 +33,19 @@
 	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
 	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-	<!-- Page level custom scripts -->
-	<script src="js/demo/datatables-demo.js"></script>
+	<!-- page chartjs files -->
+	<script src="vendor/chart.js/Chart.min.js"></script>
 
-	<!-- managedataphpsql scripts -->
+	<!-- Page level data tables scripts -->
+	<script src="js/datatables.js"></script>
+
+	<!-- fetch data sql scripts -->
 	<script src="js/datafetch.js"></script>
 
-</body>
+	<!-- dashbaord graph scripts -->
+	<script src="js/revenue_graph.js"></script>
+	<script src="js/orders_process.js"></script>
+	<script src="js/demo/chart-pie-demo.js"></script>
 
+</body>
 </html>
