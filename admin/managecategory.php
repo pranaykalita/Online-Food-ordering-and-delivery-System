@@ -152,6 +152,7 @@ include('common/header.php');
 			<!-- modal 2 add category -->
 			<?php
 							if(isset($_REQUEST['updatebtn'])){
+								
 								$id = $_REQUEST['cat_id'];
 								$name = $_REQUEST['cupdatename'];
 
