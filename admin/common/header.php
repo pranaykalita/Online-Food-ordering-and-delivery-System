@@ -86,7 +86,7 @@ include('../include/functions.php'); ?>
             </li>
             <!-- Nav Item - -->
             <li class="nav-item">
-                <a class="nav-link" href="staff.php">
+                <a class="nav-link" href="managestaff.php">
                     <i class="fas fa-users"></i>
                     <span>Staff</span></a>
             </li>
