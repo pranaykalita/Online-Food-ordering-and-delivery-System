@@ -20,7 +20,8 @@ include('common/header.php');
 
 		<div class="card-body">
 			<!-- add content here  -->
-			<table class="table">
+			<div class="table-responsive">
+			<table class="table"  id="dataTable" width="100%" cellspacing="0">
 				<thead>
 					<tr>
 						<th>Id</th>
@@ -84,6 +85,7 @@ include('common/header.php');
 								?>
 				</tbody>
 			</table>
+			</div>
 
 			<!-- modal 1 add category -->
 			<?php 

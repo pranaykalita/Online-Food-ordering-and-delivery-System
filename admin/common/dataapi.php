@@ -17,16 +17,7 @@ foreach($result as $row)
 {
     $data[] = $row;
 }
-// pie
-$query2 = "SELECT `ord_status` FROM `orders_all`";
-$result2 = $conn->query($query2);
-
-$data2 = array();
-foreach($result2 as $row2)
-{
-    $data2[] = $row2;
-}
-
 print json_encode($data);
-print json_encode($data2);
+
+
 ?>

@@ -8,7 +8,7 @@ include('common/header.php');
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">MANAGE</h1>
+        <h1 class="h3 mb-0 text-gray-800">manage recent Orders</h1>
     </div>
 
     <!-- DataTales Example -->
@@ -19,7 +19,8 @@ include('common/header.php');
 
         <div class="card-body">
             <!-- add content here  -->
-            <table class="table">
+            <div class="card-body">
+            <table class="table" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <th>id</th>
                     <th>User</th>
@@ -113,7 +114,7 @@ include('common/header.php');
                                 ?>
                 </tbody>
             </table>
-
+            </div>
             <!-- modal section  -->
             <!-- modal view details -->
             <div class="modal fade" id="viewdetails" tabindex="-1" role="dialog" aria-labelledby="viewdetails"

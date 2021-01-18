@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php include('../include/dbcon.php');
+<?php 
+include('../include/dbcon.php');
 include('../include/functions.php'); ?>
 <html lang="en">
 
@@ -31,7 +32,7 @@ include('../include/functions.php'); ?>
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-coffee"></i>
                 </div>
@@ -43,7 +44,7 @@ include('../include/functions.php'); ?>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
