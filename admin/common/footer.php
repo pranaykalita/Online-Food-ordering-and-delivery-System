@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2020</span>
+						<span>Copyright &copy; Pranay kalita & Priyanshu Dutta | coderscafe 2020</span>
 					</div>
 				</div>
 			</footer>
@@ -44,8 +44,5 @@
 
 	<!-- dashbaord graph scripts -->
 	<script src="js/revenue_graph.js"></script>
-	<script src="js/orders_process.js"></script>
-	<script src="js/demo/chart-pie-demo.js"></script>
-
 </body>
 </html>
