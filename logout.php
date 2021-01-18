@@ -1,7 +1,3 @@
-<!-- if(!isset($_SESSION["username"]))
-{
-	header("LOCATION: /index.php");
-} -->
 
 <?php
 

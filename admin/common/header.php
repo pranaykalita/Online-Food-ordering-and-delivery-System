@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <?php 
+error_reporting(0);
 include('../include/dbcon.php');
-include('../include/functions.php'); 
+include('../include/functions.php');
+
 session_start();
-if(!isset($_SESSION["adminemail"]))
+
+if(isset($_SESSION["adminemail"]))
 {
     header("LOCATIONL: /index.php");
 }

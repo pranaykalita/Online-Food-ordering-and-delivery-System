@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+session_start();
 $msg = '';
 if(isset($_POST['loginadmin']))
 {

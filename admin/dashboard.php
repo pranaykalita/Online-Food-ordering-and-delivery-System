@@ -1,6 +1,13 @@
 <?php 
 define("TITLE" , "Coders Cafe | ADMIN");
 include('common/header.php');
+session_start();
+
+if(isset($_SESSION["adminemail"]))
+{
+    header("LOCATIONL: /index.php");
+}
+
 
 //  order completed
 $sql = "SELECT count(`ord_id`) FROM `orders_all` WHERE `ord_status` = '2'";
