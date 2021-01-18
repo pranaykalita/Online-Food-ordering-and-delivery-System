@@ -20,6 +20,7 @@ include('common/header.php');
         <div class="card-body">
             <!-- add content here  -->
             <div class="card-body">
+            <div class="table-responsive">
             <table class="table" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <th>id</th>
@@ -48,22 +49,7 @@ include('common/header.php');
                                      });
                                      </script>';
                                  }
-                                 // delivered order
-                                 if(isset($_REQUEST["delivered"]))
-                                 {
-                                     $id = $_REQUEST["id"];
- 
-                                     $sql = "UPDATE `orders_all` SET `ord_status`= '2' WHERE `ord_id` = '{$id}'";
-                                     $conn->query($sql);
-                                     echo '<script>
-                                     swal({
-                                         title: "Order Delivered",
-                                         icon: "success",
-                                         button: "close",
-                                         type: "success"
-                                     });
-                                     </script>';
-                                 }
+                                
                                 $sql = "SELECT * FROM `orders_all` WHERE `ord_status` = '0' or `ord_status` = '1' order by `ord_id` desc";
                                 $data = $conn->query($sql);
                                 while($row = $data->fetch_assoc()){
@@ -83,17 +69,17 @@ include('common/header.php');
 
                                     }else
                                     if($row["ord_status"] == 1){
-                                        echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i>On Process </td>';
+                                        echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i>Cooking</td>';
 
                                     }
 
                                     if($row["ord_status"] == 1){
                                         echo'
                                         <td>
-                                            <form action="" method="post" class="d-inline">
+                                            <form action="delivery.php" method="post" class="d-inline">
                                                 <input type="hidden" name="id" value='.$row["ord_id"].'>
-                                                <button class="btn btn-success" type="submit" name="delivered">
-                                                <i class="fas fa-clipboard-check "></i> Delivered
+                                                <button class="btn btn-success" type="submit" name="asigndelivery">
+                                                <i class="fas fa-clipboard-check "></i> Assign delivery
                                                 </button>
                                             </form>
                                         </td>';
@@ -114,6 +100,7 @@ include('common/header.php');
                                 ?>
                 </tbody>
             </table>
+            </div>
             </div>
             <!-- modal section  -->
             <!-- modal view details -->

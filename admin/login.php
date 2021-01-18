@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <?php
 session_start();
+if(isset($_SESSION["aemail"]))
+{
+    header("LOCATION: dashboard.php");
+}
 $msg = '';
 if(isset($_POST['loginadmin']))
 {
@@ -17,12 +21,13 @@ if(isset($_POST['loginadmin']))
     while($row = $result->fetch_assoc())
     {
       session_start();
-      $_SESSION["adminid"] = $row['admin_id'];
-      $_SESSION["adminname"] = $row['admin_name'];
-      $_SESSION["adminemail"] = $row['admin_email'];
-      $_SESSION["adminprofile"] = $row['admin_image'];
+      
+      $_SESSION["aid"] = $row['admin_id'];
+      $_SESSION["aname"] = $row['admin_name'];
+      $_SESSION["aemail"] = $row['admin_email'];
+      $_SESSION["aimg"] = $row['admin_image'];
 
-      header("LOCATION: dashboard.php");
+      header("LOCATION: index.php");
 
     }
 

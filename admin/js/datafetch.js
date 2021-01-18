@@ -1,4 +1,4 @@
-// managecategory.php
+// category.php
 $(document).ready(function(){
 
     $('.update_btn').click(function(e){
@@ -24,7 +24,7 @@ $(document).ready(function(){
     });
 });
 
-// manageitem.php
+// menu.php
 $(document).ready(function(){
 
     $('.edit_food').click(function(e){
@@ -46,13 +46,13 @@ $(document).ready(function(){
                     $('.upiprice').val(value['menu_price']);
                     $('.upicat').val(value['menu_category']);
                     $('.upiqty').val(value['menu_quantity']);
-                    console.log(response);
                 });
             }
         });
     });
 });
-// manageorder.php
+
+// neworders.php
 $(document).ready(function () {
 
     $('.viewdetails').click(function (e) {
@@ -97,3 +97,68 @@ $(document).ready(function(){
         // console.log(stud_id);
     });
 });
+
+// staff.php
+$(document).ready(function(){
+
+    $('.editemp').click(function(e){
+        e.preventDefault();
+
+        var cat_id = $(this).closest("tr").find(".stfid").text();
+
+        $.ajax({
+            type: 'POST',
+            url:'datafetch.php',
+            data: {
+                'editemp':true,
+                'empid': cat_id,
+            },
+            success: function(response){
+                $.each(response, function (key, value) { 
+                    $('#stfid').val(value['staff_id']);
+                    $('.name').val(value['staff_name']);
+                    $('.email').val(value['staff_email']);
+                    $('.tel').val(value['staff_number']);
+                    $('.addr').val(value['staff_address']);
+                    $('.oocup').val(value['occupation']);
+                });
+            }
+        });
+    });
+});
+
+// settings.php
+$(document).ready(function(){
+
+    $('.editpasswd').click(function(e){
+        e.preventDefault();
+
+        var cat_id = $(this).closest("tr").find(".admid").text();
+
+        $.ajax({
+            type: 'POST',
+            url:'datafetch.php',
+            data: {
+                'editpass':true,
+                'adminid': cat_id,
+            },
+            success: function(response){
+                $.each(response, function (key, value) { 
+                    $('#adminid').val(value['admin_id']);
+                    $('.name').val(value['admin_name']);
+                    $('.paswd').val(value['admin_pass']);
+                });
+            }
+        });
+    });
+});
+
+// show pass
+function myFunction() {
+    var x = document.getElementById("paswd");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }

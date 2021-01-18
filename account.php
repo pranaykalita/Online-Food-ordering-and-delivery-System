@@ -134,7 +134,7 @@ if(isset($_REQUEST['uupdate'])){
                                while($row2 = $data2->fetch_assoc()){
                                    echo '
                                 <tr>
-                                       <td class="ord_id">'.$row2["ord_id"].'</td>
+                                       <td class="ordnum">'.$row2["ord_id"].'</td>
                                        <td>'.$row2["ord_date"].'</td>';
                                        echo '<td>₹ '.$row2["ord_totlprice"].'</td>';
                                        if($row2["ord_status"] == 0){
@@ -144,7 +144,10 @@ if(isset($_REQUEST['uupdate'])){
                                         echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i>On Process </td>';
                                        }else 
                                        if ($row2["ord_status"] == 2){
-                                        echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i> Delivered</td>';
+                                        echo '<td class="text-info"><i class="fas fa-hourglass-half"></i>Out For Delivery</td>';
+                                       }else 
+                                       if ($row2["ord_status"] == 3){
+                                        echo '<td class="text-success"><i class="fas fa-hourglass-half"></i> Delivered</td>';
                                        }
                                        echo'
                                        <td>
@@ -244,18 +247,18 @@ $(document).ready(function(){
 $('.view_btn').click(function(e){
     e.preventDefault();
 
-    var stud_id = $(this).closest("tr").find(".ord_id").text();
+    var ordno = $(this).closest("tr").find(".ordnum").text();
 
     $.ajax({
         type: 'POST',
-        url:'orderac.php',
+        url:'/orderac.php',
         data: {
             'chek_viewBtn':true,
-            'ord_ifBtn': stud_id,
+            'ord_ifBtn': ordno,
         },
         success: function(response){
 
-        
+        $('.orddet').html(response);
         }
     });
 });

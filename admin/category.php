@@ -151,7 +151,7 @@ include('common/header.php');
 			</div>
 			<!-- end modal -->
 
-			<!-- modal 2 add category -->
+			<!-- modal 2 update category -->
 			<?php
 							if(isset($_REQUEST['updatebtn'])){
 								

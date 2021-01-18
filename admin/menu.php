@@ -26,6 +26,7 @@ include('common/header.php');
 		<div class="card-body">
 			<!-- add content here  -->
 			<div class="card-body">
+			<div class="table-responsive">
 			<table class="table" id="dataTable" width="100%" cellspacing="0">
 				<thead>
 					<tr>
@@ -92,6 +93,7 @@ include('common/header.php');
 								?>
 				</tbody>
 			</table>
+			</div>
 			</div>
 			<!-- modal 1 add items -->
 			<?php 

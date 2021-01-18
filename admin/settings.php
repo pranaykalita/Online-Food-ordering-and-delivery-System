@@ -7,7 +7,7 @@ include('common/header.php');
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+		<h1 class="h3 mb-0 text-gray-800">Admin Settings</h1>
 	</div>
 
 	<!-- DataTales Example -->
@@ -65,7 +65,7 @@ include('common/header.php');
 											type: "success"
 										});
 										</script>';
-										// @adasd.comecho '<meta http-equiv="refresh" content= "0;URL=?updated" />';
+										echo '<meta http-equiv="refresh" content= "1;URL=?updated" />';
 								
 							}
 							?>
@@ -85,9 +85,11 @@ include('common/header.php');
 					</div>
 					<div class="form-group">
 						<label for="name">Password</label>
-						<input type="text" name="pass" class="form-control" required="required">
+						<input type="password" name="pass" id="paswd" minlength="8" class="form-control"
+							required="required">
+						<input type="checkbox" onclick="myFunction()"> Show Password
 					</div>
-				
+
 					<input type="submit" name="addadmin" class="btn btn-primary" value="Add Admin">
 				</form>
 			</div>
@@ -95,9 +97,11 @@ include('common/header.php');
 			<!-- Content Row -->
 			<!-- table -->
 			<p class="text-dark card shadow p-2 font-weight-bold">Available Admins</p>
+			<div class="table-responsive">
 			<table class="table ">
 				<thead>
 					<tr>
+						<th>id</th>
 						<th>Name</th>
 						<th>email</th>
 						<th>Action</th>
@@ -105,21 +109,43 @@ include('common/header.php');
 				</thead>
 				<tbody>
 					<?php
-		
-		$sql = "SELECT * FROM admin_tb";
-		$data = $conn->query($sql);
-		while($row = $data->fetch_assoc()){
-			echo'
+				// delete admin
+				if(isset($_REQUEST["del"]))
+				{
+				
+					$sqlD = "DELETE FROM `admin_tb` where `admin_id` = '{$_REQUEST['id']}'";
+					$conn->query($sqlD);
+					
+					echo '<script>
+					swal({
+						title: "Admin Deleted",
+						icon: "success",
+						button: "close",
+						type: "success"
+					});
+					</script>'; echo '<meta http-equiv="refresh" content= "1;URL=?Deleted" />'; 
+				
+				}
+
+				$sql = "SELECT * FROM admin_tb";
+				$data = $conn->query($sql);
+				while($row = $data->fetch_assoc()){
+					echo'
 		<tr>
+			<td class="admid">'.$row["admin_id"].'</td>
 			<td>'.$row["admin_name"].'</td>
 			<td>'.$row["admin_email"].'</td>';
 
-			if(($row['default_admin'] == '1') || ($_SESSION["username"] == $row["admin_name"]) ){
-				echo '<td>Defaul/Current</td>';
+			if(($_SESSION["aid"] == $row["admin_id"]) ){
+				echo '<td>Current Admin</td>';
 			}else{
 				
 				echo ' 
 			<td>
+			<button class="btn btn-primary editpasswd" type="button" data-toggle="modal" data-target="#editpasswd">
+			<i class="fas fa-pen"></i>
+			</button>
+
 			<form action="" method="post" class="d-inline">
 			<input type="hidden" name="id" value='.$row["admin_id"].'>
 			<button class="btn btn-danger" type="submit" name="del">
@@ -127,12 +153,67 @@ include('common/header.php');
 			</button>
 			</td>';
 			}
-			echo '</tr>';
+		echo '</tr>';
 	}
 		?>
 				</tbody>
 			</table>
+		</div>
+			<!-- modal 2 update items -->
+			<?php
+							if(isset($_REQUEST['uppass']))
+							{
+									$adid =$_REQUEST["adminid"];
+									$passnew =$_REQUEST["pass"];
 
+									$sql = "UPDATE `admin_tb` SET `admin_pass`='$passnew' WHERE `admin_id` = '{$adid}'";
+									$conn->query($sql);
+									echo '<script>
+										swal({
+											title: "Pssword Updated",
+											icon: "success",
+											button: "close",
+											type: "success"
+										});
+										</script>';
+									echo '<meta http-equiv="refresh" content= "2;URL=?updated" />';
+							}
+							?>
+			<div class="modal fade" id="editpasswd" tabindex="-1" role="dialog" aria-labelledby="editpasswd"
+				aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="editpasswd">Update password</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<form action="" method="POST">
+
+							<div class="modal-body">
+								<input type="text" name="adminid" id="adminid">
+								<div class="form-group">
+									<label>Name</label>
+									<input type="text" class="form-control name" placeholder="Enter Name" readonly>
+								</div>
+								<div class="form-group">
+									<label>New Password</label>
+									<input type="password" name="pass" minlength="8" class="form-control paswd"
+										id="paswd">
+									<input type="checkbox" onclick="myFunction()"> Show Password
+								</div>
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" name="uppass" class="btn btn-primary">Update</button>
+								</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+			<!-- end modal -->
 		</div>
 		<!-- add content here -->
 	</div>
@@ -141,3 +222,4 @@ include('common/header.php');
 <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
+<?php include("common/footer.php") ?>

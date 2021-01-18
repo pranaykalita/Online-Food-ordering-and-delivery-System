@@ -1,13 +1,6 @@
 <?php 
 define("TITLE" , "Coders Cafe | ADMIN");
 include('common/header.php');
-session_start();
-
-if(isset($_SESSION["adminemail"]))
-{
-    header("LOCATIONL: /index.php");
-}
-
 
 //  order completed
 $sql = "SELECT count(`ord_id`) FROM `orders_all` WHERE `ord_status` = '2'";
@@ -172,7 +165,7 @@ $staff = $result[0];
                                     </thead>
                                     <tbody>
                                         <?php
-                                $query ="SELECT * FROM `orders_all` WHERE `ord_status` = '0' or `ord_status`= '1' ORDER BY `ord_id` desc";
+                                $query ="SELECT * FROM `orders_all` WHERE `ord_status` = '0' or `ord_status`= '1' or `ord_status`= '2'  ORDER BY `ord_id` desc";
                                 $result = $conn->query($query);
                                 while($row = $result->fetch_assoc())
                                 {
@@ -187,10 +180,22 @@ $staff = $result[0];
                                     {
                                         echo '<td class="text-success">Cooking</td>';
                                     }
-                                    echo '<td>
-                                        <a href="manageorder.php" class="btn btn-primary">VIEW</a>
-                                    </td>
-                                    </tr>';
+                                    else 
+                                    if($row["ord_status"] == 2)
+                                    {
+                                        echo '<td class="text-success">Out for Delivery</td>';
+                                    }
+                                    if($row["ord_status"] == 2)
+                                    {
+                                        echo  '<td>
+                                        <a href="delivery.php" class="btn btn-success">Confirm</a>
+                                    </td>';
+                                    }else {
+                                        echo  '<td>
+                                        <a href="neworders.php" class="btn btn-primary">View</a>
+                                    </td>';
+                                    }
+                                    echo '</tr>';
                                 }
                                 
                                 ?>

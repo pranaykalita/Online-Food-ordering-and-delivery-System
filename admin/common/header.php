@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<?php 
+<?php
+session_start();
+if(!isset($_SESSION["aemail"]))
+{
+    header("LOCATION: /");
+}
 error_reporting(0);
+
 include('../include/dbcon.php');
 include('../include/functions.php');
-
-session_start();
-
-if(isset($_SESSION["adminemail"]))
-{
-    header("LOCATIONL: /index.php");
-}
-
 ?>
 
 
@@ -66,15 +64,21 @@ if(isset($_SESSION["adminemail"]))
 
             <!-- Nav Item - -->
             <li class="nav-item">
-                <a class="nav-link" href="managecategory.php">
+                <a class="nav-link" href="category.php">
                     <i class="fas fa-list-alt"></i>
                     <span>Category</span></a>
             </li>
             <!-- Nav Item - -->
             <li class="nav-item">
-                <a class="nav-link" href="manageitem.php">
+                <a class="nav-link" href="menu.php">
                     <i class="fas fa-book-open"></i>
                     <span>Menu</span></a>
+            </li>
+            <!-- Nav Item - -->
+            <li class="nav-item">
+                <a class="nav-link" href="delivery.php">
+                    <i class="fas fa-book-open"></i>
+                    <span>delivery</span></a>
             </li>
             <!-- Nav Item - -->
             <li class="nav-item">
@@ -86,7 +90,7 @@ if(isset($_SESSION["adminemail"]))
                 <div id="collapseOrders" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="manageorder.php">manage Orders</a>
+                        <a class="collapse-item" href="neworders.php">manage Orders</a>
                         <a class="collapse-item" href="orders.php">All Orders </a>
                     </div>
                 </div>
@@ -99,7 +103,7 @@ if(isset($_SESSION["adminemail"]))
             </li>
             <!-- Nav Item - -->
             <li class="nav-item">
-                <a class="nav-link" href="managestaff.php">
+                <a class="nav-link" href="staff.php">
                     <i class="fas fa-users"></i>
                     <span>Staff</span></a>
             </li>
@@ -113,11 +117,11 @@ if(isset($_SESSION["adminemail"]))
             </li>
             <!-- Nav Item - -->
             <li class="nav-item">
-                <a class="nav-link" href="logout.php">
+                <a class="nav-link" href="/logout.php">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span></a>
             </li>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider" />
             <!-- Sidebar Toggler (Sidebar) -->
@@ -146,8 +150,8 @@ if(isset($_SESSION["adminemail"]))
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["adminname"]; ?></span>
-                                <img class="img-profile rounded-circle" src='<?php echo  admin_img.$_SESSION["adminprofile"]; ?>' />
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["aname"]; ?></span>
+                                <img class="img-profile rounded-circle" src='<?php echo  admin_img.$_SESSION["aimg"]; ?>' />
                             </a>
                         </li>
                     </ul>

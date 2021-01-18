@@ -41,6 +41,44 @@ if(isset($_POST['editmenu']))
 
 	
 }
+// edit staff  admin
+if(isset($_POST['editemp']))
+{
+	$id = $_POST['empid'];
+	$res_array = [];
+
+	$query = "SELECT * FROM `staff_tb` WHERE `staff_id` = '{$id}'";
+	$data = $conn->query($query);
+
+	if(mysqli_num_rows($data) > 0){
+		foreach($data as $row)
+		{
+			array_push($res_array, $row);
+			header('Content-type: application/json');
+			echo json_encode($res_array);
+		}
+	}
+	
+}
+// edit adminpass  admin
+if(isset($_POST['editpass']))
+{
+	$id = $_POST['adminid'];
+	$res_array = [];
+
+	$query = "SELECT * FROM `admin_tb` WHERE `admin_id` = '{$id}'";
+	$data = $conn->query($query);
+
+	if(mysqli_num_rows($data) > 0){
+		foreach($data as $row)
+		{
+			array_push($res_array, $row);
+			header('Content-type: application/json');
+			echo json_encode($res_array);
+		}
+	}
+	
+}
 
 // ord view user
 if(isset($_POST['chek_viewBtn']))
@@ -62,7 +100,6 @@ if(isset($_POST['chek_viewBtn']))
 		<td>'.$value["Item_price"].'</td>
 		</tr>';
 	}
-	
 	
 }
 

@@ -46,12 +46,17 @@ include('common/header.php');
 												}else 
 												if($row["ord_status"] == 1)
 												{
-													echo '<td><i class="fas fa-hourglass-start text-danger"></i> Pending</td>';
+													echo '<td><i class="fas fa-hourglass-start text-danger"></i>Cooking</td>';
 												}
 												else 
 												if($row["ord_status"] == 2)
 												{
-													echo '<td><i class="fas fa-hourglass-start text-danger"></i> Delevered</td>';
+													echo '<td><i class="fas fa-hourglass-start text-danger"></i>Out For Delivery</td>';
+												}
+												else 
+												if($row["ord_status"] == 3)
+												{
+													echo '<td><i class="fas fa-hourglass-start text-success"></i>Delevered</td>';
 												}
 											echo '
 												<td>
