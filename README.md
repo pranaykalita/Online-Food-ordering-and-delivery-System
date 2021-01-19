@@ -1,6 +1,6 @@
 # Coders . Cafe ![](/images/readme.gif)
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fn0v4c0r3%2Fcoderscafe_new%2F&count_bg=%23646464&title_bg=%23417CFF&icon=&icon_color=%23E7E7E7&title=Visits&edge_flat=true)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fn0v4c0r3%2Fcoderscafe%2F&count_bg=%23646464&title_bg=%23417CFF&icon=&icon_color=%23E7E7E7&title=Visits&edge_flat=true)](https://hits.seeyoufarm.com)
 
 **Languages and Tools:**
 
@@ -13,7 +13,7 @@
 
  - enable **Xampp** or any web server , enable service apache and mysql
 
-- copy all files from **coderscafe_new** to **htdocs** of server
+- copy all files from **coderscafe** to **htdocs** of server
 	- (default Location: C:/xampp/htdocs/)
 
 - open http://localhost/phpmyadmin
