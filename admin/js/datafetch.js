@@ -64,11 +64,38 @@ $(document).ready(function () {
             type: 'POST',
             url: 'datafetch.php',
             data: {
-                'viewBtn': true,
-                'order_id': ord_id,
+                'view_neworder': true,
+                'orderid': ord_id,
             },
             success: function (response) {
                 $('.ordview').html(response);
+            }
+        });
+    });
+});
+
+
+// neworders.php details
+$(document).ready(function () {
+
+    $('.viewdetails').click(function (e) {
+        e.preventDefault();
+
+        var ord_id = $(this).closest("tr").find(".ord_id").text();
+
+        $.ajax({
+            type: 'POST',
+            url: 'datafetch.php',
+            data: {
+                'view_ordr_det': true,
+                'ordno': ord_id,
+            },
+            success: function (response) {
+                $.each(response, function (key, value) { 
+                    $('.name').text(value['ord_uname']);
+                    $('.add').text(value['ord_addrs']);
+                    $('.total').text(value['ord_totlprice']);
+                });
             }
         });
     });
@@ -94,7 +121,6 @@ $(document).ready(function(){
                 $('.orddet').html(response);
             }
         });
-        // console.log(stud_id);
     });
 });
 
@@ -162,3 +188,51 @@ function myFunction() {
       x.type = "password";
     }
   }
+
+  // delevery.php details
+$(document).ready(function () {
+
+    $('.orddet').click(function (e) {
+        e.preventDefault();
+
+        var ord_id = $(this).closest("tr").find(".delordid").text();
+
+        $.ajax({
+            type: 'POST',
+            url: 'datafetch.php',
+            data: {
+                'delyvbtn': true,
+                'orddelid': ord_id,
+            },
+            success: function (response) {
+                $.each(response, function (key, value) { 
+                    $('.delname').text(value['ord_uname']);
+                    $('.deladd').text(value['ord_addrs']);
+                    $('.deltotal').text(value['ord_totlprice']);
+                });
+            }
+        });
+    });
+});
+
+// delivery.php ord_items
+$(document).ready(function () {
+
+    $('.orddet').click(function (e) {
+        e.preventDefault();
+
+        var ord_id = $(this).closest("tr").find(".delordid").text();
+
+        $.ajax({
+            type: 'POST',
+            url: 'datafetch.php',
+            data: {
+                'vorddel': true,
+                'vordid': ord_id,
+            },
+            success: function (response) {
+                $('.orditmview').html(response);
+            }
+        });
+    });
+});

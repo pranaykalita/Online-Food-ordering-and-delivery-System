@@ -138,16 +138,19 @@ if(isset($_REQUEST['uupdate'])){
                                        <td>'.$row2["ord_date"].'</td>';
                                        echo '<td>₹ '.$row2["ord_totlprice"].'</td>';
                                        if($row2["ord_status"] == 0){
-                                           echo '<td class="text-success"><i class="fas fa-check-circle"></i> pending</td>';
+                                           echo '<td class="text-warning"><i class="fas fa-utensils"></i> pending</td>';
                                        }else 
                                        if ($row2["ord_status"] == 1){
-                                        echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i>On Process </td>';
+                                        echo '<td class="text-success"><i class="fas fa-hourglass-half"></i>On Process </td>';
                                        }else 
                                        if ($row2["ord_status"] == 2){
-                                        echo '<td class="text-info"><i class="fas fa-hourglass-half"></i>Out For Delivery</td>';
+                                        echo '<td class="text-info"><i class="fas fa-motorcycle"></i>Out For Delivery</td>';
                                        }else 
                                        if ($row2["ord_status"] == 3){
-                                        echo '<td class="text-success"><i class="fas fa-hourglass-half"></i> Delivered</td>';
+                                        echo '<td class="text-success"><i class="fas fa-check-circle"></i> Delivered</td>';
+                                       }else 
+                                       if ($row2["ord_status"] == 4){
+                                        echo '<td class="text-danger"><i class="fas fa-ban"></i> Rejected</td>';
                                        }
                                        echo'
                                        <td>

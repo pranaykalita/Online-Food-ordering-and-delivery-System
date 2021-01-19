@@ -39,8 +39,6 @@ include('common/header.php');
 								
 									$sqlD = "DELETE FROM `menu_category` where `cat_id` = '{$_REQUEST['id']}'";
 									$conn->query($sqlD);
-									// echo $sqlD;
-									// die();
 									echo '<script>
 									swal({
 										title: "category Deleted",
@@ -98,13 +96,13 @@ include('common/header.php');
 										$file_type = $_FILES['cimg']['type'];
 										$file_size =$_FILES['cimg']['size'];
 										$file_tmp_loc = $_FILES['cimg']['tmp_name'];
-										$file_store_path = "../images/items/".$photo_name;
+										$file_store_path = "../images/items/category/".$photo_name;
 										move_uploaded_file($file_tmp_loc,$file_store_path);
 
 										$caname = $_REQUEST["cname"];
 
 										$query = "INSERT INTO `menu_category`(`cat_name`, `cat_image`, `cat_status`) VALUES ('$caname','$photo_name', '0')";
-										echo $query;
+										
 										$conn->query($query);
 										echo '<script>
 										swal({
@@ -114,7 +112,7 @@ include('common/header.php');
 											type: "success"
 										});
 										</script>';
-										// echo '<meta http-equiv="refresh" content= "0;URL=?CategoryAdded" />'; 
+										echo '<meta http-equiv="refresh" content= "2;URL=?CategoryAdded" />'; 
 									}
 									?>
 			<div class="modal fade" id="addcate" tabindex="-1" role="dialog" aria-labelledby="addcate"
@@ -165,7 +163,7 @@ include('common/header.php');
 								$file_type = $_FILES['cupdateimg']['type'];
 								$file_size =$_FILES['cupdateimg']['size'];
 								$file_tmp_loc = $_FILES['cupdateimg']['tmp_name'];
-								$file_store_path = "../images/items/".$photo_name;
+								$file_store_path = "../images/items/category/".$photo_name;
 								move_uploaded_file($file_tmp_loc,$file_store_path);
 
 								if($photo_name == ""){
@@ -180,7 +178,7 @@ include('common/header.php');
 											type: "success"
 										});
 										</script>';
-										echo '<meta http-equiv="refresh" content= "0;URL=?updated" />';
+										echo '<meta http-equiv="refresh" content= "2;URL=?updated" />';
 								}
 
 								if($photo_name != ""){

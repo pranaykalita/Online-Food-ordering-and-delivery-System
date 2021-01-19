@@ -55,6 +55,7 @@ include('common/header.php');
 										type: "success"
 									});
 									</script>'; 
+									echo '<meta http-equiv="refresh" content= "2;URL=?deleted" />';
 								}
 
 								$query = "SELECT * FROM `menu_items`";
@@ -127,7 +128,7 @@ include('common/header.php');
 											type: "success"
 										});
 										</script>';
-										echo '<meta http-equiv="refresh" content= "3;URL=?ItemADded" />'; 
+										echo '<meta http-equiv="refresh" content= "2;URL=?Added" />'; 
 									}
 									?>
 			<div class="modal fade" id="additem" tabindex="-1" role="dialog" aria-labelledby="additem"
@@ -218,7 +219,7 @@ include('common/header.php');
 										type: "success"
 									});
 									</script>';
-									echo '<meta http-equiv="refresh" content= "3;URL=?updated" />';
+									echo '<meta http-equiv="refresh" content= "2;URL=?updated" />';
 								}
 								else if($photo_name != "")
 								{

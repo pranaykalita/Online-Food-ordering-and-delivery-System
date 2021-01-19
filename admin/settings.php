@@ -192,16 +192,15 @@ include('common/header.php');
 						<form action="" method="POST">
 
 							<div class="modal-body">
-								<input type="text" name="adminid" id="adminid">
+								<input type="hidden" name="adminid" id="adminid">
 								<div class="form-group">
 									<label>Name</label>
 									<input type="text" class="form-control name" placeholder="Enter Name" readonly>
 								</div>
 								<div class="form-group">
 									<label>New Password</label>
-									<input type="password" name="pass" minlength="8" class="form-control paswd"
+									<input type="text" name="pass" minlength="8" class="form-control paswd"
 										id="paswd">
-									<input type="checkbox" onclick="myFunction()"> Show Password
 								</div>
 
 								<div class="modal-footer">

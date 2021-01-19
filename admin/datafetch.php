@@ -104,11 +104,12 @@ if(isset($_POST['chek_viewBtn']))
 }
 
 // view pending order admin
-if(isset($_POST['viewBtn']))
+if(isset($_POST['view_neworder']))
 {
-	$id = $_POST['order_id'];
+	$id = $_POST['orderid'];
 	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
 	$data = $conn->query($query);
+
 	$row = $data->fetch_assoc();
 
 	$array = $row["ord_items"];
@@ -124,8 +125,71 @@ if(isset($_POST['viewBtn']))
 		</tr>';
 	}
 	
+}
+
+// view pending order admin
+if(isset($_POST['view_ordr_det']))
+{
+	$id = $_POST['ordno'];
+	
+	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+
+	$data = $conn->query($query);
+
+	$res_array = [];
+
+	if(mysqli_num_rows($data) > 0){
+		foreach($data as $row)
+		{
+			array_push($res_array, $row);
+			header('Content-type: application/json');
+			echo json_encode($res_array);
+		}
+	}
 	
 }
 
-// data line chart index.php
+// view  delivery details admin
+if(isset($_POST['delyvbtn']))
+{
+	$id = $_POST['orddelid'];
+	
+	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+	$data = $conn->query($query);
 
+	$res_array = [];
+
+	if(mysqli_num_rows($data) > 0){
+		foreach($data as $row)
+		{
+			array_push($res_array, $row);
+			header('Content-type: application/json');
+			echo json_encode($res_array);
+		}
+	}
+	
+}
+
+// view  delivery details itm admin
+if(isset($_POST['vorddel']))
+{
+	$id = $_POST['vordid'];
+	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+	$data = $conn->query($query);
+
+	$row = $data->fetch_assoc();
+
+	$array = $row["ord_items"];
+	$unser_itm = unserialize($array);
+	
+	foreach($unser_itm as $key => $value)
+	{
+		echo '
+		<tr>
+		<td>'.$value["Item_name"].'</td>
+		<td>'.$value["quantity"].'</td>
+		<td>'.$value["Item_price"].'</td>
+		</tr>';
+	}
+	
+}

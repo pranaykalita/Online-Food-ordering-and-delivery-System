@@ -67,7 +67,7 @@ if(isset($_POST['loginadmin']))
                     <div class="col-lg-12 login-form">
                         <form method="POST" action="">
                             <div class="form-group">
-                                <label class="form-control-label">USERNAME</label>
+                                <label class="form-control-label">Email</label>
                                 <input type="text" name="aUname" class="form-control">
                             </div>
                             <div class="form-group">

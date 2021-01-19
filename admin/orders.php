@@ -41,22 +41,27 @@ include('common/header.php');
 												<td>'.$row["ord_totlprice"].'</td>';
 												if($row["ord_status"] == 0)
 												{
-													echo '<td><i class="fas fa-check-circle text-success"></i> New Order</td>';
+													echo '<td class="text-success"><i class="fas fa-hourglass-start "></i> New Order</td>';
 
 												}else 
 												if($row["ord_status"] == 1)
 												{
-													echo '<td><i class="fas fa-hourglass-start text-danger"></i>Cooking</td>';
+													echo '<td class="text-primary"><i class="fas fa-utensils "></i> Cooking</td>';
 												}
 												else 
 												if($row["ord_status"] == 2)
 												{
-													echo '<td><i class="fas fa-hourglass-start text-danger"></i>Out For Delivery</td>';
+													echo '<td class="text-info"><i class="fas fa-motorcycle "></i>Out For Delivery</td>';
 												}
 												else 
 												if($row["ord_status"] == 3)
 												{
-													echo '<td><i class="fas fa-hourglass-start text-success"></i>Delevered</td>';
+													echo '<td class="text-success"><i class="fas fa-check-circle "></i>Delevered</td>';
+												}
+												else 
+												if($row["ord_status"] == 4)
+												{
+													echo '<td class="text-danger"><i class="fas fa-hourglass-start"></i>Rejected</td>';
 												}
 											echo '
 												<td>

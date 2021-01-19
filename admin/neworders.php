@@ -49,6 +49,22 @@ include('common/header.php');
                                      });
                                      </script>';
                                  }
+                                   // Reject order
+                                   if(isset($_REQUEST["reject"]))
+                                   {
+                                       $id = $_REQUEST["id"];
+   
+                                       $sql = "UPDATE `orders_all` SET `ord_status`= '4' WHERE `ord_id` = '{$id}'";
+                                       $conn->query($sql);
+                                       echo '<script>
+                                       swal({
+                                           title: "Order Rejected",
+                                           icon: "error",
+                                           button: "close",
+                                           type: "error"
+                                       });
+                                       </script>';
+                                   }
                                 
                                 $sql = "SELECT * FROM `orders_all` WHERE `ord_status` = '0' or `ord_status` = '1' order by `ord_id` desc";
                                 $data = $conn->query($sql);
@@ -87,10 +103,18 @@ include('common/header.php');
 
                                     echo '
                                     <td>
+                                    
                                         <form action="" method="post" class="d-inline">
                                             <input type="hidden" name="id" value='.$row["ord_id"].'>
                                             <button class="btn btn-primary" type="submit" name="approve">
                                             <i class="fas fa-hamburger "></i> Approve
+                                            </button>
+                                         </form>
+
+                                         <form action="" method="post" class="d-inline">
+                                            <input type="hidden" name="id" value='.$row["ord_id"].'>
+                                            <button class="btn btn-danger" type="submit" name="reject">
+                                            <i class="fas fa-ban "></i> Reject
                                             </button>
                                          </form>
                                     </td>'; 
@@ -123,9 +147,9 @@ include('common/header.php');
                                 <p class="text-dark">items</p>
                             </div>
                             <div class="col">
-                                <p class="text-dark font-weight-bold">nova99</p>
-                                <p class="text-dark font-weight-bold">jorhat</p>
-                                <p class="text-dark font-weight-bold">5000</p>
+                                <p class="text-dark font-weight-bold name"></p>
+                                <p class="text-dark font-weight-bold add"></p>
+                                <p class="text-dark font-weight-bold total"></p>
                             </div>
                         </div>
                         <div class="row p-2">

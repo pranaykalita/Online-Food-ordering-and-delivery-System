@@ -4,26 +4,45 @@ include('common/header.php');
 
 if(isset($_REQUEST["asigndelivery"])){
     $ordNo = $_REQUEST["id"];
+    // copy order to delivery table
+    $sql = "SELECT * FROM `orders_all` where `ord_id` = $ordNo";
+    $conn->query($sql);
+
 }
+
 // set out for del
 if(isset($_REQUEST["assigndel"])){
-    $ordNo = $_REQUEST["ordno"];
-    $sid = $_REQUEST["delper"];
 
-    // set order status
-    $sql1 = "UPDATE `orders_all` SET `ord_status`= '2' WHERE `ord_id` = '{$ordNo}'";
-    // set del person status
-    $sql2 = "UPDATE `staff_tb` SET `del_status`= '1' WHERE `staff_id` = '{$sid}'";
-    $conn->query($sql1);
-    $conn->query($sql2);
+    $ordNo = $_REQUEST["ordno"];
+    $delname = $_REQUEST["delper"];
+
+    // set rider status
+    $update2  = "UPDATE `staff_tb` SET `del_status`= '1' WHERE `staff_name`= '{$delname}'";
+    $conn->query($update2);
+    // echo $update2;
+    // die();
+
+    // get rider details
+    $sql = "SELECT * FROM `staff_tb` WHERE `occupation` = 'Delivery' And `staff_name` = '{$delname}'";
+    $res = $conn->query($sql);
+    $row = $res->fetch_assoc();
+
+    $update  = "UPDATE `orders_all` SET `ord_status`= '2', `del_per`='{$delname}',`del_phone`='{$row['staff_number']}' WHERE `ord_id`='{$ordNo}'";
+    $conn->query($update);
+    
+
     echo '<script>
     swal({
-        title: "Out For Delivery",
+        title: "Rider Assigned",
         icon: "success",
         button: "close",
         type: "success"
     });
     </script>';
+    echo '<meta http-equiv="refresh" content= "1;URL=?updated" />';
+                            
+
+   
 }
 
 ?>
@@ -33,7 +52,7 @@ if(isset($_REQUEST["assigndel"])){
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">manage recent Orders</h1>
+        <h1 class="h3 mb-0 text-gray-800">Manage delivery</h1>
     </div>
 
     <!-- DataTales Example -->
@@ -54,7 +73,7 @@ if(isset($_REQUEST["assigndel"])){
                              $sql = "SELECT * FROM `staff_tb` WHERE `occupation` = 'Delivery' AND `del_status` = 0";
                              $data = $conn->query($sql);
                              while($row = $data->fetch_assoc()){
-                                 echo '<option class="text-success">'.$row["staff_id"].'</option>';
+                                 echo '<option class="text-success">'.$row["staff_name"].'</option>';
                              }
                             ?>
                         </select>
@@ -71,31 +90,68 @@ if(isset($_REQUEST["assigndel"])){
                     <thead>
                         <tr>
                             <th>Order id</th>
-                            <th>user Name</th>
+                            <th>ord_details</th>
                             <th>delivery Person</th>
                             <th>phone</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM `staff_tb` WHERE `occupation` = 'Delivery'";
+                        $sql = "SELECT * FROM `orders_all` WHERE `ord_status` = 2";
                         $data = $conn->query($sql);
                         while($row = $data->fetch_assoc()){
                             echo '
+                            <form action="" method="post" class="d-inline">
                             <tr>
-                                <td class="admid">'.$row["staff_id"].'</td>
-                                <td>'.$row["staff_name"].'</td>
-                                <td>'.$row["staff_email"].'</td>
-                                <td>'.$row["staff_number"].'</td>';
+                                <td class="delordid">'.$row["ord_id"].'</td>
+                                <td>
+										<button type="button" class="btn btn-info mr-3 orddet"  data-toggle="modal" data-target="#viewdetails">
+										<i class="fas fa-eye"></i>
+										</button>
+                                </td>
+                                
+                                <td><input type="hidden" name="delper" value='.$row["del_phone"].'>'.$row["del_per"].'</td>
+                                <td>'.$row["del_phone"].'</td>';
                                 if($row["del_status"] == 0){
-                                    echo '<td class="text-success">Available</td>';
+                                    echo '<td class="text-success">Out For Delivery</td>';
                                 }
-                                else
-                                if($row["del_status"] == 1){
-                                    echo '<td class="text-danger">Assigned</td>';
+                                if($row["del_status"] == 0){
+                                    echo '<td>
+                                    <input type="hidden" name="id" value='.$row["ord_id"].'>
+                                    <button class="btn btn-success" type="submit" name="cnfdel">
+                                    <i class="fas fa-clipboard-check "></i> Confirm delivery
+                                    </button>
+                                
+                                </td>';
                                 }
-                            echo '</tr>';
+                            echo '</tr>
+                            </form>';
+                            
+                            // cnf delivery
+                            if(isset($_REQUEST["cnfdel"])){
+                                $ordid = $_REQUEST["id"];
+                                $delname = $_REQUEST["delper"];
+                                
+                               
+
+                                // free rider
+                                $update  = "UPDATE `staff_tb` SET `del_status`= '0' WHERE `staff_number`= '{$delname}'";
+                                $conn->query($update);
+
+                                $sql = "UPDATE `orders_all` SET `ord_status` = '3' WHERE `ord_id` = '{$ordid}'";
+                                $conn->query($sql);
+                                echo '<script>
+                                swal({
+                                    title: "Delivered",
+                                    icon: "success",
+                                    button: "close",
+                                    type: "success"
+                                });
+                                </script>';
+                                echo '<meta http-equiv="refresh" content= "1;URL=?updated" />';
+                            }
                             
                         }
                         
@@ -103,6 +159,51 @@ if(isset($_REQUEST["assigndel"])){
                         ?>
                     </tbody>
                 </table>
+                <!-- modal view details -->
+                <div class="modal fade" id="viewdetails" tabindex="-1" role="dialog" aria-labelledby="viewdetails"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="viewdetails">Update category</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="row p-2">
+                                <div class="col">
+                                    <p class="text-dark">User:</p>
+                                    <p class="text-dark">Address:</p>
+                                    <p class="text-dark">Total:</p>
+                                    <p class="text-dark">items</p>
+                                </div>
+                                <div class="col">
+                                    <p class="text-dark font-weight-bold delname"></p>
+                                    <p class="text-dark font-weight-bold deladd"></p>
+                                    <p class="text-dark font-weight-bold deltotal"></p>
+                                </div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>item</th>
+                                                <th>qty</th>
+                                                <th>price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="orditmview">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end modal -->
             </div>
             <!-- table -->
             <p class="text-dark card shadow p-2 font-weight-bold">Available Delivery Person</p>

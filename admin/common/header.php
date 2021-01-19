@@ -77,7 +77,7 @@ include('../include/functions.php');
             <!-- Nav Item - -->
             <li class="nav-item">
                 <a class="nav-link" href="delivery.php">
-                    <i class="fas fa-book-open"></i>
+                    <i class="fas fa-motorcycle"></i>
                     <span>delivery</span></a>
             </li>
             <!-- Nav Item - -->

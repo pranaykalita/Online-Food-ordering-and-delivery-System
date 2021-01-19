@@ -6,3 +6,8 @@ initialize
 3 = delivered
 
 
+<!-- delivery -->
+
+0 = nil
+1= out for
+2=delivered

@@ -2,26 +2,27 @@
 define("TITLE" , "Coders Cafe | ADMIN");
 include('common/header.php');
 
-//  order completed
-$sql = "SELECT count(`ord_id`) FROM `orders_all` WHERE `ord_status` = '2'";
-$data= $conn->query($sql);
-$result = mysqli_fetch_row($data);
-$delevered = $result[0];
-
 // pending order
 $sql = "SELECT count(`ord_id`) FROM `orders_all` WHERE `ord_status` = '0' or `ord_status` = '1'";
 $data= $conn->query($sql);
 $result = mysqli_fetch_row($data);
 $pending_order = $result[0];
 
-// total income
-$sql = "SELECT sum(`ord_totlprice`) FROM `orders_all` WHERE `ord_status` = '2'";
+//  order delevered
+$sql = "SELECT count(`ord_id`) FROM `orders_all` WHERE `ord_status` = '3'";
 $data= $conn->query($sql);
 $result = mysqli_fetch_row($data);
-$total_earnings = $result[0];
+$delevered = $result[0];
+
+
+// total income
+$sql = "SELECT sum(`ord_totlprice`) as totalincm FROM `orders_all` WHERE `ord_status` = '3' ";
+$data= $conn->query($sql);
+$result = $data->fetch_assoc();
+$total_earnings = $result["totalincm"];
 
 // total staff
-$sql = "SELECT sum(`ord_totlprice`) FROM `orders_all` WHERE `ord_status` = '2'";
+$sql = "SELECT count(`staff_id`) FROM `staff_tb`";
 $data= $conn->query($sql);
 $result = mysqli_fetch_row($data);
 $staff = $result[0];
@@ -109,7 +110,7 @@ $staff = $result[0];
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                 Total Employees</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $staff; ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -148,7 +149,7 @@ $staff = $result[0];
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Recent Orders</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Recent Pending Orders</h6>
                 </div>
 
                 <!-- Card Body -->
@@ -165,7 +166,7 @@ $staff = $result[0];
                                     </thead>
                                     <tbody>
                                         <?php
-                                $query ="SELECT * FROM `orders_all` WHERE `ord_status` = '0' or `ord_status`= '1' or `ord_status`= '2'  ORDER BY `ord_id` desc";
+                                $query ="SELECT * FROM `orders_all` WHERE `ord_status` = '0' or `ord_status`= '1' ORDER BY `ord_id` desc";
                                 $result = $conn->query($query);
                                 while($row = $result->fetch_assoc())
                                 {
@@ -180,21 +181,8 @@ $staff = $result[0];
                                     {
                                         echo '<td class="text-success">Cooking</td>';
                                     }
-                                    else 
-                                    if($row["ord_status"] == 2)
-                                    {
-                                        echo '<td class="text-success">Out for Delivery</td>';
-                                    }
-                                    if($row["ord_status"] == 2)
-                                    {
-                                        echo  '<td>
-                                        <a href="delivery.php" class="btn btn-success">Confirm</a>
-                                    </td>';
-                                    }else {
-                                        echo  '<td>
-                                        <a href="neworders.php" class="btn btn-primary">View</a>
-                                    </td>';
-                                    }
+                                    echo  '<td><a href="neworders.php" class="btn btn-primary">View</a></td>';
+                                    
                                     echo '</tr>';
                                 }
                                 
@@ -208,7 +196,55 @@ $staff = $result[0];
             </div>
         </div>
     </div>
+    
+    <!-- delivery out of -->
+    <div class="row">
 
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Out For Delivery</h6>
+
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <th>Order id</th>
+                                <th>Delivery Person</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                                </thead>
+                                <tbody>
+                                
+                                <?php
+
+                                $sql = "SELECT * FROM `orders_all` WHERE `ord_status` = 2";
+                                $data = $conn->query($sql);
+                                while($row = $data->fetch_assoc()){
+                                    echo '
+                                    
+                                    <tr>
+                                        <td class="delordid">'.$row["ord_id"].'</td>
+                                        <td>'.$row["del_per"].'</td>
+                                        <td>'.$row["del_phone"].'</td>
+                                        <td class="text-success"><i class="fas fa-motorcycle"></i> Out For Delivery</td>
+                                        <td><a href="delivery.php" class="btn btn-success">Confirm</a> </td>
+                                    </tr>';
+                                     
+                                }
+                                ?>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- End of Main Content -->
     <?php include('common/footer.php')?>
