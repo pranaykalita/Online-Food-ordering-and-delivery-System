@@ -43,21 +43,6 @@ INSERT INTO `admin_tb` (`admin_id`, `admin_name`, `admin_pass`, `admin_email`, `
 (1, 'admin', 'admin', 'admin@admin.com', 'default.png'),
 (2, 'Priyanshu', 'priyanshu@123', 'priyanshu@gmail.com', 'adminopt.png');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `delivery`
---
-
-CREATE TABLE `delivery` (
-  `del_id` int(11) NOT NULL,
-  `del_uname` varchar(255) NOT NULL,
-  `del_add` varchar(255) NOT NULL,
-  `del_phn` int(11) NOT NULL,
-  `del_count` int(11) NOT NULL,
-  `del_status` int(11) NOT NULL,
-  `del_ordno` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -217,12 +202,6 @@ ALTER TABLE `admin_tb`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indexes for table `delivery`
---
-ALTER TABLE `delivery`
-  ADD PRIMARY KEY (`del_id`);
-
---
 -- Indexes for table `menu_category`
 --
 ALTER TABLE `menu_category`
@@ -267,12 +246,6 @@ ALTER TABLE `user_messages`
 --
 ALTER TABLE `admin_tb`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `delivery`
---
-ALTER TABLE `delivery`
-  MODIFY `del_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `menu_category`

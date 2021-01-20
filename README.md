@@ -7,7 +7,7 @@
 <a href="https://getbootstrap.com/"><img src="https://img.icons8.com/color/48/000000/bootstrap.png" alt="bootstrap"/></a><a href="https://en.wikipedia.org/wiki/HTML"><img src="https://img.icons8.com/color/48/000000/html-5.png"/></a><a href="https://en.wikipedia.org/wiki/CSS"><img src="https://img.icons8.com/color/48/000000/css3.png"/></a><a href="https://www.php.net/"><img src="https://img.icons8.com/ios-filled/50/000000/php-logo.png"/></a><a href="https://www.mysql.com/"><img src="https://img.icons8.com/color/48/000000/mysql.png"/></a><a href="https://www.chartjs.org" target="_blank"> <img src="https://www.chartjs.org/media/logo-title.svg" alt="chartjs" width="40" height="40"/> </a> 
 
 # Site Design
-![enter image description here](/images/template.png)
+![site template](/screenshots/template.png)
 
 # DATABASE SETUP
 
@@ -18,25 +18,31 @@
 
 - open http://localhost/phpmyadmin
 
-- create Database on phpmyadmin with following details[ ] DATABASE NAME: coderscafe
+- create Database on phpmyadmin with following details
+- DATABASE NAME: **Coderscafe**
+![database setup step 1](/screenshots/databse_setup1.png)
 
 - click on database name
 
 - select import
+![database setup step 2](/screenshots/databse_setup2.png)
 
-- select "coderscafe.sql" form database folder and click Go
+- select "**coderscafe.sql**" form database folder and click Go
+![database setup step 3](/screenshots/databse_setup3.png)
 
 
   # For Admin Login
-	 
- - **url**: http://localhost/admin/
+
+![admin dashboard](/screenshots/adminDashboard.png)
+
+ - **url**: http://localhost/admin/login.php
  - Default Admin Credential:
 	 - **Username**: admin@admin.com
 	 - **Password**: admin
 
   # For Site Access
   
- - http://localhost
+ - http://localhost/
 
 # Additional database status Code
 
