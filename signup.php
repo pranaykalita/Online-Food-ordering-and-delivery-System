@@ -122,7 +122,7 @@ include('include/head.php');
                 </form>
                 <p class="loginhere">
                     <p id="loginlink">Have already an account?
-                        <a href="login.html" class="loginhere-link">Login here</a>
+                        <a href="login.php" class="loginhere-link">Login here</a>
                     </p>
 
                 </p>
