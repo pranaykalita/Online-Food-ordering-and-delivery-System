@@ -59,5 +59,5 @@
 <a href="https://fb.com/pranay.nova" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg" alt="pranay.nova" height="30" width="40" /></a>  
 <a href="https://instagram.com/i__am__nova" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="i__am__nova" height="30" width="40" /></a>
 </p>  
-
+**design copyright:** Site Designed by Pranay Kalita | ©pranaykalita
 ### Your contributions Are welcome 
