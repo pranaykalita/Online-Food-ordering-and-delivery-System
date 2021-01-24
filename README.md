@@ -46,8 +46,14 @@
  
  
 # sitemaps
+
+## Home Page
+
 ![HomeSitemap](/screenshots/HomeSitemap.png)
 ![HomeFlowmap](/screenshots/HomeFlowmap.png)
+
+## Admin Page
+
 ![adminSitemap](/screenshots/adminSitemap.png)
 ![AdminFlowmap](/screenshots/adminFlowmap.png)
 # Additional database status Code
