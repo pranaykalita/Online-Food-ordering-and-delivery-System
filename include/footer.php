@@ -9,7 +9,7 @@
                             <h2><i class="fas fa-map-marker-alt"></i> Find us</h2>
                         </div>
                         <address>
-                            <p>Jorhat tarajan,<br> Assam<br>India 785001</p>
+                            <p>Jorhat<br> Assam<br>India 785001</p>
                         </address>
                     </div>
                 </div>
@@ -48,7 +48,6 @@
                     </ul>
                     <div class="copyright-text">
                         <p><br>Copyright &copy; 2021 <br>Pranay Kalita & Priyanshu Dutta
-                            <br><br>Site Design: <a rel="nofollow" href="#" target="_parent">Pranay Kalita</a></p>
                     </div>
                 </div>
             </div>
