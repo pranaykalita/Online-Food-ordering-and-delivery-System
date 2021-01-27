@@ -157,11 +157,9 @@ include('include/head.php');
 					<div class="item">
 						<div class="container">
 							<div class="caption text-center">
-								<p class="medium-color">Create your online portfolio in minutes with the professionally
-									and lovingly designed REEN website template. Customize your site with versatile and
-									easy to use features.</p>
-								<span>Pranay Kalita</span>
-								<p class="medium-text">Vitae lacinia augue urna quis</p>
+								<p class="medium-color"> Had lunch with some of my colleagues at coderscafe. The service was excellent..</p>
+								<span>Rahul Kalita</span>
+								<p class="medium-text">Jorhat</p>
 							</div>
 						</div>
 					</div>
@@ -170,11 +168,9 @@ include('include/head.php');
 					<div class="item">
 						<div class="container">
 							<div class="caption text-center">
-								<p class="medium-color">Create your online portfolio in minutes with the professionally
-									and lovingly designed REEN website template. Customize your site with versatile and
-									easy to use features.</p>
-								<span>Pranay Kalita</span>
-								<p class="medium-text">Vitae lacinia augue urna quis</p>
+								<p class="medium-color">Had dinner with girlfriend. Menu is perfect, something for everyone. Service was awesome and manager was very accommodating. Will be back definitely!.</p>
+								<span>Joshua Phillepe</span>
+								<p class="medium-text">Goa</p>
 							</div>
 						</div>
 					</div>
@@ -183,11 +179,9 @@ include('include/head.php');
 					<div class="item">
 						<div class="container">
 							<div class="caption text-center">
-								<p class="medium-color">Create your online portfolio in minutes with the professionally
-									and lovingly designed REEN website template. Customize your site with versatile and
-									easy to use features.</p>
-								<span>Pranay Kalita</span>
-								<p class="medium-text">Vitae lacinia augue urna quis</p>
+								<p class="medium-color">The food was absolutely wonderful, from preparation to presentation, very pleasing. We especially enjoyed the special drinks, the cucumber/cilantro infused vodka martini and the K&P Aquarium was great (even took photos so we could try to replicate at home)..</p>
+								<span>Barbie Dutta</span>
+								<p class="medium-text">Sibsagar</p>
 							</div>
 						</div>
 					</div>
