@@ -52,7 +52,7 @@ if(isset($_REQUEST["assigndel"])){
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Manage delivery</h1>
+        <h1 class="h3 mb-0 text-gray-800">Manage Delivery</h1>
     </div>
 
     <!-- DataTales Example -->
@@ -63,7 +63,7 @@ if(isset($_REQUEST["assigndel"])){
             <div class=" card rounded shadow mb-4 p-4">
                 <form action="" method="POST">
                     <div class="form-group">
-                        <label for="name">Ord No</label>
+                        <label for="name">Order No</label>
                         <input type="number" name="ordno" class="form-control" value="<?php echo $ordNo; ?>" readonly>
                     </div>
                     <div class="form-group">
@@ -78,7 +78,7 @@ if(isset($_REQUEST["assigndel"])){
                             ?>
                         </select>
                     </div>
-                    <input type="submit" name="assigndel" class="btn btn-primary" value="assign Delivery">
+                    <input type="submit" name="assigndel" class="btn btn-primary" value="Assign Delivery">
                 </form>
             </div>
             <!-- del table-->
@@ -90,9 +90,9 @@ if(isset($_REQUEST["assigndel"])){
                     <thead>
                         <tr>
                             <th>Order id</th>
-                            <th>ord_details</th>
-                            <th>delivery Person</th>
-                            <th>phone</th>
+                            <th>Order_details</th>
+                            <th>Delivery Person</th>
+                            <th>Phone</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -206,17 +206,17 @@ if(isset($_REQUEST["assigndel"])){
                 <!-- end modal -->
             </div>
             <!-- table -->
-            <p class="text-dark card shadow p-2 font-weight-bold">Available Delivery Person</p>
+            <p class="text-dark card shadow p-2 font-weight-bold">Available Delivery Boy</p>
 
             <div class="table-responsive">
                 <table class="table ">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>Id</th>
                             <th>Name</th>
-                            <th>email</th>
-                            <th>phone</th>
-                            <th>status</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
