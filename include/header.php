@@ -8,7 +8,7 @@ if(isset($_SESSION['cart']))
 ?>
 <section class="header">
     <nav class="navbar navbar-expand-lg text-uppercase fixed-top">
-        <a class="navbar-brand" href="/">Coders <span>.</span> Cafe</a>
+        <a class="navbar-brand" href="/">Coders  Cafe</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menus"
             aria-controls="navbar_menus" aria-expanded="true" aria-label="Toggle navigation">
             <span></span>

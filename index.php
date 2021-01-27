@@ -57,7 +57,7 @@ include('include/head.php');
 						<div class="container-fluid">
 							<div class="col-md-8 col-sm-12">
 								<h3>Eatery Cafe &amp; Restaurant</h3>
-								<h1>Our mission is to provide an unforgettable experience</h1>
+								<h1>Let the taste of our dishes , reign your taste buds</h1>
 								<a href="#menu" class="btn btn-default">Order Today</a>
 							</div>
 						</div>
@@ -70,7 +70,7 @@ include('include/head.php');
 						<div class="container-fluid">
 							<div class="col-md-8 col-sm-12">
 								<h3>Eatery Cafe &amp; Restaurant</h3>
-								<h1>Our mission is to provide an unforgettable experience</h1>
+								<h1>People who loved to eat are always the best people</h1>
 								<a href="#menu" class="btn btn-default">Order Today</a>
 							</div>
 						</div>
