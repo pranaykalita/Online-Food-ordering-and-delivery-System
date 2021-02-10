@@ -1,12 +1,23 @@
 body {
-    background: url('http://i.imgur.com/aBayW5C.png');
+    background: url('../img/adminloginbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: 'Roboto', sans-serif;
 }
 
 .login-box {
-    margin-top: 75px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     height: auto;
-    background: #1A2226;
+    /* background: #1A2226; */
+    background: rgba( 255, 255, 255, 0.40 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 3.5px );
+-webkit-backdrop-filter: blur( 3.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
     text-align: center;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -36,7 +47,7 @@ body {
 }
 
 input[type=text] {
-    background-color: #1A2226;
+    background-color: rgba(0, 0, 0, 0);
     border: none;
     border-bottom: 2px solid #0DB8DE;
     border-top: 0px;
@@ -49,7 +60,7 @@ input[type=text] {
 }
 
 input[type=password] {
-    background-color: #1A2226;
+    background-color: rgba(0, 0, 0, 0);
     border: none;
     border-bottom: 2px solid #0DB8DE;
     border-top: 0px;
@@ -87,7 +98,7 @@ label {
 
 .form-control-label {
     font-size: 10px;
-    color: #6C6C6C;
+    color: #000000;
     font-weight: bold;
     letter-spacing: 1px;
 }
