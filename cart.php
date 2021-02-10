@@ -168,7 +168,7 @@ include('include/head.php');
 										<p>₹ <span id="total_cart_amt"><span><?php echo $total; ?></span> </p>
 									</div>
 									<a type="submit" class="btn btn-primary checkoutbtn text-uppercase"
-										name="checkout" href="payment.php">Checkout</a>
+										name="checkout" href="payment.php" onclick="confrmpay()">Checkout</a>
 									<input type="hidden" name="" value="<?php echo $minval['Item_name']; ?>">
 									<input type="hidden" name="" value="<?php echo $stotal; ?>">
 								</div>
@@ -181,6 +181,26 @@ include('include/head.php');
 	</section>
 
 	<!-- end contant -->
+	<script>
+	function confrmpay(){
+		swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Poof! Your imaginary file has been deleted!", {
+      icon: "success",
+    });
+  } else {
+    swal("Your imaginary file is safe!");
+  }
+});
+	}
+	</script>
 
 	<!-- footer common with common scripts -->
 	<?php 
