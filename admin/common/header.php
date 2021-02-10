@@ -108,6 +108,11 @@ include('../include/functions.php');
                     <span>Staff</span></a>
             </li>
             <!-- Nav Item - -->
+            <li class="nav-item">
+                <a class="nav-link" href="feedback.php">
+                    <i class="fas fa-comment-alt"></i>
+                    <span>User Feedback</span></a>
+            </li>
 
             <!-- Nav Item - -->
             <li class="nav-item">
