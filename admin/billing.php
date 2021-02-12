@@ -8,14 +8,14 @@ include('common/header.php');
 <div class="container-fluid">
 	<!-- Page Heading -->
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<h1 class="h3 mb-0 text-gray-800">FeedBack</h1>
+		<h1 class="h3 mb-0 text-gray-800">Billing</h1>
 	</div>
 	
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<h6 class="m-0 font-weight-bold text-primary">
-				Customers Contact / Feedback
+				Bills and order data
 			</h6>
 		</div>
 
@@ -45,26 +45,15 @@ include('common/header.php');
 										</tr>
 									</thead>
 									<tbody>
-										<?php
-                  
-											$query = "SELECT * FROM `user_messages`";
-											$result = $conn->query($query);
-
-											while($row = $result->fetch_assoc()){
-											echo '
 												<tr>
 												<td class="stfid">'.$row["msg_id"].'</td>
 												<td>'.$row["msg_name"].'</td>
 												<td>'.$row["msg_email"].'</td>
 												<td> '.$row["msg_phone"].'</td> 
 												<td> '.$row["msg_body"].'<td>
-												</tr>';
-											}
-										?>
-
+												</tr>
 									</tbody>
 								</table>
-
 							</div>
 						</div>
 					</div>

@@ -44,6 +44,7 @@ if(!isset($_SESSION["username"]))
         {
             $umail = $_REQUEST["usermail"];
             $uname = $_REQUEST["username"];
+
             $name = $_REQUEST["bname"];
             $phone = $_REQUEST["bphn"];
             $addrs = $_REQUEST["badd"];
@@ -122,10 +123,14 @@ if(!isset($_SESSION["username"]))
                                             </div>
                                             <div class="form-group">
                                                 <p class="mode">payment Mode: <span class="text-danger">Cash</span></p>
+
+                                                <p class="text-danger"><input  type="checkbox"  required> Once the order is placed it cannot be cancelled</p>
                                             </div>
                                             <div class="form-group text-center">
                                                 <input class="btn btn-primary submit-btn px-4" name="cnforder"
                                                     type="submit" onclick="sucess()" value="Order">
+
+                                                    <a href="/" class="btn btn-success submit-btn px-4 text-white" >Go Back</a>
                                             </div>
                                         </form>
                                     </div>
@@ -194,21 +199,26 @@ if(!isset($_SESSION["username"]))
     include('include/cmonscripts.php');
     ?>
     <script>
-        $(document).ready(function () {
-            swal({
-                    title: "Are you sure to continue?",
-                    text: "Once the order is placed it cannot be cancelled ",
-                    icon: "warning",
-                    buttons: ["No!", "Place order!"],
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (!willDelete) {
-                        window.location.href = "/";
-                    }
-                });
-
+        $(document).
+        'ready',
+        function () {
+            alert("abc");
         });
+        // $(document).ready(function () {
+        //     swal({
+        //             title: "Are you sure to continue?",
+        //             text: "Once the order is placed it cannot be cancelled ",
+        //             icon: "warning",
+        //             buttons: ["No!", "Place order!"],
+        //             dangerMode: true,
+        //         })
+        //         .then((willDelete) => {
+        //             if (!willDelete) {
+        //                 window.location.href = "/";
+        //             }
+        //         });
+
+        // });
     </script>
 </body>
 

@@ -97,6 +97,12 @@ include('../include/functions.php');
             </li>
             <!-- Nav Item - -->
             <li class="nav-item">
+                <a class="nav-link" href="billing.php">
+                    <i class="fas fa-receipt"></i>
+                    <span>Billing</span></a>
+            </li>
+            <!-- Nav Item - -->
+            <li class="nav-item">
                 <a class="nav-link" href="users.php">
                     <i class="fas fa-users"></i>
                     <span>Users</span></a>
