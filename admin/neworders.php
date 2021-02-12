@@ -40,6 +40,29 @@ include('common/header.php');
  
                                      $sql = "UPDATE `orders_all` SET `ord_status`= '1' WHERE `ord_id` = '{$id}'";
                                      $conn->query($sql);
+
+
+                                    //  genrate a invoice id
+                                    $query = "SELECT `invid` from `orders_all`";
+                                    $res = $conn->query($query);
+
+                                    $rw = $res->fetch_array();
+                                    $lastid = $rw["invid"];
+
+                                    if(empty($lastid))
+                                    {
+                                        $number = "CCAFE-00000001";
+                                    }
+                                    else
+                                    {
+                                        $idd = str_replace("CCAFE-","",$lastid);
+                                        $id = str_pad($idd + 1 , 7,0, STR_PAD_LEFT);
+                                        $number = 'CCAFE-' . $id;
+                                    }
+
+                                     $sql2 = "UPDATE `orders_all` SET `invid`= '$number' WHERE `ord_id` = '{$id}'";
+                                     $conn->query($sql2);
+
                                      echo '<script>
                                      swal({
                                          title: "Order Accepted",

@@ -198,28 +198,7 @@ if(!isset($_SESSION["username"]))
     include('include/footer.php');
     include('include/cmonscripts.php');
     ?>
-    <script>
-        $(document).
-        'ready',
-        function () {
-            alert("abc");
-        });
-        // $(document).ready(function () {
-        //     swal({
-        //             title: "Are you sure to continue?",
-        //             text: "Once the order is placed it cannot be cancelled ",
-        //             icon: "warning",
-        //             buttons: ["No!", "Place order!"],
-        //             dangerMode: true,
-        //         })
-        //         .then((willDelete) => {
-        //             if (!willDelete) {
-        //                 window.location.href = "/";
-        //             }
-        //         });
 
-        // });
-    </script>
 </body>
 
 </html>
