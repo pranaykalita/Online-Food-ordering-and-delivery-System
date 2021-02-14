@@ -28,15 +28,15 @@ $result = mysqli_fetch_row($data);
 $staff = $result[0];
 
 ?>
-
+<!-- update page data by refressing every 10sec -->
+ <meta http-equiv="refresh" content="10">
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        
     </div>
 
     <!-- Content Row -->

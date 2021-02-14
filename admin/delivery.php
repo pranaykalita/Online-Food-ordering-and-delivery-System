@@ -90,7 +90,8 @@ if(isset($_REQUEST["assigndel"])){
                     <thead>
                         <tr>
                             <th>Order id</th>
-                            <th>Order_details</th>
+                            <th>Order details</th>
+                            <th>Total</th>
                             <th>Delivery Person</th>
                             <th>Phone</th>
                             <th>Status</th>
@@ -111,6 +112,7 @@ if(isset($_REQUEST["assigndel"])){
 										<i class="fas fa-eye"></i>
 										</button>
                                 </td>
+                                <td>'.$row["ord_totlprice"].'</td>
                                 
                                 <td><input type="hidden" name="delper" value='.$row["del_phone"].'>'.$row["del_per"].'</td>
                                 <td>'.$row["del_phone"].'</td>';
