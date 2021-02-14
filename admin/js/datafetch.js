@@ -108,14 +108,14 @@ $(document).ready(function(){
     $('.view_btn').click(function(e){
         e.preventDefault();
 
-        var stud_id = $(this).closest("tr").find(".ord_id").text();
+        var ord_viewid = $(this).closest("tr").find(".ord_id").text();
 
         $.ajax({
             type: 'POST',
             url:'datafetch.php',
             data: {
                 'chek_viewBtn':true,
-                'stud_ifBtn': stud_id,
+                'ord_view': ord_viewid,
             },
             success: function(response){
                 $('.orddet').html(response);
@@ -236,3 +236,4 @@ $(document).ready(function () {
         });
     });
 });
+

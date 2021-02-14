@@ -81,9 +81,10 @@ if(isset($_POST['editpass']))
 }
 
 // ord view user
+
 if(isset($_POST['chek_viewBtn']))
 {
-	$id = $_POST['stud_ifBtn'];
+	$id = $_POST['ord_view'];
 	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
 	$data = $conn->query($query);
 	$row = $data->fetch_assoc();
@@ -128,6 +129,7 @@ if(isset($_POST['view_neworder']))
 }
 
 // view pending order admin
+
 if(isset($_POST['view_ordr_det']))
 {
 	$id = $_POST['ordno'];
@@ -150,6 +152,7 @@ if(isset($_POST['view_ordr_det']))
 }
 
 // view  delivery details admin
+
 if(isset($_POST['delyvbtn']))
 {
 	$id = $_POST['orddelid'];
@@ -191,5 +194,6 @@ if(isset($_POST['vorddel']))
 		<td>'.$value["Item_price"].'</td>
 		</tr>';
 	}
-	
 }
+
+

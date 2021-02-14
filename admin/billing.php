@@ -57,6 +57,23 @@ include('common/header.php');
                                             <td >'.$row["ord_uname"].'</td>
                                             <td>'.$row["ord_totlprice"].'</td>
                                             <td >'.$row["ord_phone"].'</td>
+
+                                            <td>
+                                    
+                                                <form action="vieworders.php" method="post" class="d-inline">
+                                                    <input type="hidden" name="id" value='.$row["ord_id"].'>
+                                                    <button class="btn btn-primary" type="submit" name="view">
+                                                    <i class="fas fa-eye "></i> View
+                                                    </button>
+                                                </form>
+
+                                                <form action="printbill.php" target="_blank" method="post" class="d-inline">
+                                                    <input type="hidden" name="id" value='.$row["ord_id"].'>
+                                                    <button class="btn btn-danger" type="submit" name="Bill">
+                                                    <i class="fas fa-receipt "></i> DOWNLOAD
+                                                    </button>
+                                                </form>
+                                            </td>
                                         </tr>';
                                     }
                                     ?>

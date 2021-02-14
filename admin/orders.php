@@ -98,7 +98,6 @@ include('common/header.php');
 										</tr>
 									</thead>
 									<tbody class="orddet">
-
 									</tbody>
 								</table>
 							</div>
