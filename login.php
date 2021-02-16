@@ -6,8 +6,8 @@ if(isset($_POST['login']))
 {
 	include('include/dbcon.php');
 
-	$username = $_POST["username"];
-	$password = $_POST["password"];
+	$username = $conn->real_escape_string($_POST["username"]);
+	$password = $conn->real_escape_string($_POST["password"]);
 
 	$sql = "SELECT `uid`, `uname`, `umail`,`upass` FROM `user_details` WHERE (`umail` = '{$username}' OR `uname`= '{$username}') AND `upass` = '{$password}'";
 	

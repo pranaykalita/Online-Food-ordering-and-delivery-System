@@ -10,8 +10,8 @@ if(isset($_POST['loginadmin']))
 {
   include('../include/dbcon.php');
 
-  $uname = $_POST['aUname'];
-  $pass = $_POST['aPassword'];
+  $uname = $conn->real_escape_string($_POST['aUname']);
+  $pass = $conn->real_escape_string($_POST['aPassword']);
 
   $sql = "SELECT `admin_id`,`admin_name`,`admin_email`,`admin_pass`,`admin_image`  FROM `admin_tb` WHERE  `admin_email` = '{$uname}'  AND `admin_pass` = '{$pass}'";
   $result = $conn->query($sql);
