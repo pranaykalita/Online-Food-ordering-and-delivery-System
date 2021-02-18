@@ -29,6 +29,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     font-size: 80px;
     line-height: 100px;
     background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
