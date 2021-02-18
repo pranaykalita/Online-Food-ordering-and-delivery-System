@@ -229,6 +229,7 @@ include('include/head.php');
     <!-- end contant -->
 
     <!-- footer common with common scripts -->
+
     <?php 
     include('include/footer.php');
     include('include/cmonscripts.php');

@@ -47,7 +47,8 @@
                         <li><a href="https://github.com/n0v4c0r3/coderscafe_new/" add target="_blank">Project Source <i class="fab fa-github"></i></a></li>
                     </ul>
                     <div class="copyright-text">
-                        <p><br>Copyright &copy; 2021 <br>Pranay Kalita & Priyanshu Dutta
+                        <p><br>Copyright &copy; 2021 <br>Pranay Kalita & Priyanshu Dutta</p>
+                        <p>Login as <a href="/admin/login.php">ADMIN</a></p>
                     </div>
                 </div>
             </div>
