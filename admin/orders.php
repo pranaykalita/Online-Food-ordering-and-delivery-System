@@ -41,7 +41,7 @@ include('common/header.php');
 												<td>'.$row["ord_totlprice"].'</td>';
 												if($row["ord_status"] == 0)
 												{
-													echo '<td class="text-success"><i class="fas fa-hourglass-start "></i> New Order</td>';
+													echo '<td class="text-danger"><i class="fas fa-hourglass-start "></i> New Order</td>';
 
 												}else 
 												if($row["ord_status"] == 1)

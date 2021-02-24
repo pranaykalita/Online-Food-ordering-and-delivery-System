@@ -172,7 +172,7 @@ $staff = $result[0];
                                 {
                                     echo '
                                     <tr>
-                                    <td>1</td>
+                                    <td>'.$row["ord_id"].'</td>
                                     <td>pranay</td>';
                                     if($row["ord_status"] == 0)
                                     {

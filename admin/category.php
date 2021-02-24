@@ -37,7 +37,7 @@ include('common/header.php');
 								if(isset($_REQUEST["delete"]))
 								{
 								
-									$sqlD = "DELETE FROM `menu_category` where `cat_id` = '{$_REQUEST['id']}'";
+									$sqlD = "DELETE FROM `menu_category` where `cat_id` = '{$_REQUEST['id']}' order by `cat_id` desc";
 									$conn->query($sqlD);
 									echo '<script>
 									swal({
