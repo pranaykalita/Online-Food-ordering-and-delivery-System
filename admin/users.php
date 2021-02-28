@@ -30,7 +30,7 @@ include('common/header.php');
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM `user_details` order by `uid` desc";
+                        $sql = "SELECT * FROM `users_tb` order by `uid` desc";
                         $data=$conn->query($sql);
                         while($row = $data->fetch_assoc())
                         {

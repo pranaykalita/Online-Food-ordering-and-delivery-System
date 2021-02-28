@@ -3,29 +3,29 @@ define("TITLE" , "Coders Cafe | ADMIN");
 include('common/header.php');
 
 // pending order
-$sql = "SELECT count(`ord_id`) FROM `orders_all` WHERE `ord_status` = '0' or `ord_status` = '1'";
+$sql = "SELECT count(`ord_id`) FROM `allorders_tb` WHERE `ord_status` = '0' or `ord_status` = '1'";
 $data= $conn->query($sql);
 $result = mysqli_fetch_row($data);
 $pending_order = $result[0];
 
 //  order delevered
-$sql = "SELECT count(`ord_id`) FROM `orders_all` WHERE `ord_status` = '3'";
+$sql = "SELECT count(`ord_id`) FROM `allorders_tb` WHERE `ord_status` = '3'";
 $data= $conn->query($sql);
 $result = mysqli_fetch_row($data);
 $delevered = $result[0];
 
 
 // total income
-$sql = "SELECT sum(`ord_totlprice`) as totalincm FROM `orders_all` WHERE `ord_status` = '3' ";
+$sql = "SELECT sum(`ord_totlprice`) as totalincm FROM `allorders_tb` WHERE `ord_status` = '3' ";
 $data= $conn->query($sql);
 $result = $data->fetch_assoc();
 $total_earnings = $result["totalincm"];
 
-// total staff
-$sql = "SELECT count(`staff_id`) FROM `staff_tb`";
+// total delivert
+$sql = "SELECT count(`id`) FROM `delivery_tb` WHERE `del_status` = 0";
 $data= $conn->query($sql);
 $result = mysqli_fetch_row($data);
-$staff = $result[0];
+$delavl = $result[0];
 
 ?>
 <!-- update page data by refressing every 10sec -->
@@ -109,8 +109,8 @@ $staff = $result[0];
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Total Employees</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $staff; ?></div>
+                                Available Delivery Rider</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $delavl; ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -166,7 +166,7 @@ $staff = $result[0];
                                     </thead>
                                     <tbody>
                                         <?php
-                                $query ="SELECT * FROM `orders_all` WHERE `ord_status` = '0' or `ord_status`= '1' ORDER BY `ord_id` desc";
+                                $query ="SELECT * FROM `allorders_tb` WHERE `ord_status` = '0' or `ord_status`= '1' ORDER BY `ord_id` desc";
                                 $result = $conn->query($query);
                                 while($row = $result->fetch_assoc())
                                 {
@@ -223,7 +223,7 @@ $staff = $result[0];
                                 
                                 <?php
 
-                                $sql = "SELECT * FROM `orders_all` WHERE `ord_status` = 2";
+                                $sql = "SELECT * FROM `allorders_tb` WHERE `ord_status` = 2";
                                 $data = $conn->query($sql);
                                 while($row = $data->fetch_assoc()){
                                     echo '

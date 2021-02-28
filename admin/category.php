@@ -37,7 +37,7 @@ include('common/header.php');
 								if(isset($_REQUEST["delete"]))
 								{
 								
-									$sqlD = "DELETE FROM `menu_category` where `cat_id` = '{$_REQUEST['id']}' order by `cat_id` desc";
+									$sqlD = "DELETE FROM `menucategory_tb` where `cat_id` = '{$_REQUEST['id']}' order by `cat_id` desc";
 									$conn->query($sqlD);
 									echo '<script>
 									swal({
@@ -48,7 +48,7 @@ include('common/header.php');
 									});
 									</script>'; 
 								}
-									$query = "SELECT * FROM `menu_category` order by `cat_status` desc";
+									$query = "SELECT * FROM `menucategory_tb` order by `cat_status` desc";
 									$result = $conn->query($query);
 
 									while($row = $result->fetch_assoc()){
@@ -101,7 +101,7 @@ include('common/header.php');
 
 										$caname = $_REQUEST["cname"];
 
-										$query = "INSERT INTO `menu_category`(`cat_name`, `cat_image`, `cat_status`) VALUES ('$caname','$photo_name', '0')";
+										$query = "INSERT INTO `menucategory_tb`(`cat_name`, `cat_image`, `cat_status`) VALUES ('$caname','$photo_name', '0')";
 										
 										$conn->query($query);
 										echo '<script>
@@ -168,7 +168,7 @@ include('common/header.php');
 
 								if($photo_name == ""){
 									// update only name
-									$sql = "UPDATE `menu_category` SET `cat_name`='$name' WHERE `cat_id`='$id'";
+									$sql = "UPDATE `menucategory_tb` SET `cat_name`='$name' WHERE `cat_id`='$id'";
 									$conn->query($sql);
 									echo '<script>
 										swal({
@@ -183,7 +183,7 @@ include('common/header.php');
 
 								if($photo_name != ""){
 									// update only name
-									$sql = "UPDATE `menu_category` SET `cat_name`='$name', `cat_image` = '$photo_name' WHERE `cat_id`='$id'";
+									$sql = "UPDATE `menucategory_tb` SET `cat_name`='$name', `cat_image` = '$photo_name' WHERE `cat_id`='$id'";
 									$conn->query($sql);
 									echo '<script>
 										swal({

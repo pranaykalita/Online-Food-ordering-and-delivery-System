@@ -5,7 +5,7 @@ include('common/header.php');
 if(isset($_POST["view"]))
 {
     $ordid = $_REQUEST["id"];
-    $query = "SELECT * From `orders_all` WHERE `ord_id` = '{$ordid}'";
+    $query = "SELECT * From `allorders_tb` WHERE `ord_id` = '{$ordid}'";
     $result = $conn->query($query);
     $row = $result->fetch_assoc();
 }
@@ -44,18 +44,7 @@ if(isset($_POST["view"]))
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">userName</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <?php echo $row["ord_uname"]; ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Buyer Name</h6>
+                                    <h6 class="mb-0">Order By</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <?php echo $row["ord_user"]; ?>

@@ -3,19 +3,19 @@ error_reporting(0);
 session_start();
 include('include/dbcon.php');
 include('include/functions.php');
-$sql1 = "SELECT `cat_name` FROM `menu_category`";
+$sql1 = "SELECT `cat_name` FROM `menucategory_tb`";
 $data1 = $conn->query($sql1);
 while($row = $data1->fetch_assoc()){
 
-	$sql = "SELECT * FROM `menu_items` WHERE `menu_category` = '{$row["cat_name"]}'";
+	$sql = "SELECT * FROM `menuitems_tb` WHERE `menu_category` = '{$row["cat_name"]}'";
 	$data = $conn->query($sql);
 	$ne = mysqli_num_rows($data);
 	if( $ne > 0){
-		$sq = "UPDATE `menu_category` SET `cat_status`= '1' WHERE `cat_name` = '{$row["cat_name"]}'";
+		$sq = "UPDATE `menucategory_tb` SET `cat_status`= '1' WHERE `cat_name` = '{$row["cat_name"]}'";
 		$conn->query($sq);
 	}else if($ne = 1)
 	{
-		$sq = "UPDATE `menu_category` SET `cat_status`= '0' WHERE `cat_name` = '{$row["cat_name"]}'";
+		$sq = "UPDATE `menucategory_tb` SET `cat_status`= '0' WHERE `cat_name` = '{$row["cat_name"]}'";
 		$conn->query($sq);
 	}
 }

@@ -164,7 +164,6 @@ include('common/header.php');
 														<input type="text" name="ocup" class="form-control" list="occu">
 														<datalist id="occu">
 															<option>Cook</option>
-															<option>Delivery</option>
 															<option>Staff</option>
 															<option>Manager</option>
 														</datalist>
@@ -181,6 +180,7 @@ include('common/header.php');
 									</div>
 								</div>
 								<!-- end modal -->
+								
 								<!-- modal 2 update items -->
 								<?php
 							if(isset($_REQUEST['updempy']))

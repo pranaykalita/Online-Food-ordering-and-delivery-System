@@ -47,7 +47,7 @@ include('common/header.php');
 									<tbody>
 										<?php
                   
-											$query = "SELECT * FROM `user_messages`";
+											$query = "SELECT * FROM `feedback_tb`";
 											$result = $conn->query($query);
 
 											while($row = $result->fetch_assoc()){

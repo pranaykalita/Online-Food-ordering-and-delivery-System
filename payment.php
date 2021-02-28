@@ -11,6 +11,10 @@ if(!isset($_SESSION["username"]))
 {
 	header("LOCATION: /login.php");
 }
+// get users details
+$sql = "SELECT * FROM `users_tb` WHERE `uid` = '{$_SESSION["userid"]}'";
+$data=  $conn->query($sql);
+$userr = $data->fetch_assoc();
 ?>
 
 <!-- include custom stylesheet -->
@@ -42,10 +46,10 @@ if(!isset($_SESSION["username"]))
         }
         else
         {
-            $umail = $_REQUEST["usermail"];
             $uname = $_REQUEST["username"];
+            $umail = $_REQUEST["usermail"];
+            $acid = $_SESSION["userid"];
 
-            $name = $_REQUEST["bname"];
             $phone = $_REQUEST["bphn"];
             $addrs = $_REQUEST["badd"];
             $landmrk = $_REQUEST["bland"];
@@ -57,8 +61,8 @@ if(!isset($_SESSION["username"]))
             }
             $serializeItm = serialize($items);
 
-            $sql = "INSERT INTO `orders_all`(`ord_items`, `ord_totlprice`, `ord_uname`, `ord_user`, `ord_phone`, `ord_email`, `ord_addrs`, `ord_lmark`, `ord_date`, `ord_time`, `ord_status`) 
-                    VALUES ('$serializeItm' , '$total' , '$name' ,'$uname' ,'$phone' ,'$umail' ,'$addrs' ,'$landmrk' ,'$date' ,'$time' ,'0')";
+            $sql = "INSERT INTO `allorders_tb`(`ord_items`, `ord_totlprice`,`ord_acid`, `ord_user`, `ord_phone`, `ord_email`, `ord_addrs`, `ord_lmark`, `ord_date`, `ord_time`, `ord_status`) 
+                    VALUES ('$serializeItm' , '$total' ,'$acid','$uname' ,'$phone' ,'$umail' ,'$addrs' ,'$landmrk' ,'$date' ,'$time' ,'0')";
             $conn->query($sql);
             unset($_SESSION["cart"]);
             echo '<script>
@@ -97,15 +101,11 @@ if(!isset($_SESSION["username"]))
                                         <form method="POST" action="">
                                             <div class="form-group">
                                                 <input type="text" class="form-control name" name="username"
-                                                    value="<?php echo $_SESSION["username"]; ?>" readonly>
+                                                    value="<?php echo $userr["Fname"] ." ". $userr["Lname"]; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control name" name="usermail"
                                                     value="<?php echo  $_SESSION["useremail"]; ?>" readonly>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control name" name="bname"
-                                                    placeholder="Your Name" required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="tel" class="form-control name" name="bphn"

@@ -9,7 +9,7 @@ $dbname = "coderscafe";
 $conn = new mysqli($servername,$Server_username,$password,$dbname);
 
 
-$query = "SELECT sum(ord_totlprice) as totalrevnue, MONTHNAME(ord_date) as month  FROM `orders_all` WHERE `ord_status`= '3' group by month(ord_date)";
+$query = "SELECT sum(ord_totlprice) as totalrevnue, MONTHNAME(ord_date) as month  FROM `allorders_tb` WHERE `ord_status`= '3' group by month(ord_date)";
 $result = $conn->query($query);
 
 $data = array();

@@ -100,7 +100,7 @@ include('include/head.php');
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 						
 						<?php
-						$cat_sql = "SELECT * FROM `menu_category` WHERE cat_status = '1'";
+						$cat_sql = "SELECT * FROM `menucategory_tb` WHERE cat_status = '1'";
 						$data_ret = $conn->query($cat_sql);
 						while($row_ret = $data_ret->fetch_assoc()){
 							echo '<a class="dropdown-item" href='."#".$row_ret["cat_name"].'>'.$row_ret["cat_name"].'</a>';
@@ -118,7 +118,7 @@ include('include/head.php');
 		<div class="container">
 
 			<?php
-			$sql = "SELECT * FROM `menu_category` WHERE `cat_status` = '1'";
+			$sql = "SELECT * FROM `menucategory_tb` WHERE `cat_status` = '1'";
 			$data = $conn->query($sql);
 			
 			while($row = $data->fetch_assoc()){
@@ -133,7 +133,7 @@ include('include/head.php');
 
 					<!-- loop item-->
 					<div class="row" >';
-				$sql2 = "SELECT * FROM `menu_items` where menu_category = '{$row["cat_name"]}' And menu_status = '1'";
+				$sql2 = "SELECT * FROM `menuitems_tb` where menu_category = '{$row["cat_name"]}' And menu_status = '1'";
 				$data2 = $conn->query($sql2);
 				while($itm = $data2->fetch_assoc()){
 					echo '

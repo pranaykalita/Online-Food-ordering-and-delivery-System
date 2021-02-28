@@ -38,12 +38,12 @@ include('common/header.php');
                                  {
                                      $id = $_REQUEST["id"];
  
-                                     $sql = "UPDATE `orders_all` SET `ord_status`= '1' WHERE `ord_id` = '{$id}'";
+                                     $sql = "UPDATE `allorders_tb` SET `ord_status`= '1' WHERE `ord_id` = '{$id}'";
                                      $conn->query($sql);
 
 
                                     //  genrate a invoice id
-                                    $query = "SELECT `invid` from `orders_all`";
+                                    $query = "SELECT `invid` from `allorders_tb`";
                                     $res = $conn->query($query);
 
                                     $rw = $res->fetch_array();
@@ -60,7 +60,7 @@ include('common/header.php');
                                         $number = 'CCAFE-' . $id;
                                     }
 
-                                     $sql2 = "UPDATE `orders_all` SET `invid`= '$number' WHERE `ord_id` = '{$id}'";
+                                     $sql2 = "UPDATE `allorders_tb` SET `invid`= '$number' WHERE `ord_id` = '{$id}'";
                                      $conn->query($sql2);
 
                                      echo '<script>
@@ -77,7 +77,7 @@ include('common/header.php');
                                    {
                                        $id = $_REQUEST["id"];
    
-                                       $sql = "UPDATE `orders_all` SET `ord_status`= '4' WHERE `ord_id` = '{$id}'";
+                                       $sql = "UPDATE `allorders_tb` SET `ord_status`= '4' WHERE `ord_id` = '{$id}'";
                                        $conn->query($sql);
                                        echo '<script>
                                        swal({
@@ -89,7 +89,7 @@ include('common/header.php');
                                        </script>';
                                    }
                                 
-                                $sql = "SELECT * FROM `orders_all` WHERE `ord_status` = '0' or `ord_status` = '1' order by `ord_id` desc";
+                                $sql = "SELECT * FROM `allorders_tb` WHERE `ord_status` = '0' or `ord_status` = '1' order by `ord_id` desc";
                                 $data = $conn->query($sql);
                                 while($row = $data->fetch_assoc()){
                                     echo '

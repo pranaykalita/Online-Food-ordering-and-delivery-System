@@ -23,13 +23,14 @@ include('common/header.php');
 							<th>Buyer</th>
 							<th>Total</th>
 							<th>Status</th>
+							<th>Delivered BY</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php
 
-										$query = "SELECT * FROM `orders_all` order by `ord_id` desc";
+										$query = "SELECT * FROM `allorders_tb` order by `ord_id` desc";
 										$data = $conn->query($query);
 										while($row = $data->fetch_assoc())
 										{
@@ -64,6 +65,7 @@ include('common/header.php');
 													echo '<td class="text-danger"><i class="fas fa-hourglass-start"></i>Rejected</td>';
 												}
 											echo '
+											<td>'.$row["del_per"].'</td>
 												<td>
 												<button type="button" class="btn btn-info mr-3 get_id view_btn"  data-toggle="modal" data-target="#orddetail">
 												<i class="fas fa-eye"></i>
@@ -89,6 +91,8 @@ include('common/header.php');
 							</div>
 							<div class="modal-body">
 								<!-- order id table -->
+								
+
 								<table class="table">
 									<thead>
 										<tr>

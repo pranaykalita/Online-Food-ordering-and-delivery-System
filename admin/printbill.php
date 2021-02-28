@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Calcutta");
 if(isset($_POST["Bill"]))
 {
     $ordid = $_REQUEST["id"];
-    $query = "SELECT * From `orders_all` WHERE `ord_id` = '{$ordid}'";
+    $query = "SELECT * From `allorders_tb` WHERE `ord_id` = '{$ordid}'";
     $result = $conn->query($query);
     $row = $result->fetch_assoc();
 }
@@ -94,7 +94,7 @@ if(isset($_POST["Bill"]))
                         <div class="col-sm-6 text-right">
                             <span>User Account</span>
                             <strong>
-                                <?php echo $row["ord_uname"]; ?>
+                                <?php echo $row["ord_user"]; ?>
                             </strong>
 
                         </div>

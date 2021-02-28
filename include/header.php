@@ -30,7 +30,7 @@ if(isset($_SESSION['cart']))
 
                         <a class="dropdown-item" href="index.php#menu">View Menu</a>
                         <?php
-                        $cts = "SELECT * FROM `menu_category` WHERE `cat_status` = '1'";
+                        $cts = "SELECT * FROM `menucategory_tb` WHERE `cat_status` = '1'";
                         $data = $conn->query($cts);
                         while($row = $data->fetch_assoc()){
                             ?>

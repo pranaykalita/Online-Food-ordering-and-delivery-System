@@ -92,7 +92,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $.each(response, function (key, value) { 
-                    $('.name').text(value['ord_uname']);
+                    $('.name').text(value['ord_user']);
                     $('.add').text(value['ord_addrs']);
                     $('.total').text(value['ord_totlprice']);
                 });
@@ -206,7 +206,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $.each(response, function (key, value) { 
-                    $('.delname').text(value['ord_uname']);
+                    $('.delname').text(value['ord_user']);
                     $('.deladd').text(value['ord_addrs']);
                     $('.deltotal').text(value['ord_totlprice']);
                 });

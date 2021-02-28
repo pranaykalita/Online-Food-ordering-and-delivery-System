@@ -26,7 +26,7 @@ if(isset($_REQUEST['uupdate'])){
     $addrs = $_REQUEST['uaddr'];
 
 
-    $sql = "UPDATE `user_details` SET `Fname`='$firstname',`Lname`='$lastname',`uphone`='$phone',`uadd`='$addrs' WHERE uname = '{$_SESSION["username"]}'";
+    $sql = "UPDATE `users_tb` SET `Fname`='$firstname',`Lname`='$lastname',`uphone`='$phone',`uadd`='$addrs' WHERE uname = '{$_SESSION["username"]}'";
     $conn->query($sql);
     echo '<script>
     swal({
@@ -52,7 +52,7 @@ if(isset($_REQUEST['uupdate'])){
 
                     <?php
                 // data ac detaila
-                $sql = "SELECT * FROM `user_details` WHERE uname = '{$_SESSION["username"]}'";
+                $sql = "SELECT * FROM `users_tb` WHERE `uid` = '{$_SESSION["userid"]}'";
                 $data = $conn->query($sql);
                 $row = $data->fetch_assoc();
                 echo '
@@ -110,13 +110,12 @@ if(isset($_REQUEST['uupdate'])){
                                 </div>
                         </div>
                         </div>';
-                    //order table 
 
-                    $sql2 = "SELECT * FROM `orders_all` WHERE ord_user = '{$_SESSION["username"]}' order by `ord_id` desc";
+                    //order table 
+                    $sql2 = "SELECT * FROM `allorders_tb` WHERE ord_acid = '{$_SESSION["userid"]}' order by `ord_id` desc";
                     $data2 = $conn->query($sql2);
                     
                     // start order tbele
-                   
                     echo '
                     <div class="tab-pane fade show active" id="order">
                     <div class="card shadow p-3">

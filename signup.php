@@ -26,7 +26,7 @@ include('include/head.php');
         $pass = $_REQUEST['password'];
         $term = $_REQUEST['agree-term'];
 
-        $chk = "SELECT * FROM `user_details` WHERE `uname` = '{$uname}' OR `umail` = '{$email}'";
+        $chk = "SELECT * FROM `users_tb` WHERE `uname` = '{$uname}' OR `umail` = '{$email}'";
         $res = $conn->query($chk);
         
 
@@ -44,7 +44,7 @@ include('include/head.php');
         }
         else
         {
-        $sql = "INSERT INTO `user_details`(`uname`, `Fname`, `Lname`, `umail`, `uphone`, `uadd`, `upass`, `uterms`)
+        $sql = "INSERT INTO `users_tb`(`uname`, `Fname`, `Lname`, `umail`, `uphone`, `uadd`, `upass`, `uterms`)
                 VALUES ('$uname','$fname','$lname','$email','$phone', '$add','$pass','$term')";
         $conn->query($sql);
         

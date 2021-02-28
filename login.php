@@ -9,7 +9,7 @@ if(isset($_POST['login']))
 	$username = $conn->real_escape_string($_POST["username"]);
 	$password = $conn->real_escape_string($_POST["password"]);
 
-	$sql = "SELECT `uid`, `uname`, `umail`,`upass` FROM `user_details` WHERE (`umail` = '{$username}' OR `uname`= '{$username}') AND `upass` = '{$password}'";
+	$sql = "SELECT `uid`, `uname`, `umail`,`upass` FROM `users_tb` WHERE (`umail` = '{$username}' OR `uname`= '{$username}') AND `upass` = '{$password}'";
 	
 	$result = $conn->query($sql);
 

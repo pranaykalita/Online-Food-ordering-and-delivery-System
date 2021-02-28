@@ -47,14 +47,14 @@ include('common/header.php');
                                     <tbody>
                                     
                                     <?php
-                                    $sql = "SELECT * FROM `orders_all` WHERE `ord_status` = '3' order by `invid` desc";
+                                    $sql = "SELECT * FROM `allorders_tb` WHERE `ord_status` = '3' order by `invid` desc";
                                     $res = $conn->query($sql);
                                     while($row = $res->fetch_assoc())
                                     {
                                         echo '
                                         <tr>
                                             <td class="font-weight-bold">'.$row["invid"].'</td>
-                                            <td >'.$row["ord_uname"].'</td>
+                                            <td >'.$row["ord_user"].'</td>
                                             <td>'.$row["ord_totlprice"].'</td>
                                             <td >'.$row["ord_phone"].'</td>
 

@@ -5,7 +5,7 @@ if(isset($_POST['chek_viewBtn']))
 {
     $id = $_POST['ord_ifBtn'];
     
-    $query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+    $query = "SELECT * FROM `allorders_tb` where `ord_id` = '{$id}'";
     
 	$data = $conn->query($query);
 	$row = $data->fetch_assoc();

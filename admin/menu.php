@@ -45,7 +45,7 @@ include('common/header.php');
 								if(isset($_REQUEST["delete"]))
 								{
 								
-									$sqlD = "DELETE FROM `menu_items` where `menu_id` = '{$_REQUEST['id']}'";
+									$sqlD = "DELETE FROM `menuitems_tb` where `menu_id` = '{$_REQUEST['id']}'";
 									$conn->query($sqlD);
 									echo '<script>
 									swal({
@@ -58,7 +58,7 @@ include('common/header.php');
 									echo '<meta http-equiv="refresh" content= "2;URL=?deleted" />';
 								}
 
-								$query = "SELECT * FROM `menu_items`";
+								$query = "SELECT * FROM `menuitems_tb`";
 								$result = $conn->query($query);
 
 								while($row = $result->fetch_assoc())
@@ -116,7 +116,7 @@ include('common/header.php');
 										$itm_cat = $_REQUEST["icat"];
 										$itmquantity = $_REQUEST["iqty"];
 
-										$query = "INSERT INTO `menu_items`(`menu_name`, `menu_price`, `menu_category`, `menu_image`, `menu_quantity`, `menu_status`) 
+										$query = "INSERT INTO `menuitems_tb`(`menu_name`, `menu_price`, `menu_category`, `menu_image`, `menu_quantity`, `menu_status`) 
 												VALUES ('$itmname', '$itm_price', '$itm_cat', '$photo_name', '$itmquantity' , '1')";
 										$conn->query($query);
 										echo '<script>console.log($query);</script>';
@@ -161,7 +161,7 @@ include('common/header.php');
 									<label for="exampleInputEmail1">Item categoty</label>
 									<select type="text" class="form-control" name="icat" required>
 										<?php 
-													$sql = "SELECT * FROM `menu_category`";
+													$sql = "SELECT * FROM `menucategory_tb`";
 													$data = $conn->query($sql);
 													while($ret = $data->fetch_assoc())
 													{
@@ -209,7 +209,7 @@ include('common/header.php');
 								move_uploaded_file($file_tmp_loc,$file_store_path);
 
 								if($photo_name == ""){
-									$sql = "UPDATE `menu_items` SET `menu_name`= '$iname',`menu_price`= '$iprice',`menu_quantity`='$iqty',`menu_category`='$icat' WHERE `menu_id` = '$iid'";
+									$sql = "UPDATE `menuitems_tb` SET `menu_name`= '$iname',`menu_price`= '$iprice',`menu_quantity`='$iqty',`menu_category`='$icat' WHERE `menu_id` = '$iid'";
 									$conn->query($sql);
 									echo '<script>
 									swal({
@@ -223,7 +223,7 @@ include('common/header.php');
 								}
 								else if($photo_name != "")
 								{
-									$sql = "UPDATE `menu_items` SET `menu_name`= '$iname',`menu_price`= '$iprice',`menu_quantity`='$iqty',`menu_category`='$icat',`menu_image`= '$photo_name' WHERE `menu_id` = '$iid'";
+									$sql = "UPDATE `menuitems_tb` SET `menu_name`= '$iname',`menu_price`= '$iprice',`menu_quantity`='$iqty',`menu_category`='$icat',`menu_image`= '$photo_name' WHERE `menu_id` = '$iid'";
 									$conn->query($sql);
 									echo '<script>
 									swal({
@@ -269,7 +269,7 @@ include('common/header.php');
 									<label for="exampleInputEmail1">Item categoty</label>
 									<select type="text" class="form-control upicat" name="up_icat" required>
 										<?php 
-													$sql = "SELECT * FROM `menu_category`";
+													$sql = "SELECT * FROM `menucategory_tb`";
 													$data = $conn->query($sql);
 													while($ret = $data->fetch_assoc())
 													{

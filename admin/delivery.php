@@ -5,7 +5,7 @@ include('common/header.php');
 if(isset($_REQUEST["asigndelivery"])){
     $ordNo = $_REQUEST["id"];
     // copy order to delivery table
-    $sql = "SELECT * FROM `orders_all` where `ord_id` = $ordNo";
+    $sql = "SELECT * FROM `allorders_tb` where `ord_id` = $ordNo";
     $conn->query($sql);
 
 }
@@ -17,17 +17,15 @@ if(isset($_REQUEST["assigndel"])){
     $delname = $_REQUEST["delper"];
 
     // set rider status
-    $update2  = "UPDATE `staff_tb` SET `del_status`= '1' WHERE `staff_name`= '{$delname}'";
+    $update2  = "UPDATE `delivery_tb` SET `del_status`= '1' WHERE `del_name`= '{$delname}'";
     $conn->query($update2);
-    // echo $update2;
-    // die();
 
     // get rider details
-    $sql = "SELECT * FROM `staff_tb` WHERE `occupation` = 'Delivery' And `staff_name` = '{$delname}'";
+    $sql = "SELECT * FROM `delivery_tb` WHERE `del_name` = '{$delname}'";
     $res = $conn->query($sql);
     $row = $res->fetch_assoc();
-
-    $update  = "UPDATE `orders_all` SET `ord_status`= '2', `del_per`='{$delname}',`del_phone`='{$row['staff_number']}' WHERE `ord_id`='{$ordNo}'";
+    // update to orders
+    $update  = "UPDATE `allorders_tb` SET `ord_status`= '2', `del_per`='{$delname}',`del_phone`='{$row['del_phone']}' WHERE `ord_id`='{$ordNo}'";
     $conn->query($update);
     
 
@@ -64,16 +62,16 @@ if(isset($_REQUEST["assigndel"])){
                 <form action="" method="POST">
                     <div class="form-group">
                         <label for="name">Order No</label>
-                        <input type="number" name="ordno" class="form-control" value="<?php echo $ordNo; ?>" readonly>
+                        <input type="number" name="ordno" class="form-control" value="<?php echo $ordNo; ?>" readonly  required="required">
                     </div>
                     <div class="form-group">
-                        <label for="name">Delivery Id</label>
+                        <label for="name">Delivery By</label>
                         <select type="text" name="delper" class="form-control" required="required">
                             <?php
-                             $sql = "SELECT * FROM `staff_tb` WHERE `occupation` = 'Delivery' AND `del_status` = 0";
+                             $sql = "SELECT * FROM `delivery_tb` WHERE `del_status` = 0";
                              $data = $conn->query($sql);
                              while($row = $data->fetch_assoc()){
-                                 echo '<option class="text-success">'.$row["staff_name"].'</option>';
+                                 echo '<option class="text-success">'.$row["del_name"].'</option>';
                              }
                             ?>
                         </select>
@@ -100,7 +98,7 @@ if(isset($_REQUEST["assigndel"])){
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM `orders_all` WHERE `ord_status` = 2";
+                        $sql = "SELECT * FROM `allorders_tb` WHERE `ord_status` = 2";
                         $data = $conn->query($sql);
                         while($row = $data->fetch_assoc()){
                             echo '
@@ -110,6 +108,7 @@ if(isset($_REQUEST["assigndel"])){
                                 <td>
 										<button type="button" class="btn btn-info mr-3 orddet"  data-toggle="modal" data-target="#viewdetails">
 										<i class="fas fa-eye"></i>
+                                        View Order Details
 										</button>
                                 </td>
                                 <td>'.$row["ord_totlprice"].'</td>
@@ -136,13 +135,11 @@ if(isset($_REQUEST["assigndel"])){
                                 $ordid = $_REQUEST["id"];
                                 $delname = $_REQUEST["delper"];
                                 
-                               
-
                                 // free rider
-                                $update  = "UPDATE `staff_tb` SET `del_status`= '0' WHERE `staff_number`= '{$delname}'";
+                                $update  = "UPDATE `delivery_tb` SET `del_status`= '0' WHERE `del_phone`= '{$delname}'";
                                 $conn->query($update);
 
-                                $sql = "UPDATE `orders_all` SET `ord_status` = '3' WHERE `ord_id` = '{$ordid}'";
+                                $sql = "UPDATE `allorders_tb` SET `ord_status` = '3' WHERE `ord_id` = '{$ordid}'";
                                 $conn->query($sql);
                                 echo '<script>
                                 swal({
@@ -207,8 +204,65 @@ if(isset($_REQUEST["assigndel"])){
                 </div>
                 <!-- end modal -->
             </div>
+
             <!-- table -->
-            <p class="text-dark card shadow p-2 font-weight-bold">Available Delivery Boy</p>
+            <p class="text-dark card shadow py-2 my-3 font-weight-bold">Available Delivery Boy</p>
+            <button href="#" type="button" data-toggle="modal" data-target="#adddel" class="btn btn-success my-3">
+                <i class="fas fa-plus"></i> Add Delevery
+            </button>
+            <!-- modal add del -->
+            <?php
+			if(isset($_REQUEST["adddel"]))
+			{
+				
+				$name =$_REQUEST["name"];
+				$phone =$_REQUEST["phone"];
+				
+				$sql = "INSERT INTO `delivery_tb`(`del_name`, `del_phone`) 
+				VALUES ('$name','$phone')";
+				$conn->query($sql);
+				echo '<script>
+				swal({
+					title: "New Delivery Added",
+					icon: "success",
+					button: "close",
+					type: "success"
+				});</script>';
+				echo '<meta http-equiv="refresh" content= "1;URL=?updated" />';
+			}
+			?>
+            <div class="modal fade" id="adddel" tabindex="-1" role="dialog" aria-labelledby="adddel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="adddel">
+                                Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="" method="post">
+                            <div class="modal-body">
+
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" name="phone" maxlength="13" class="form-control"
+                                        pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})"
+                                        placeholder="Enter Phone(+911234567890)">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" name="adddel" class="btn btn-primary">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <div class="table-responsive">
                 <table class="table ">
@@ -216,30 +270,51 @@ if(isset($_REQUEST["assigndel"])){
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>Phone</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM `staff_tb` WHERE `occupation` = 'Delivery'";
+                        // free rider (safekey )
+                        if(isset($_REQUEST["freerider"]))
+			            {
+                            $id = $_POST["id"];
+
+                            $sq = "UPDATE `delivery_tb` SET `del_status`= '0' WHERE `id`= '{$id}'";
+                            $conn->query($sq);
+                            echo '<meta http-equiv="refresh" content= "1;URL=" />';
+
+                        }
+
+
+                        $sql = "SELECT * FROM `delivery_tb`";
                         $data = $conn->query($sql);
                         while($row = $data->fetch_assoc()){
                             echo '
                             <tr>
-                                <td class="admid">'.$row["staff_id"].'</td>
-                                <td>'.$row["staff_name"].'</td>
-                                <td>'.$row["staff_email"].'</td>
-                                <td>'.$row["staff_number"].'</td>';
-                                if($row["del_status"] == 0){
-                                    echo '<td class="text-success">Available</td>';
-                                }
-                                else
-                                if($row["del_status"] == 1){
-                                    echo '<td class="text-danger">Assigned</td>';
-                                }
-                            echo '</tr>';
+                                <td>'.$row["id"].'</td>
+                                <td>'.$row["del_name"].'</td>
+                                <td>'.$row["del_phone"].'</td>';
+                            if($row["del_status"] == 0)
+                            {
+                                echo '<td class="text-success">Available</td>';
+                            }else
+                            if($row["del_status"] == 1)
+                            {
+                                echo '<td class="text-danger">On delivery
+
+                                <form action="" method="post" class="d-inline">
+                                    <input type="hidden" name="id" value='.$row["id"].'>
+                                    <button class="btn btn-info" type="submit" name="freerider">
+                                    <i class="fas fa-times "></i> Free Rider
+                                    </button>
+                                </form>
+                                </td>
+                                ';
+                            }
+
+                           echo '</tr>';
                             
                         }
                         

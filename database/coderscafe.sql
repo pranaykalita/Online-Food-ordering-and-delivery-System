@@ -47,10 +47,10 @@ INSERT INTO `admin_tb` (`admin_id`, `admin_name`, `admin_pass`, `admin_email`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu_category`
+-- Table structure for table `menucategory_tb`
 --
 
-CREATE TABLE `menu_category` (
+CREATE TABLE `menucategory_tb` (
   `cat_id` int(11) NOT NULL,
   `cat_name` varchar(255) NOT NULL,
   `cat_image` varchar(255) NOT NULL,
@@ -58,10 +58,10 @@ CREATE TABLE `menu_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `menu_category`
+-- Dumping data for table `menucategory_tb`
 --
 
-INSERT INTO `menu_category` (`cat_id`, `cat_name`, `cat_image`, `cat_status`) VALUES
+INSERT INTO `menucategory_tb` (`cat_id`, `cat_name`, `cat_image`, `cat_status`) VALUES
 (2, 'Beverage', 'beve.jpg', 1),
 (3, 'Starters', 'starters.png', 1),
 (4, 'Deserts', 'desserts.jpg', 1),
@@ -72,24 +72,24 @@ INSERT INTO `menu_category` (`cat_id`, `cat_name`, `cat_image`, `cat_status`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu_items`
+-- Table structure for table `menuitems_tb`
 --
 
-CREATE TABLE `menu_items` (
+CREATE TABLE `menuitems_tb` (
   `menu_id` int(11) NOT NULL,
   `menu_name` varchar(255) NOT NULL,
   `menu_price` int(11) NOT NULL,
   `menu_quantity` int(11) NOT NULL,
-  `menu_category` varchar(255) NOT NULL,
+  `menucategory_tb` varchar(255) NOT NULL,
   `menu_image` varchar(255) NOT NULL,
   `menu_status` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `menu_items`
+-- Dumping data for table `menuitems_tb`
 --
 
-INSERT INTO `menu_items` (`menu_id`, `menu_name`, `menu_price`, `menu_quantity`, `menu_category`, `menu_image`, `menu_status`) VALUES
+INSERT INTO `menuitems_tb` (`menu_id`, `menu_name`, `menu_price`, `menu_quantity`, `menucategory_tb`, `menu_image`, `menu_status`) VALUES
 (1, 'Mocktail', 120, 100, 'Beverage', 'mocktail.jpg', 1),
 (2, 'Achari Paneer', 250, 100, 'Starters', 'achari.jpg', 1),
 (3, 'Duck Curry', 350, 100, 'Main Course', 'duck.jpg', 1),
@@ -99,10 +99,10 @@ INSERT INTO `menu_items` (`menu_id`, `menu_name`, `menu_price`, `menu_quantity`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders_all`
+-- Table structure for table `allorders_tb`
 --
 
-CREATE TABLE `orders_all` (
+CREATE TABLE `allorders_tb` (
   `ord_id` int(11) NOT NULL,
   `ord_items` varchar(1000) NOT NULL,
   `ord_totlprice` int(11) NOT NULL,
@@ -120,10 +120,10 @@ CREATE TABLE `orders_all` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `orders_all`
+-- Dumping data for table `allorders_tb`
 --
 
-INSERT INTO `orders_all` (`ord_id`, `ord_items`, `ord_totlprice`, `ord_uname`, `ord_user`, `ord_phone`, `ord_email`, `ord_addrs`, `ord_lmark`, `ord_date`, `ord_time`, `ord_status`, `del_per`, `del_phone`) VALUES
+INSERT INTO `allorders_tb` (`ord_id`, `ord_items`, `ord_totlprice`, `ord_uname`, `ord_user`, `ord_phone`, `ord_email`, `ord_addrs`, `ord_lmark`, `ord_date`, `ord_time`, `ord_status`, `del_per`, `del_phone`) VALUES
 (1, 'a:3:{i:0;a:4:{s:8:\"Item_img\";s:12:\"mocktail.jpg\";s:9:\"Item_name\";s:8:\"Mocktail\";s:10:\"Item_price\";s:3:\"120\";s:8:\"quantity\";s:1:\"2\";}i:1;a:4:{s:8:\"Item_img\";s:10:\"achari.jpg\";s:9:\"Item_name\";s:13:\"Achari Paneer\";s:10:\"Item_price\";s:3:\"250\";s:8:\"quantity\";i:1;}i:2;a:4:{s:8:\"Item_img\";s:8:\"duck.jpg\";s:9:\"Item_name\";s:10:\"Duck Curry\";s:10:\"Item_price\";s:3:\"350\";s:8:\"quantity\";s:1:\"2\";}}', 1190, 'pranay kalita', 'pranaykalita', '+918638820939', 'pranaykalita2@gmail.com', 'jorhat,tarjan , house no 23', 'tarajan', '2021-01-19', '08:11:00', 3, 'delivery person 1', '+911234567890'),
 (2, 'a:2:{i:0;a:4:{s:8:\"Item_img\";s:10:\"achari.jpg\";s:9:\"Item_name\";s:13:\"Achari Paneer\";s:10:\"Item_price\";s:3:\"250\";s:8:\"quantity\";i:1;}i:1;a:4:{s:8:\"Item_img\";s:10:\"mohito.gif\";s:9:\"Item_name\";s:6:\"Mohito\";s:10:\"Item_price\";s:3:\"100\";s:8:\"quantity\";i:1;}}', 350, 'pranay ', 'pranaykalita', '+918638820939', 'pranaykalita2@gmail.com', 'house no 56 tarajan', 'jorhat', '2021-01-19', '08:15:00', 3, 'delivery person 1', '+911234567890'),
 (3, 'a:2:{i:0;a:4:{s:8:\"Item_img\";s:10:\"mohito.gif\";s:9:\"Item_name\";s:6:\"Mohito\";s:10:\"Item_price\";s:3:\"100\";s:8:\"quantity\";i:1;}i:1;a:4:{s:8:\"Item_img\";s:12:\"mocktail.jpg\";s:9:\"Item_name\";s:8:\"Mocktail\";s:10:\"Item_price\";s:3:\"120\";s:8:\"quantity\";i:1;}}', 220, 'pranay ', 'pranaykalita', '+911234567890', 'pranaykalita2@gmail.com', 'jorhat', 'jorhat', '2021-01-19', '09:11:00', 3, 'delivery person 1', '+911234567890');
@@ -155,10 +155,10 @@ INSERT INTO `staff_tb` (`staff_id`, `staff_name`, `staff_email`, `staff_number`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_details`
+-- Table structure for table `users_tb`
 --
 
-CREATE TABLE `user_details` (
+CREATE TABLE `users_tb` (
   `uid` int(11) NOT NULL,
   `uname` varchar(255) NOT NULL,
   `Fname` varchar(255) NOT NULL,
@@ -171,19 +171,19 @@ CREATE TABLE `user_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_details`
+-- Dumping data for table `users_tb`
 --
 
-INSERT INTO `user_details` (`uid`, `uname`, `Fname`, `Lname`, `umail`, `uphone`, `uadd`, `upass`, `uterms`) VALUES
+INSERT INTO `users_tb` (`uid`, `uname`, `Fname`, `Lname`, `umail`, `uphone`, `uadd`, `upass`, `uterms`) VALUES
 (1, 'pranaykalita', 'pranay', 'kalita', 'pranaykalita2@gmail.com', '+918638820939', 'tarjan puja mandir', 'pranay123', 'on');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_messages`
+-- Table structure for table `feedback_tb`
 --
 
-CREATE TABLE `user_messages` (
+CREATE TABLE `feedback_tb` (
   `msg_id` int(11) NOT NULL,
   `msg_name` varchar(255) NOT NULL,
   `msg_email` varchar(255) NOT NULL,
@@ -202,21 +202,21 @@ ALTER TABLE `admin_tb`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indexes for table `menu_category`
+-- Indexes for table `menucategory_tb`
 --
-ALTER TABLE `menu_category`
+ALTER TABLE `menucategory_tb`
   ADD PRIMARY KEY (`cat_id`);
 
 --
--- Indexes for table `menu_items`
+-- Indexes for table `menuitems_tb`
 --
-ALTER TABLE `menu_items`
+ALTER TABLE `menuitems_tb`
   ADD PRIMARY KEY (`menu_id`);
 
 --
--- Indexes for table `orders_all`
+-- Indexes for table `allorders_tb`
 --
-ALTER TABLE `orders_all`
+ALTER TABLE `allorders_tb`
   ADD PRIMARY KEY (`ord_id`);
 
 --
@@ -226,15 +226,15 @@ ALTER TABLE `staff_tb`
   ADD PRIMARY KEY (`staff_id`);
 
 --
--- Indexes for table `user_details`
+-- Indexes for table `users_tb`
 --
-ALTER TABLE `user_details`
+ALTER TABLE `users_tb`
   ADD PRIMARY KEY (`uid`);
 
 --
--- Indexes for table `user_messages`
+-- Indexes for table `feedback_tb`
 --
-ALTER TABLE `user_messages`
+ALTER TABLE `feedback_tb`
   ADD PRIMARY KEY (`msg_id`);
 
 --
@@ -248,21 +248,21 @@ ALTER TABLE `admin_tb`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `menu_category`
+-- AUTO_INCREMENT for table `menucategory_tb`
 --
-ALTER TABLE `menu_category`
+ALTER TABLE `menucategory_tb`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `menu_items`
+-- AUTO_INCREMENT for table `menuitems_tb`
 --
-ALTER TABLE `menu_items`
+ALTER TABLE `menuitems_tb`
   MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `orders_all`
+-- AUTO_INCREMENT for table `allorders_tb`
 --
-ALTER TABLE `orders_all`
+ALTER TABLE `allorders_tb`
   MODIFY `ord_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -272,15 +272,15 @@ ALTER TABLE `staff_tb`
   MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `user_details`
+-- AUTO_INCREMENT for table `users_tb`
 --
-ALTER TABLE `user_details`
+ALTER TABLE `users_tb`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `user_messages`
+-- AUTO_INCREMENT for table `feedback_tb`
 --
-ALTER TABLE `user_messages`
+ALTER TABLE `feedback_tb`
   MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

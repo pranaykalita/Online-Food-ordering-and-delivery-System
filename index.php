@@ -21,7 +21,7 @@ include('include/head.php');
 		$email = $_REQUEST['semail'];
 		$msg = $_REQUEST['smsg'];
 
-		$sql = "INSERT INTO `user_messages`(`msg_name`, `msg_email`, `msg_body`) VALUES ('$name','$email','$msg')";
+		$sql = "INSERT INTO `feedback_tb`(`msg_name`, `msg_email`, `msg_body`) VALUES ('$name','$email','$msg')";
 		$conn->query($sql);
 		echo '<script>
 			swal({
@@ -118,7 +118,7 @@ include('include/head.php');
 			</div>
 			<div class="row menu_itm text-center">
 				<?php
-				$sql = "SELECT * FROM `menu_category` order by `cat_id` asc";
+				$sql = "SELECT * FROM `menucategory_tb` order by `cat_id` asc";
 				$data = $conn->query($sql);
 				while($row = $data->fetch_assoc()){
 					echo '

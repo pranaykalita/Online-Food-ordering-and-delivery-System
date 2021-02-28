@@ -7,7 +7,7 @@ if(isset($_POST['editbtn']))
 	$id = $_POST['cat_id'];
 	$res_array = [];
 
-	$query = "SELECT * FROM `menu_category` where `cat_id` = '{$id}'";
+	$query = "SELECT * FROM `menucategory_tb` where `cat_id` = '{$id}'";
 	$data = $conn->query($query);
 
 	if(mysqli_num_rows($data) > 0){
@@ -27,7 +27,7 @@ if(isset($_POST['editmenu']))
 	$id = $_POST['menuid'];
 	$res_array = [];
 
-	$query = "SELECT * FROM `menu_items` where `menu_id` = '{$id}'";
+	$query = "SELECT * FROM `menuitems_tb` where `menu_id` = '{$id}'";
 	$data = $conn->query($query);
 
 	if(mysqli_num_rows($data) > 0){
@@ -85,7 +85,7 @@ if(isset($_POST['editpass']))
 if(isset($_POST['chek_viewBtn']))
 {
 	$id = $_POST['ord_view'];
-	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+	$query = "SELECT * FROM `allorders_tb` where `ord_id` = '{$id}'";
 	$data = $conn->query($query);
 	$row = $data->fetch_assoc();
 
@@ -108,7 +108,7 @@ if(isset($_POST['chek_viewBtn']))
 if(isset($_POST['view_neworder']))
 {
 	$id = $_POST['orderid'];
-	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+	$query = "SELECT * FROM `allorders_tb` where `ord_id` = '{$id}'";
 	$data = $conn->query($query);
 
 	$row = $data->fetch_assoc();
@@ -134,7 +134,7 @@ if(isset($_POST['view_ordr_det']))
 {
 	$id = $_POST['ordno'];
 	
-	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+	$query = "SELECT * FROM `allorders_tb` where `ord_id` = '{$id}'";
 
 	$data = $conn->query($query);
 
@@ -157,7 +157,7 @@ if(isset($_POST['delyvbtn']))
 {
 	$id = $_POST['orddelid'];
 	
-	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+	$query = "SELECT * FROM `allorders_tb` where `ord_id` = '{$id}'";
 	$data = $conn->query($query);
 
 	$res_array = [];
@@ -177,7 +177,7 @@ if(isset($_POST['delyvbtn']))
 if(isset($_POST['vorddel']))
 {
 	$id = $_POST['vordid'];
-	$query = "SELECT * FROM `orders_all` where `ord_id` = '{$id}'";
+	$query = "SELECT * FROM `allorders_tb` where `ord_id` = '{$id}'";
 	$data = $conn->query($query);
 
 	$row = $data->fetch_assoc();
