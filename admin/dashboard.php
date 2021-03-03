@@ -149,7 +149,7 @@ $delavl = $result[0];
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Recent Pending Orders</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">New Orders</h6>
                 </div>
 
                 <!-- Card Body -->
@@ -159,7 +159,7 @@ $delavl = $result[0];
                             <div class="pt-2 pb-2">
                                 <table class="table">
                                     <thead>
-                                        <th>id</th>
+                                        <th>order id</th>
                                         <th>Total</th>
                                         <th>status</th>
                                         <th>action</th>
@@ -173,7 +173,7 @@ $delavl = $result[0];
                                     echo '
                                     <tr>
                                     <td>'.$row["ord_id"].'</td>
-                                    <td>pranay</td>';
+                                    <td>'.$row["ord_totlprice"].'</td>';
                                     if($row["ord_status"] == 0)
                                     {
                                         echo '<td class="text-danger">New</td>';
