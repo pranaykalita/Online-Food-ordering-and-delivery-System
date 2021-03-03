@@ -20,8 +20,10 @@ include('include/head.php');
 		$name = $_REQUEST['sname'];
 		$email = $_REQUEST['semail'];
 		$msg = $_REQUEST['smsg'];
+		$escapemsg = $conn->real_escape_string(($msg));
 
-		$sql = "INSERT INTO `feedback_tb`(`msg_name`, `msg_email`, `msg_body`) VALUES ('$name','$email','$msg')";
+		$sql = "INSERT INTO `feedback_tb`(`msg_name`, `msg_email`, `msg_body`) VALUES ('$name','$email','$escapemsg')";
+		// echo $sql;die();
 		$conn->query($sql);
 		echo '<script>
 			swal({

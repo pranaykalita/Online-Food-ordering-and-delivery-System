@@ -36,9 +36,9 @@ include('common/header.php');
                                  // approve order
                                  if(isset($_REQUEST["approve"]))
                                  {
-                                     $id = $_REQUEST["id"];
+                                     $ordid = $_REQUEST["id"];
  
-                                     $sql = "UPDATE `allorders_tb` SET `ord_status`= '1' WHERE `ord_id` = '{$id}'";
+                                     $sql = "UPDATE `allorders_tb` SET `ord_status`= '1' WHERE `ord_id` = '{$ordid}'";
                                      $conn->query($sql);
 
 
@@ -60,7 +60,8 @@ include('common/header.php');
                                         $number = 'CCAFE-' . $id;
                                     }
 
-                                     $sql2 = "UPDATE `allorders_tb` SET `invid`= '$number' WHERE `ord_id` = '{$id}'";
+                                     $sql2 = "UPDATE `allorders_tb` SET `invid`= '$number' WHERE `ord_id` = '{$ordid}'";
+                                    //  echo $sql2;die();
                                      $conn->query($sql2);
 
                                      echo '<script>
