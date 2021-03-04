@@ -1,10 +1,11 @@
+
 <?php
-include('../include/dbcon.php');
+include('include/dbcon.php');
 date_default_timezone_set("Asia/Calcutta");
 // get data
-if(isset($_POST["Bill"]))
+if(isset($_POST["billdwn"]))
 {
-    $ordid = $_REQUEST["id"];
+    $ordid = $_POST["id"];
     $query = "SELECT * From `allorders_tb` WHERE `ord_id` = '{$ordid}'";
     $result = $conn->query($query);
     $row = $result->fetch_assoc();
@@ -24,7 +25,7 @@ if(isset($_POST["Bill"]))
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/billtemplate.css">
+    <link rel="stylesheet" href="admin/css/billtemplate.css">
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 
     <!-- to pdf -->

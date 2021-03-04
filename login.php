@@ -42,11 +42,11 @@ if(isset($_POST['login']))
 
 <body>
 
-    <?php include('include/header.php'); ?>
+	<?php include('include/header.php'); ?>
 
-    <!-- content -->
+	<!-- content -->
 
-   <!-- login -->
+	<!-- login -->
 	<div class="container-login100">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
 			<form action="" method="post" class="login100-form validate-form">
@@ -76,10 +76,10 @@ if(isset($_POST['login']))
 		</div>
 	</div>
 
-    <!-- end contant -->
+	<!-- end contant -->
 
-    <!-- footer common with common scripts -->
-    <?php 
+	<!-- footer common with common scripts -->
+	<?php 
     include('include/footer.php');
     include('include/cmonscripts.php');
     ?>

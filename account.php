@@ -18,6 +18,7 @@ if(!isset($_SESSION["username"]))
     <?php include('include/header.php'); ?>
     <!-- content -->
     <?php
+  
 if(isset($_REQUEST['uupdate'])){
 
     $firstname = $_REQUEST['ufname'];
@@ -133,7 +134,7 @@ if(isset($_REQUEST['uupdate'])){
                                while($row2 = $data2->fetch_assoc()){
                                    echo '
                                 <tr>
-                                       <td class="ordnum">'.$row2["ord_id"].'</td>
+                                       <td class="ordnum" name="ordnum">'.$row2["ord_id"].'</td>
                                        <td>'.$row2["ord_date"].'</td>';
                                        echo '<td>₹ '.$row2["ord_totlprice"].'</td>';
                                        if($row2["ord_status"] == 0){
@@ -151,11 +152,34 @@ if(isset($_REQUEST['uupdate'])){
                                        if ($row2["ord_status"] == 4){
                                         echo '<td class="text-danger"><i class="fas fa-ban"></i> Rejected</td>';
                                        }
-                                       echo'
-                                       <td>
-                                   <button type="button" class="btn btn-info mr-3 view_btn" data-toggle="modal" data-target="#vieworders">
-                                   <i class="fas fa-eye"></i>
-                                   </button>
+
+                                        if($row2["ord_status"] == 3 )
+                                        {
+                                            echo'
+                                            <td>
+                                                <button type="button" class="btn btn-info mr-3 view_btn" data-toggle="modal" data-target="#vieworders">
+                                                <i class="fas fa-eye"></i>
+                                                </button>
+
+                                                <form action="billing.php" target="_blank" method="post" class="d-inline">
+												<input type="hidden" name="id" value='.$row2["ord_id"].'>
+												<button class="btn btn-danger" type="submit" name="billdwn">
+												<i class="fas fa-download "></i>
+												</button>
+										</form>
+                                             </td>';
+                                        }
+                                        else
+                                        {
+                                            echo'
+                                            <td>
+                                                <button type="button" class="btn btn-info mr-3 view_btn" data-toggle="modal" data-target="#vieworders">
+                                                <i class="fas fa-eye"></i>
+                                                </button>
+                                             </td>';
+                                        }
+
+                                        echo '
                                     </td>
                                 </tr>';
                                 }

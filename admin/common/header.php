@@ -87,7 +87,7 @@ include('../include/functions.php');
                     <i class="fas fa-utensils"></i>
                     <span>Orders</span>
                 </a>
-                <div id="collapseOrders" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseOrders" class="collapse show " aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="neworders.php">manage Orders</a>
