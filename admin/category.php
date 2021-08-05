@@ -1,5 +1,5 @@
 <?php
-define("TITLE" , "Coders Cafe | ADMIN");
+define("TITLE" , "FOODZILLA | ADMIN");
 include('common/header.php');
 ?>
 
@@ -10,29 +10,29 @@ include('common/header.php');
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">Category</h1>
 	</div>
+
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
-		<button href="#" type="button" data-toggle="modal" data-target="#addcate" class="btn btn-success"><i
-				class="fas fa-plus"></i> Add Category</button>
+		<button href="#" type="button" data-toggle="modal" data-target="#addcate" class="btn btn-success">
+			<i class="fas fa-plus"></i> Add Category
+		</button>
 	</div>
+
 	<!-- DataTales Example -->
-	<div class="card  mb-4">
-
-
+	<div class="card shadow mb-4">
 		<div class="card-body">
-			<!-- add content here  -->
 			<div class="table-responsive">
-			<table class="table"  id="dataTable" width="100%" cellspacing="0">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Image</th>
-						<th>Category </th>
-						<th>status</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
+				<table class="table" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Image</th>
+							<th>Category </th>
+							<th>status</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
 								// delete item
 								if(isset($_REQUEST["delete"]))
 								{
@@ -81,12 +81,15 @@ include('common/header.php');
 									</tr>';
 									}
 								?>
-				</tbody>
-			</table>
+					</tbody>
+				</table>
 			</div>
-
-			<!-- modal 1 add category -->
-			<?php 
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->
+<!-- modal 1 add category -->
+<?php 
 									if(isset($_REQUEST["additm"]))
 									{	
 										// PICTURE UPLOAD
@@ -101,7 +104,8 @@ include('common/header.php');
 
 										$caname = $_REQUEST["cname"];
 
-										$query = "INSERT INTO `menucategory_tb`(`cat_name`, `cat_image`, `cat_status`) VALUES ('$caname','$photo_name', '0')";
+										$query = "INSERT INTO `menucategory_tb`(`cat_name`, `cat_image`, `cat_status`)
+										 VALUES ('$caname','$photo_name', '0')";
 										
 										$conn->query($query);
 										echo '<script>
@@ -115,42 +119,40 @@ include('common/header.php');
 										echo '<meta http-equiv="refresh" content= "2;URL=?CategoryAdded" />'; 
 									}
 									?>
-			<div class="modal fade" id="addcate" tabindex="-1" role="dialog" aria-labelledby="addcate"
-				aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="addcate">Add Items</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<form action="" method="POST" enctype="multipart/form-data">
-							<div class="modal-body">
-								<div class="form-group">
-									<label for="exampleFormControlFile1">category Image</label>
-									<input type="file" name="cimg" class="form-control-file" required>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">category Name</label>
-									<input type="text" class="form-control" name="cname"
-										placeholder="Enter category Name" required>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								<button type="submit" name="additm" class="btn btn-primary">Add
-									Category</button>
-							</div>
-						</form>
-
+<div class="modal fade" id="addcate" tabindex="-1" role="dialog" aria-labelledby="addcate" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addcate">Add Items</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form action="" method="POST" enctype="multipart/form-data">
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="exampleFormControlFile1">category Image</label>
+						<input type="file" name="cimg" class="form-control-file" required>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">category Name</label>
+						<input type="text" class="form-control" name="cname" placeholder="Enter category Name" required>
 					</div>
 				</div>
-			</div>
-			<!-- end modal -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" name="additm" class="btn btn-primary">Add
+						Category</button>
+				</div>
+			</form>
 
-			<!-- modal 2 update category -->
-			<?php
+		</div>
+	</div>
+</div>
+<!-- end modal -->
+
+<!-- modal 2 update category -->
+<?php
 							if(isset($_REQUEST['updatebtn'])){
 								
 								$id = $_REQUEST['cat_id'];
@@ -198,46 +200,40 @@ include('common/header.php');
 							}
 							?>
 
-			<div class="modal fade" id="updatecat" tabindex="-1" role="dialog" aria-labelledby="updatecat"
-				aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="updatecat">Update category</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
+<div class="modal fade" id="updatecat" tabindex="-1" role="dialog" aria-labelledby="updatecat" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="updatecat">Update category</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
 
-						<form action="" method="POST" enctype="multipart/form-data">
-							<div class="modal-body">
-								<input type="hidden" name="cat_id" id="cat_id">
-								<div class="form-group">
-									<label for="exampleFormControlFile1">category Image</label>
-									<input type="file" name="cupdateimg" id="editimg" class="form-control-file">
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">category Name</label>
-									<input type="text" class="form-control" name="cupdatename" id="editname"
-										placeholder="Enter category Name" required>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								<button type="submit" name="updatebtn" class="btn btn-primary">update
-									Category</button>
-							</div>
-						</form>
-
+			<form action="" method="POST" enctype="multipart/form-data">
+				<div class="modal-body">
+					<input type="hidden" name="cat_id" id="cat_id">
+					<div class="form-group">
+						<label for="exampleFormControlFile1">category Image</label>
+						<input type="file" name="cupdateimg" id="editimg" class="form-control-file">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">category Name</label>
+						<input type="text" class="form-control" name="cupdatename" id="editname"
+							placeholder="Enter category Name" required>
 					</div>
 				</div>
-			</div>
-			<!-- end modal -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" name="updatebtn" class="btn btn-primary">update
+						Category</button>
+				</div>
+			</form>
 
 		</div>
 	</div>
 </div>
-<!-- /.container-fluid -->
+<!-- end modal -->
 </div>
 <!-- End of Main Content -->
 <?php include('common/footer.php')?>

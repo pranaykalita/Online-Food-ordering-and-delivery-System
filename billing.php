@@ -1,12 +1,11 @@
-
 <?php
 include('include/dbcon.php');
-date_default_timezone_set("Asia/Calcutta");
+
 // get data
-if(isset($_POST["billdwn"]))
+if(isset($_POST["invoicebtn"]))
 {
-    $ordid = $_POST["id"];
-    $query = "SELECT * From `allorders_tb` WHERE `ord_id` = '{$ordid}'";
+    $invid = $_POST["invoiceid"];
+    $query = "SELECT * From `allorders_tb` WHERE `invid` = '{$invid}'";
     $result = $conn->query($query);
     $row = $result->fetch_assoc();
 }

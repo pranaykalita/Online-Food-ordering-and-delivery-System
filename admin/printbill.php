@@ -70,7 +70,14 @@ if(isset($_POST["Bill"]))
                         </div>
                         <div class="col-sm-6 text-right">
                             <span>Bill Date</span>
-                            <strong><?php echo  $row["ord_date"]. ' - '. $row["ord_time"]; ?></strong>
+                            <strong><?php 
+                                    $ord_date = strtotime($row["ord_date"]);
+                                    $ford_date = date("d-M-Y",$ord_date);
+                                    $ord_time = strtotime($row["ord_time"]);
+                                    $fortime = date("h:m:a",$ord_time);
+
+                                    echo 
+                                    $ford_date. ' - '. $fortime; ?></strong>
                         </div>
                     </div>
                 </div>

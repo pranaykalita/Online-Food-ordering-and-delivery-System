@@ -6,10 +6,15 @@ if(isset($_SESSION['cart']))
     $count =  count($_SESSION['cart']);
 }
 ?>
+<style>
+    .noboxshadow{
+        box-shadow: none !important;
+    }
+</style>
 <section class="header">
-    <nav class="navbar navbar-expand-lg text-uppercase fixed-top">
-        <a class="navbar-brand" href="/">Coders  Cafe</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_menus"
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top bg-dark ">
+        <a class="navbar-brand text-light" href="/">Food Zila</a>
+        <button class="navbar-toggler noboxshadow" type="button" data-toggle="collapse" data-target="#navbar_menus"
             aria-controls="navbar_menus" aria-expanded="true" aria-label="Toggle navigation">
             <span></span>
             <span></span>
@@ -19,47 +24,50 @@ if(isset($_SESSION['cart']))
         <div class="collapse navbar-collapse justify-content-between" id="navbar_menus">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link " href="/" data-scroll-to>Home</a>
+                    <a class="nav-link  text-light" href="/" data-scroll-to>Home</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="index.php#about" data-scroll-to>About</a>
+                    <a class="nav-link  text-light" href="index.php#about" data-scroll-to>About</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="" data-scroll-to id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+                    <a class="nav-link  text-light" href="" data-scroll-to id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                        <a class="dropdown-item" href="index.php#menu">View Menu</a>
+                        <a class="dropdown-item  text-light" href="index.php#menu">All Categories</a>
                         <?php
                         $cts = "SELECT * FROM `menucategory_tb` WHERE `cat_status` = '1'";
                         $data = $conn->query($cts);
                         while($row = $data->fetch_assoc()){
                             ?>
-                            <a href="menu.php#<?php echo $row["cat_name"] ?>" class="dropdown-item"><?php echo $row["cat_name"] ?></a>
-                            <?php
+                        <a href="menu.php#<?php echo $row["cat_name"] ?>"
+                            class="dropdown-item itmcat" ><?php echo $row["cat_name"] ?></a>
+                        <?php
                         }
                         ?>
-                        
-                    </div>   
-                       
+
+                    </div>
+
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="index.php#contact" data-scroll-to>ContactUS</a>
+                    <a class="nav-link text-light" href="index.php#contact" data-scroll-to>ContactUS</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto navbarright">
                 <li class="nav-item ">
-                   
-                <?php
+
+                    <?php
                 if(!isset($_SESSION["username"]))
                 {
-                    echo '<a class="nav-link" href="account.php" data-scroll-to>Account</a>';
+                    echo '<a class="nav-link  text-light" href="account.php" data-scroll-to>Account</a>';
                 }
                 else
                 {
                     echo '<a class="nav-link" href="account.php" data-scroll-to>'.$_SESSION["username"].'</a>';
                 }
                 ?>
-                    <a class="nav-link" href="cart.php" data-scroll-to><i class="fas fa-shopping-bag text-danger"></i>
+                    <a class="nav-link  text-light" href="cart.php" data-scroll-to><i
+                            class="fas fa-shopping-bag text-danger"></i>
                         Cart <?php echo $count; ?></a>
                 </li>
                 <?php
@@ -73,11 +81,9 @@ if(isset($_SESSION['cart']))
                     echo '<a href="logout.php" class="btn btn-primary">logout</a>';
                 }
                 ?>
-               
-               
+
+
             </ul>
         </div>
     </nav>
-    </nav>
-    </div>
 </section>

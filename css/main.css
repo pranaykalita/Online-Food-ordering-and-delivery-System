@@ -89,7 +89,7 @@ ul {
 }
 
 .navbar-toggler span {
-	background: rgb(10, 10, 10);
+	background: #fff;
 	width: 30px;
 	height: 3px;
 	display: flex;
@@ -164,7 +164,7 @@ ul {
 /* scroll */
 
 .scrollbar a {
-	color: rgb(10, 10, 10) !important;
+	color: rgb(255, 255, 255) !important;
 }
 .scrollbar a:hover {
 	color: rgb(214, 48, 49) !important;
@@ -285,7 +285,7 @@ footer .social-icon {
 		background: white;
 	}
 	.navbar a {
-		color: rgb(19, 19, 19);
+		color: rgb(255, 255, 255);
 	}
 	.menu_itm .col-md {
 		padding-left: 3em;

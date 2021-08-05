@@ -1,5 +1,5 @@
 <?php 
-define("TITLE" , "Coders Cafe | ADMIN");
+define("TITLE" , "FOODZILLA | ADMIN");
 include('common/header.php');
 ?>
 
@@ -14,25 +14,25 @@ include('common/header.php');
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">confirm manage</h6>
+            <h6 class="m-0 font-weight-bold text-primary">New Order</h6>
         </div>
 
         <div class="card-body">
             <!-- add content here  -->
-            <div class="card-body">
             <div class="table-responsive">
-            <table class="table" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <th>id</th>
-                    <th>User</th>
-                    <th>Total</th>
-                    <th>Date</th>
-                    <th>Details</th>
-                    <th>status</th>
-                    <th>action</th>
-                </thead>
-                <tbody>
-                    <?php
+                <table class="table" id="dataTable">
+                    <thead>
+                        <th>Order NO</th>
+                        <th>User</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                        <th>status</th>
+                        <th>details</th>
+                        <th>action</th>
+                        <th style="display: none;"></th>
+                    </thead>
+                    <tbody>
+                        <?php
                                  // approve order
                                  if(isset($_REQUEST["approve"]))
                                  {
@@ -40,30 +40,6 @@ include('common/header.php');
  
                                      $sql = "UPDATE `allorders_tb` SET `ord_status`= '1' WHERE `ord_id` = '{$ordid}'";
                                      $conn->query($sql);
-
-
-                                    //  genrate a invoice id
-                                    $query = "SELECT `invid` from `allorders_tb`";
-                                    $res = $conn->query($query);
-
-                                    $rw = $res->fetch_array();
-                                    $lastid = $rw["invid"];
-
-                                    if(empty($lastid))
-                                    {
-                                        $number = "CCAFE-00000001";
-                                    }
-                                    else
-                                    {
-                                        $idd = str_replace("CCAFE-","",$lastid);
-                                        $id = str_pad($idd + 1 , 7,0, STR_PAD_LEFT);
-                                        $number = 'CCAFE-' . $id;
-                                    }
-
-                                     $sql2 = "UPDATE `allorders_tb` SET `invid`= '$number' WHERE `ord_id` = '{$ordid}'";
-                                    //  echo $sql2;die();
-                                     $conn->query($sql2);
-
                                      echo '<script>
                                      swal({
                                          title: "Order Accepted",
@@ -90,41 +66,52 @@ include('common/header.php');
                                        </script>';
                                    }
                                 
-                                $sql = "SELECT * FROM `allorders_tb` WHERE `ord_status` = '0' or `ord_status` = '1' order by `ord_id` desc";
+                                $sql = "SELECT * FROM `allorders_tb` WHERE `ord_status` = '0' or `ord_status` = '1' ORDER BY `invid` DESC";
                                 $data = $conn->query($sql);
                                 while($row = $data->fetch_assoc()){
+
+                                    $ord_date = strtotime($row["ord_date"]);
+                                    $ford_date = date("d-M-Y",$ord_date);
+
                                     echo '
                                     <tr>
-                                    <td class="ord_id">'.$row["ord_id"].'</td>
+                                    <td class="ord_id" style="display: none;"  >'.$row["ord_id"].'</td>
+                                    <td>'.$row["invid"].'</td>
                                     <td>'.$row["ord_user"].'</td>
-                                    <td>'.$row["ord_totlprice"].'</td>
-                                    <td>'.$row["ord_date"].'</td>
-                                    <td>
-										<button type="button" class="btn btn-info mr-3  viewdetails"  data-toggle="modal" data-target="#viewdetails">
-										<i class="fas fa-eye"></i>
-										</button>
-                                    </td>';
-                                    if($row["ord_status"] == 0){
+                                    <td>₹ '.$row["ord_totlprice"].'</td>
+                                    <td>'.$ford_date.'</td>';
+                                    if($row["ord_status"] == 0)
+                                    {
                                         echo '<td class="text-success"><i class="fas fa-check-circle"></i>New Order</td>';
-
-                                    }else
-                                    if($row["ord_status"] == 1){
+                                    }
+                                    elseif($row["ord_status"] == 1)
+                                    {
                                         echo '<td class="text-danger"><i class="fas fa-hourglass-half"></i>Cooking</td>';
 
                                     }
+                                    echo '
+                                    <td>
+										<button type="button" class="btn btn-info mr-3  viewdetails"  data-toggle="modal" data-target="#viewdetails">
+										<i class="fas fa-eye"></i> View Order
+										</button>
+                                    </td>';
 
-                                    if($row["ord_status"] == 1){
+                                    if($row["ord_status"] == 1)
+                                    {
                                         echo'
                                         <td>
                                             <form action="delivery.php" method="post" class="d-inline">
                                                 <input type="hidden" name="id" value='.$row["ord_id"].'>
+                                                <input type="hidden" name="invid" value='.$row["invid"].'>
                                                 <button class="btn btn-success" type="submit" name="asigndelivery">
                                                 <i class="fas fa-clipboard-check "></i> Assign delivery
                                                 </button>
                                             </form>
-                                        </td>';
-                                    }else{
-
+                                        </td>
+                                        </tr>';
+                                    }
+                                    else
+                                    {
                                     echo '
                                     <td>
                                     
@@ -141,67 +128,77 @@ include('common/header.php');
                                             <i class="fas fa-ban "></i> Reject
                                             </button>
                                          </form>
-                                    </td>'; 
+                                    </td>
+                                    </tr>'; 
                                     }
                                 }
                                
                                 ?>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
             </div>
-            </div>
-            <!-- modal section  -->
-            <!-- modal view details -->
-            <div class="modal fade" id="viewdetails" tabindex="-1" role="dialog" aria-labelledby="viewdetails"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="viewdetails">Update category</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                        <div class="row p-2">
-                            <div class="col">
-                                <p class="text-dark">User:</p>
-                                <p class="text-dark">Address:</p>
-                                <p class="text-dark">Total:</p>
-                                <p class="text-dark">items</p>
-                            </div>
-                            <div class="col">
-                                <p class="text-dark font-weight-bold name"></p>
-                                <p class="text-dark font-weight-bold add"></p>
-                                <p class="text-dark font-weight-bold total"></p>
-                            </div>
-                        </div>
-                        <div class="row p-2">
-                            <div class="col">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>item</th>
-                                            <th>qty</th>
-                                            <th>price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="ordview">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!-- end modal -->
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 
+<!-- modal section  -->
+<!-- modal view details -->
+<div class="modal fade" id="viewdetails" tabindex="-1" role="dialog" aria-labelledby="viewdetails" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewdetails">Order Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="row p-2">
+                <table class="table table-borderless">
+                    <tr>
+                        <th>Payment Mode</th>
+                        <td class="pmode text-dark font-weight-bold"></td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td class="name text-dark font-weight-bold"></td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td class="phone text-dark font-weight-bold"></td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td class="add text-dark font-weight-bold"></td>
+                    </tr>
+                    <tr>
+                        <th>Order Total</th>
+                        <td class="total text-dark font-weight-bold">₹</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row p-2">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Items</th>
+                                <th>Quantity</th>
+                                <th>price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="ordview">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- end modal -->
 </div>
 <!-- End of Main Content -->
 <?php include('common/footer.php')?>

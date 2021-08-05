@@ -1,5 +1,5 @@
 <?php 
-define("TITLE" , "Coders Cafe | ADMIN");
+define("TITLE" , "FOODZILLA | ADMIN");
 include('common/header.php');
 ?>
 
@@ -12,7 +12,7 @@ include('common/header.php');
 	</div>
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<button href="#" type="button" data-toggle="modal" data-target="#additem" class="btn btn-success"><i
-				class="fas fa-plus"></i> Add items</button>
+				class="fas fa-plus"></i> Add New items</button>
 	</div>
 
 	<!-- DataTales Example -->
@@ -24,23 +24,21 @@ include('common/header.php');
 		</div>
 
 		<div class="card-body">
-			<!-- add content here  -->
-			<div class="card-body">
 			<div class="table-responsive">
-			<table class="table" id="dataTable" width="100%" cellspacing="0">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Item Image</th>
-						<th>Item Name</th>
-						<th>Item price</th>
-						<th>category</th>
-						<th>Quantity</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
+				<table class="table" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Item Image</th>
+							<th>Item Name</th>
+							<th>Item price</th>
+							<th>category</th>
+							<th>Quantity</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
 								// delet item
 								if(isset($_REQUEST["delete"]))
 								{
@@ -58,7 +56,7 @@ include('common/header.php');
 									echo '<meta http-equiv="refresh" content= "2;URL=?deleted" />';
 								}
 
-								$query = "SELECT * FROM `menuitems_tb`";
+								$query = "SELECT * FROM `menuitems_tb` ORDER BY `menu_id` DESC";
 								$result = $conn->query($query);
 
 								while($row = $result->fetch_assoc())
@@ -68,7 +66,7 @@ include('common/header.php');
 									<td class="menuid">'.$row["menu_id"].'</td>
 									<td><img src="'.menu_img.$row["menu_image"].'" alt="" border=3 height=80 width=80></img></td>
 									<td>'.$row["menu_name"].'</td>
-									<td>'.$row["menu_price"].'</td>
+									<td>₹ '.$row["menu_price"].'</td>
 									<td>'.$row["menu_category"].'</td>';
 									if($row["menu_quantity"] == 0)
 									{
@@ -77,7 +75,8 @@ include('common/header.php');
 										echo '<td>'.$row["menu_quantity"].'</td>';
 									}
 									
-									echo '<td>
+									echo '
+									<td>
 									<button class="btn btn-primary edit_food" type="button" data-toggle="modal" data-target="#edit_food">
 									<i class="fas fa-pen"></i>
 									</button>
@@ -92,12 +91,18 @@ include('common/header.php');
 								</tr>';
 								}
 								?>
-				</tbody>
-			</table>
+					</tbody>
+				</table>
 			</div>
-			</div>
-			<!-- modal 1 add items -->
-			<?php 
+		</div>
+
+
+
+	</div>
+</div>
+<!-- /.container-fluid -->
+<!-- modal 1 add items -->
+<?php 
 									// add item
 									if(isset($_REQUEST["additm"]))
 									{
@@ -131,65 +136,61 @@ include('common/header.php');
 										echo '<meta http-equiv="refresh" content= "2;URL=?Added" />'; 
 									}
 									?>
-			<div class="modal fade" id="additem" tabindex="-1" role="dialog" aria-labelledby="additem"
-				aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<form action="" method="POST" enctype="multipart/form-data">
-							<div class="modal-body">
-								<div class="form-group">
-									<label for="exampleFormControlFile1">Item Image</label>
-									<input type="file" name="itmimg" class="form-control-file" required>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Item Name</label>
-									<input type="text" class="form-control" name="iname" placeholder="Enter Item Name"
-										required>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Item Price</label>
-									<input type="number" class="form-control" name="iprice"
-										placeholder="Enter Item price" required>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Item categoty</label>
-									<select type="text" class="form-control" name="icat" required>
-										<?php 
-													$sql = "SELECT * FROM `menucategory_tb`";
-													$data = $conn->query($sql);
-													while($ret = $data->fetch_assoc())
-													{
-														echo '<option>'.$ret["cat_name"].'</option>';
-													}
-													?>
+<div class="modal fade" id="additem" tabindex="-1" role="dialog" aria-labelledby="additem" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form action="" method="POST" enctype="multipart/form-data">
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="exampleFormControlFile1">Item Image</label>
+						<input type="file" name="itmimg" class="form-control-file" required>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Item Name</label>
+						<input type="text" class="form-control" name="iname" placeholder="Enter Item Name" required>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Item Price</label>
+						<input type="number" class="form-control" name="iprice" placeholder="Enter Item price" required>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Item categoty</label>
+						<select type="text" class="form-control" name="icat" required>
+							<?php 
+							$sql = "SELECT * FROM `menucategory_tb`";
+							$data = $conn->query($sql);
+							while($ret = $data->fetch_assoc())
+							{
+								echo '<option>'.$ret["cat_name"].'</option>';
+							}
+							?>
 
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Item Quantity</label>
-									<input type="number" class="form-control" name="iqty"
-										placeholder="Enter Item Quantity" required>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								<button type="submit" name="additm" class="btn btn-primary">Add item</button>
-							</div>
-						</form>
-
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Item Quantity</label>
+						<input type="number" class="form-control" name="iqty" placeholder="Enter Item Quantity"
+							required>
 					</div>
 				</div>
-			</div>
-			<!-- end modal -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" name="additm" class="btn btn-primary">Add item</button>
+				</div>
+			</form>
 
-			<!-- modal 2 update items -->
-			<?php
+		</div>
+	</div>
+</div>
+<!-- end modal -->
+<!-- modal 2 update items -->
+<?php
 							if(isset($_REQUEST['upditm']))
 							{
 								$iid = $_REQUEST['menid'];
@@ -238,67 +239,62 @@ include('common/header.php');
 
 							}
 							?>
-			<div class="modal fade" id="edit_food" tabindex="-1" role="dialog" aria-labelledby="edit_food"
-				aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="edit_food">Add Items</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<form action="" method="POST" enctype="multipart/form-data">
-							<div class="modal-body">
-								<input type="hidden" name="menid" id="menid">
-								<div class="form-group">
-									<label for="exampleFormControlFile1">Item Image</label>
-									<input type="file" name="up_itmimg" class="form-control-file upitmimg">
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Item Name</label>
-									<input type="text" class="form-control upiname" name="up_iname"
-										placeholder="Enter Item Name" required>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Item Price</label>
-									<input type="number" class="form-control upiprice" name="up_iprice"
-										placeholder="Enter Item price" required>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Item categoty</label>
-									<select type="text" class="form-control upicat" name="up_icat" required>
-										<?php 
-													$sql = "SELECT * FROM `menucategory_tb`";
-													$data = $conn->query($sql);
-													while($ret = $data->fetch_assoc())
-													{
-														echo '<option>'.$ret["cat_name"].'</option>';
-													}
-													?>
+<div class="modal fade" id="edit_food" tabindex="-1" role="dialog" aria-labelledby="edit_food" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="edit_food">Update Items</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form action="" method="POST" id="form_edit" enctype="multipart/form-data">
+				<div class="modal-body">
+					<input type="hidden" name="menid" id="menid">
+					<div class="form-group">
+						<label for="exampleFormControlFile1">Item Image</label>
+						<input type="file" name="up_itmimg" class="form-control-file upitmimg">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Item Name</label>
+						<input type="text" class="form-control upiname" name="up_iname" placeholder="Enter Item Name"
+							required>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Item Price</label>
+						<input type="number" class="form-control upiprice" name="up_iprice"
+							placeholder="Enter Item price" required>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Item categoty</label>
+						<select type="text" class="form-control upicat" name="up_icat" required>
+							<?php 
+							$sql = "SELECT * FROM `menucategory_tb`";
+							$data = $conn->query($sql);
+							while($ret = $data->fetch_assoc())
+							{
+								echo '<option>'.$ret["cat_name"].'</option>';
+							}
+							?>
 
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Item Quantity</label>
-									<input type="number" class="form-control upiqty" name="up_iqty"
-										placeholder="Enter Item Quantity" required>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								<button type="submit" name="upditm" class="btn btn-primary">Update</button>
-							</div>
-						</form>
-
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Item Quantity</label>
+						<input type="number" class="form-control upiqty" name="up_iqty"
+							placeholder="Enter Item Quantity" required>
 					</div>
 				</div>
-			</div>
-			<!-- end modal -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" name="upditm" class="btn btn-primary">Update</button>
+				</div>
+			</form>
+
 		</div>
 	</div>
 </div>
-<!-- /.container-fluid -->
+<!-- end modal -->
 </div>
 <!-- End of Main Content -->
 <?php include('common/footer.php')?>

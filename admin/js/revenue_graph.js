@@ -62,6 +62,8 @@ $(document).ready(function ()
                 }]
             }
 
+           
+
             var options = 
                 {
                     maintainAspectRatio: false,
@@ -79,6 +81,7 @@ $(document).ready(function ()
                         unit: 'date'
                         },
                         gridLines: {
+                            lineWidth: 0,
                         display: false,
                         drawBorder: false
                         },
@@ -96,6 +99,7 @@ $(document).ready(function ()
                         }
                         },
                         gridLines: {
+                        lineWidth: 0,
                         color: "rgb(234, 236, 244)",
                         zeroLineColor: "rgb(234, 236, 244)",
                         drawBorder: false,
@@ -135,7 +139,7 @@ $(document).ready(function ()
             {
                 type: 'line',
                 data : chartdata,
-                options: options
+                options: options,
             },
             )
         },

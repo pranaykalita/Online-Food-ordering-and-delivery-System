@@ -1,7 +1,7 @@
 // category.php
 $(document).ready(function(){
 
-    $('.update_btn').click(function(e){
+    $('#dataTable').on('click' ,'.update_btn' ,function(e){
         e.preventDefault();
 
         var cat_id = $(this).closest("tr").find(".catid").text();
@@ -27,11 +27,10 @@ $(document).ready(function(){
 // menu.php
 $(document).ready(function(){
 
-    $('.edit_food').click(function(e){
+    $('#dataTable').on('click','.edit_food',function(e){
         e.preventDefault();
-
         var cat_id = $(this).closest("tr").find(".menuid").text();
-
+        
         $.ajax({
             type: 'POST',
             url:'datafetch.php',
@@ -50,12 +49,42 @@ $(document).ready(function(){
             }
         });
     });
+
+});
+
+// delivery update
+$(document).ready(function(){
+    $('#dataTable2').on('click','.editdel',function (e) {  
+        e.preventDefault();
+        var delid = $(this).closest("tr").find(".delid").text();
+        // alert(delid);
+
+        $.ajax({
+            type: "POST",
+            url: "datafetch.php",
+            data: {
+                'getdata' : true,
+                'delid' : delid,
+            },
+            success: function (response) {
+                $.each(response, function (key, value) { 
+                     $('#delid').val(value['id']);
+                     $('#uname').val(value['del_name']);
+                     $('#uphone').val(value['del_phone']);
+                     $('#uemail').val(value['delemail']);
+                     $('#uadd').val(value['deladdress']);
+                     $('#upass').val(value['delpass']);
+                });
+                
+            }
+        });
+    });
 });
 
 // neworders.php
 $(document).ready(function () {
 
-    $('.viewdetails').click(function (e) {
+    $('#dataTable').on('click','.viewdetails' ,function (e) {
         e.preventDefault();
 
         var ord_id = $(this).closest("tr").find(".ord_id").text();
@@ -78,12 +107,12 @@ $(document).ready(function () {
 // neworders.php details
 $(document).ready(function () {
 
-    $('.viewdetails').click(function (e) {
+    $('#dataTable').on('click', '.viewdetails',function (e) {
         e.preventDefault();
 
         var ord_id = $(this).closest("tr").find(".ord_id").text();
 
-        $.ajax({
+     $.ajax({
             type: 'POST',
             url: 'datafetch.php',
             data: {
@@ -92,9 +121,11 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $.each(response, function (key, value) { 
+                    $('.pmode').text(value['selpaymode']);
                     $('.name').text(value['ord_user']);
+                    $('.phone').text(value['ord_phone']);
                     $('.add').text(value['ord_addrs']);
-                    $('.total').text(value['ord_totlprice']);
+                    $('.total').text("₹ "+value['ord_totlprice']).appen;
                 });
             }
         });
@@ -105,7 +136,7 @@ $(document).ready(function () {
 
 $(document).ready(function(){
 
-    $('.view_btn').click(function(e){
+    $('#dataTable').on('click' , '.view_btn' ,function(e){
         e.preventDefault();
 
         var ord_viewid = $(this).closest("tr").find(".ord_id").text();
@@ -118,6 +149,7 @@ $(document).ready(function(){
                 'ord_view': ord_viewid,
             },
             success: function(response){
+                
                 $('.orddet').html(response);
             }
         });
@@ -127,7 +159,7 @@ $(document).ready(function(){
 // staff.php
 $(document).ready(function(){
 
-    $('.editemp').click(function(e){
+    $('#dataTable').on('click','.editemp',function(e){
         e.preventDefault();
 
         var cat_id = $(this).closest("tr").find(".stfid").text();

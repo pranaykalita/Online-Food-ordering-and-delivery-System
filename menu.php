@@ -1,18 +1,27 @@
 <?php
-define("TITLE" , "Coders Cafe | Menu");
+define("TITLE" , "FOODZILLA | Menu");
 include('include/head.php'); 
 ?>
 
-
-
-
 <!-- include custom stylesheet -->
 <link rel="stylesheet" href="css/menu.css" />
+<link rel="stylesheet" href="css/menunew.css" />
+<style>
+	#items {
+		scroll-padding-top: 150px;
+	}
 
+	.itmimage {
+		max-width: 100%;
+		max-height: 250px;
+		overflow: hidden;
+		object-fit: cover;
+	}
+</style>
 </head>
 
 <body>
-	
+
 	<!-- manage cart -->
 	<?php
 	if(isset($_REQUEST["atcart"])){
@@ -61,34 +70,16 @@ include('include/head.php');
 		}
 	}
 	?>
-	<?php include('include/header.php'); ?>
+	<?php include('include/header.php'); ?>+
 
-	<!-- content -->
-
-	<!-- home -->
-	<section class="menuhome" id="home">
-		<div class="row">
-			<div class="item item-first">
-				<div class="caption">
-					<div class="container">
-						<div class="col-md-8 col-sm-12">
-							<h3>Coders Cafe &amp; Restaurant</h3>
-							<h1>Our mission is to provide an unforgettable experience</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!-- home section -->
-	<div class="row head">
-		<div class="col p-3 text-center">
-			<h1>OUR MENU</h1>
-		</div>
-	</div>
-
-	<div class="row homecat">
+	<!-- scroll to top -->
+	<button type="button" onclick="topFunction()" id="myBtn"  class="btn btn-success btn-circle btn-xl"><i class="fas fa-arrow-up"></i></button>
+	
+	
+	<!-- category -->
+	<!-- <div class="row homecat mt-5">
 		<div class="continer">
 			<div class="col">
 				<div class="p-5">
@@ -98,73 +89,102 @@ include('include/head.php');
 							Select Category
 						</a>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						
+
 						<?php
-						$cat_sql = "SELECT * FROM `menucategory_tb` WHERE cat_status = '1'";
-						$data_ret = $conn->query($cat_sql);
-						while($row_ret = $data_ret->fetch_assoc()){
-							echo '<a class="dropdown-item" href='."#".$row_ret["cat_name"].'>'.$row_ret["cat_name"].'</a>';
-						}
+						// $cat_sql = "SELECT * FROM `menucategory_tb` WHERE cat_status = '1'";
+						// $data_ret = $conn->query($cat_sql);
+						// while($row_ret = $data_ret->fetch_assoc()){
+						// 	echo '<a class="dropdown-item" href="'."#".$row_ret["cat_name"].'">'.$row_ret["cat_name"].'</a>';
+						// }
   						?>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
-	<!-- menu -->
-	<section class="productmenu" id="items">
-		<div class="container">
+	<!-- irtem card -->
+	<?php 
 
-			<?php
-			$sql = "SELECT * FROM `menucategory_tb` WHERE `cat_status` = '1'";
-			$data = $conn->query($sql);
-			
-			while($row = $data->fetch_assoc()){
+	$sql = "SELECT * FROM `menucategory_tb` WHERE `cat_status` = '1'";
+	$data = $conn->query($sql);
+	while($row = $data->fetch_assoc())
+	{
+		echo '
+		<!-- category -->
+		<section class="scrollcontainer">
 
-				echo'<!-- loop category-->	
-				<div class="itemcategory">
-					<div class="row" id='.$row["cat_name"].'>
-						<div class="category mt-2">
-							<p>category: <span>'.$row["cat_name"].'</span></p>
-						</div>
-					</div>
-
-					<!-- loop item-->
-					<div class="row" >';
-				$sql2 = "SELECT * FROM `menuitems_tb` where menu_category = '{$row["cat_name"]}' And menu_status = '1'";
-				$data2 = $conn->query($sql2);
-				while($itm = $data2->fetch_assoc()){
-					echo '
-					<!-- item -->
-					<div class="col-md-3 col-sm-6 col-6 py-3">
-						<form method="POST" action="">
-							<div class="product-grid">
-								<div class="product-image">
-								<img class="image"
-								src='.menu_img.$itm["menu_image"].'>
-								</div>
-								<div class="product-content">
-									
-									<h3 class="title"><a href="#">'.$itm["menu_name"].'</a></h3>
-									<div class="price">₹ '.$itm["menu_price"].'</div>
-									<button class="add-to-cart" href="#" type="submit" name="atcart"><i class="fas fa-cart-plus"></i> Add</button>
-									<input type="hidden" name="iname" value="'.$itm["menu_name"].'">
-									<input type="hidden" name="iprice" value="'.$itm["menu_price"].'">
-									<input type="hidden" name="iimg" value="'.$itm["menu_image"].'">
-								</div>
-							</div>
-						</form>
-					</div>';
-				}
-				echo'
-					</div>
-				</div>';
-			}
-			?>
+		<div class="row mx-2 mt-3">
+			<div class="col categoryscroll" id="'.$row["cat_name"].'">
+				<span class="badge badge-primary align-right px-2 py-2 mt-5" style="font-size: .9rem; font-weight:400;">
+				'.$row["cat_name"].'
+				</span>
+			</div>
 		</div>
-	</section>
+
+		<div class="row shadowed mx-lg-5 mx-3 mt-3">';
+
+		$menusql = "SELECT * FROM `menuitems_tb` where menu_category = '{$row["cat_name"]}' And menu_status = '1'";
+		$menudata = $conn->query($menusql);
+
+		while($mrow = $menudata->fetch_assoc())
+		{
+			echo '
+			<!-- card loop -->
+
+			<div class="col-sm-6 col-md-6 col-lg-2">
+                <div class="food-card">
+                    <div class="food-card_img">
+                        <img src='.menu_img.$mrow["menu_image"].' alt="">
+                        
+                    </div>
+                    <div class="food-card_content">
+                        <div class="food-card_title-section">
+                            <p class="food-card_title">'.$mrow["menu_name"].'</p>
+                        </div>
+						<div class="food-card_bottom-section">
+                            <div class="space-between">
+								<div class="pull-right">
+								<span class="badge badge-success align-right">'.$mrow["menu_category"].'</span>
+								</div>
+                            </div>
+                        </div>
+						<hr>
+                        <div class="food-card_bottom-section">
+                            <div class="space-between">
+								<div class="food-card_price">
+                                    <span style="font-family:ROBOTO;">₹'.$mrow["menu_price"].'</span>
+                                </div>
+								<div class="pull-right">
+								
+								<form action="" method="post">
+									<input type="hidden" name="iname" value="'.$mrow["menu_name"].'">
+									<input type="hidden" name="iprice" value="'.$mrow["menu_price"].'">
+									<input type="hidden" name="iimg" value="'.$mrow["menu_image"].'">
+									<button class="btn btn-danger px-4 py-2 orderbutton" type="submit"  name="atcart"><i class="fas fa-cart-plus"></i> ORDER</button>
+								</form>
+								</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+			<!-- end loop -->';
+		}
+		echo '
+	</div>
+	</section>	
+	<!-- end card -->';
+	}
+	
+	?>
+
+
+
+
+
 
 
 	<!-- end contant -->
@@ -175,6 +195,27 @@ include('include/head.php');
 	include('include/cmonscripts.php');
 	
     ?>
+	<script>
+		//Get the button
+		var mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+		  if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+		    mybutton.style.display = "block";
+		  } else {
+		    mybutton.style.display = "none";
+		  }
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+		  document.body.scrollTop = 0;
+		  document.documentElement.scrollTop = 0;
+		}
+		</script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy;  Priyanshu Dutta & Pranay kalita | coderscafe 2021</span>
+						<span>Copyright &copy; Pranay kalita | FoodZilla 2021</span>
 					</div>
 				</div>
 			</footer>
@@ -35,14 +35,18 @@
 
 	<!-- page chartjs files -->
 	<script src="vendor/chart.js/Chart.min.js"></script>
-
+	<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+	
+	<!-- dashbaord graph scripts -->
+	<script src="js/revenue_graph.js"></script>
+	
 	<!-- Page level data tables scripts -->
 	<script src="js/datatables.js"></script>
 
 	<!-- fetch data sql scripts -->
 	<script src="js/datafetch.js"></script>
-
-	<!-- dashbaord graph scripts -->
-	<script src="js/revenue_graph.js"></script>
+	<!-- <script src="js/pignose.calendar.full.min.js"></script> -->
+	<!-- <script src="js/calender.js -->
+	"></script>
 </body>
 </html>

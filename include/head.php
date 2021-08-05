@@ -40,6 +40,9 @@ while($row = $data1->fetch_assoc()){
 	<link rel="stylesheet" href="/vendor/datatables/css/dataTables.bootstrap4.css">
 	<link rel="stylesheet" href="/vendor/datatables/css/responsive.bootstrap4.min.css">
 
+	<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+
 	<!-- owlcarousel -->
 	<link rel="stylesheet" href="/vendor/owlcarousel2/css/owl.carousel.css">
 

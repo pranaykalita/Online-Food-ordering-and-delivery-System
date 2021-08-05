@@ -1,5 +1,5 @@
 <?php
-define("TITLE" , "Coders Cafe | ADMIN");
+define("TITLE" , "FOODZILLA | ADMIN");
 include('common/header.php');
 
 if(isset($_POST["view"]))

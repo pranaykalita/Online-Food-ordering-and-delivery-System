@@ -20,7 +20,7 @@
                         </div>
                         <address>
                             <p>090-1234-56789</p>
-                            <p><a href="mailto:info@coderscafe.com">info@coderscafe.com</a></p>
+                            <p><a href="mailto:info@foodzilla.com">info@foodzilla.com</a></p>
                         </address>
                     </div>
                 </div>
@@ -47,8 +47,9 @@
                         <li><a href="https://github.com/n0v4c0r3/coderscafe_new/" add target="_blank">Project Source <i class="fab fa-github"></i></a></li>
                     </ul>
                     <div class="copyright-text">
-                        <p><br>Copyright &copy; 2021 <br>Pranay Kalita & Priyanshu Dutta</p>
-                        <p>Login as <a href="/admin/login.php">ADMIN</a></p>
+                        <p><br>Copyright &copy; 2021 <br>Pranay Kalita</p>
+                        <p>Login as <a target="_blank" href="/admin/login.php">ADMIN</a></p>
+                        <p>Login as <a target="_blank" href="/delivery/login.php">Delivery</a></p>
                     </div>
                 </div>
             </div>

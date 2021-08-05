@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+date_default_timezone_set("Asia/Kolkata");
 session_start();
 if(!isset($_SESSION["aemail"]))
 {
@@ -9,6 +10,16 @@ error_reporting(0);
 
 include('../include/dbcon.php');
 include('../include/functions.php');
+
+// new notifications order
+$sql = "SELECT count(`ord_id`)FROM `allorders_tb` WHERE `ord_status` = '0'";
+$data= $conn->query($sql);
+$result = mysqli_fetch_row($data);
+$countnotific = $result[0];
+
+$sql3 = "SELECT * FROM `allorders_tb`";
+$data3 = $conn->query($sql3);
+
 ?>
 
 
@@ -34,7 +45,11 @@ include('../include/functions.php');
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    <!-- calender-->
+    <link rel="stylesheet" href="css/calender.css">
 </head>
+
 
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -46,7 +61,7 @@ include('../include/functions.php');
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-coffee"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Coders Cafe</div>
+                <div class="sidebar-brand-text mx-3">FOODZILLA</div>
             </a>
 
             <!-- Divider -->
@@ -61,7 +76,29 @@ include('../include/functions.php');
 
             <!-- Divider -->
             <hr class="sidebar-divider" />
+            <!-- Nav Item - -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
+                    aria-expanded="true" aria-controls="collapseOrders">
+                    <i class="fas fa-utensils"></i>
+                    <span>Orders</span>
+                </a>
+                <div id="collapseOrders" class="collapse show" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="neworders.php">manage Orders</a>
+                        <a class="collapse-item" href="orders.php">All Orders </a>
+                    </div>
+                </div>
+            </li>
 
+            <!-- Nav Item - -->
+            <li class="nav-item">
+                <a class="nav-link" href="delivery.php">
+                    <i class="fas fa-motorcycle"></i>
+                    <span>delivery</span></a>
+            </li>
+            
             <!-- Nav Item - -->
             <li class="nav-item">
                 <a class="nav-link" href="category.php">
@@ -74,27 +111,8 @@ include('../include/functions.php');
                     <i class="fas fa-book-open"></i>
                     <span>Menu</span></a>
             </li>
-            <!-- Nav Item - -->
-            <li class="nav-item">
-                <a class="nav-link" href="delivery.php">
-                    <i class="fas fa-motorcycle"></i>
-                    <span>delivery</span></a>
-            </li>
-            <!-- Nav Item - -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders"
-                    aria-expanded="true" aria-controls="collapseOrders">
-                    <i class="fas fa-utensils"></i>
-                    <span>Orders</span>
-                </a>
-                <div id="collapseOrders" class="collapse show " aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="neworders.php">manage Orders</a>
-                        <a class="collapse-item" href="orders.php">All Orders </a>
-                    </div>
-                </div>
-            </li>
+            
+            
             <!-- Nav Item - -->
             <li class="nav-item">
                 <a class="nav-link" href="billing.php">
@@ -153,9 +171,49 @@ include('../include/functions.php');
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        
                         <div class="topbar-divider d-none d-sm-block"></div>
+                        
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1 ">
+                            <a class="nav-link dropdown-toggle readnotific" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter count-number"></span>
+                                
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    New orders
+                                </h6>
+                                <div class="notidetails">
+                                    <a class="dropdown-item d-flex align-items-center" href="neworders.php">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-white">
+                                                <i class="fas fa-pizza-slice text-success"></i>
+                                            </div>
+                                        </div>
+                                        <!-- count order -->
+                                        <!-- <div> -->
+                                            <!-- <div class="small text-gray-500">New Order</div>
+                                            <span class="font-weight-bold notidetails" id="notidetails">Order <span class="text-danger"></span> is recived on <span class="text-success"></span> <span class="text-warning"></span></span> -->
+                                            
+                                        <!-- </div> -->
+                                    </a>
+                                </div>
+                                
+                               
+                                <a  class="dropdown-item text-center small text-gray-500" href="neworders.php">Show All Orders</a>
+                            </div>
+                        </li>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -163,8 +221,14 @@ include('../include/functions.php');
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["aname"]; ?></span>
                                 <img class="img-profile rounded-circle" src='<?php echo  admin_img.$_SESSION["aimg"]; ?>' />
+                                <!-- <button class="btn read">read</button> -->
+                                <div class="count-menu">
+                                        <div class="count"></div>
+                                </div>
                             </a>
                         </li>
+
+                        
                     </ul>
                 </nav>
 

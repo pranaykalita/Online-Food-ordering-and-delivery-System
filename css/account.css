@@ -38,7 +38,7 @@
   }
   
 body {
-	background: url(/images/header_top.svg);
+	/* background: url(/images/header_top.svg); */
 	background-size: cover;
 	height: 20px;
 	background-position: center;
@@ -83,7 +83,7 @@ ul {
 }
 
 .navbar-toggler span {
-	background: rgb(10, 10, 10);
+	background: #fff;
 	width: 30px;
 	height: 3px;
 	display: flex;
@@ -159,7 +159,7 @@ ul {
 /* scroll */
 
 .scrollbar a {
-	color: rgb(10, 10, 10) !important;
+	color: rgb(255, 255, 255) !important;
 }
 .scrollbar a:hover {
 	color: rgb(214, 48, 49) !important;
@@ -279,7 +279,7 @@ footer .social-icon {
 		background: white;
 	}
 	.navbar a {
-		color: rgb(19, 19, 19);
+		color: rgb(255, 255, 255);
 	}
 }
 
@@ -307,7 +307,7 @@ footer .social-icon {
 /*---------------------------------------
     orders  table            
 -----------------------------------------*/
-.orders_page{
+/* .orders_page{
 	width: 100%;
 	height: 100vh;
 	margin-top:  80px;
@@ -334,4 +334,4 @@ table .odd{
 }
 table tbody tr:hover{
 	background: rgb(221, 221, 221) !important;
-}
+} */

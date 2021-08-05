@@ -1,5 +1,5 @@
 <?php
-define("TITLE" , "Coders Cafe | ADMIN");
+define("TITLE" , "FOODZILLA | ADMIN");
 include('common/header.php');
 ?>
 
@@ -24,17 +24,6 @@ include('common/header.php');
 
 		<div class="card-body">
 
-			<!-- Content Wrapper -->
-			<div id="content-wrapper" class="d-flex flex-column">
-
-				<!-- Main Content -->
-				<div id="content">
-
-					<!-- Begin Page Content -->
-					<div class="container-fluid">
-
-
-						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table " id="dataTable" width="100%" cellspacing="0">
 									<thead>
@@ -98,8 +87,17 @@ include('common/header.php');
 
 									</tbody>
 								</table>
-								<!-- Modal add emp-->
-								<?php
+
+
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+	<!-- /.container-fluid -->
+	<!-- Modal add emp-->
+	<?php
 										if(isset($_REQUEST["addemp"]))
 										{
 											
@@ -122,67 +120,58 @@ include('common/header.php');
 											echo '<meta http-equiv="refresh" content= "1;URL=?updated" />';
 										}
 										?>
-								<div class="modal fade" id="addstaff" tabindex="-1" role="dialog"
-									aria-labelledby="addstaff" aria-hidden="true">
-									<div class="modal-dialog" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="addstaff">
-													Update staff</h5>
-												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-											</div>
-											<form action="" method="post">
-												<div class="modal-body">
+	<div class="modal fade" id="addstaff" tabindex="-1" role="dialog" aria-labelledby="addstaff" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addstaff">
+						Update staff</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action="" method="post">
+					<div class="modal-body">
 
-													<div class="form-group">
-														<label>Name</label>
-														<input type="text" name="name" class="form-control"
-															placeholder="Enter Name">
-													</div>
-													<div class="form-group">
-														<label>Email</label>
-														<input type="email" name="email" class="form-control"
-															placeholder="Enter email">
-													</div>
-													<div class="form-group">
-														<label>Phone</label>
-														<input type="tel" name="phone" maxlength="13"
-															class="form-control"
-															pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})"
-															placeholder="Enter Phone(+911234567890)">
-													</div>
-													<div class="form-group">
-														<label>address</label>
-														<textarea type="address" name="addr" class="form-control"
-															placeholder="Address"></textarea>
-													</div>
-													<div class="form-group">
-														<label>Occupation</label>
-														<input type="text" name="ocup" class="form-control" list="occu">
-														<datalist id="occu">
-															<option>Cook</option>
-															<option>Staff</option>
-															<option>Manager</option>
-														</datalist>
-													</div>
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-secondary"
-														data-dismiss="modal">Close</button>
-													<button type="submit" name="addemp"
-														class="btn btn-primary">Add</button>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-								<!-- end modal -->
-								
-								<!-- modal 2 update items -->
-								<?php
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" name="name" class="form-control" placeholder="Enter Name">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" name="email" class="form-control" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label>Phone</label>
+							<input type="tel" name="phone" maxlength="13" class="form-control"
+								pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})"
+								placeholder="Enter Phone(+911234567890)">
+						</div>
+						<div class="form-group">
+							<label>address</label>
+							<textarea type="address" name="addr" class="form-control" placeholder="Address"></textarea>
+						</div>
+						<div class="form-group">
+							<label>Occupation</label>
+							<input type="text" name="ocup" class="form-control" list="occu">
+							<datalist id="occu">
+								<option>Cook</option>
+								<option>Staff</option>
+								<option>Manager</option>
+							</datalist>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="submit" name="addemp" class="btn btn-primary">Add</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- end modal -->
+	<!-- modal 2 update items -->
+	<?php
 							if(isset($_REQUEST['updempy']))
 							{
 									$empid =$_REQUEST["empid"];
@@ -205,75 +194,58 @@ include('common/header.php');
 									echo '<meta http-equiv="refresh" content= "2;URL=?updated" />';
 							}
 							?>
-								<div class="modal fade" id="editemp" tabindex="-1" role="dialog"
-									aria-labelledby="editemp" aria-hidden="true">
-									<div class="modal-dialog" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="editemp">Update employee</h5>
-												<button type="button" class="close" data-dismiss="modal"
-													aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-											</div>
-											<form action="" method="POST" enctype="multipart/form-data">
-
-												<div class="modal-body">
-													<input type="hidden" name="empid" id="stfid">
-													<div class="form-group">
-														<label>Name</label>
-														<input type="text" name="name" class="form-control name"
-															placeholder="Enter Name">
-													</div>
-													<div class="form-group">
-														<label>Email</label>
-														<input type="email" name="email" class="form-control email"
-															placeholder="Enter email">
-													</div>
-													<div class="form-group">
-														<label>Phone</label>
-														<input type="tel" name="phone" maxlength="13"
-															class="form-control tel"
-															pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})"
-															placeholder="Enter Phone(+911234567890)">
-													</div>
-													<div class="form-group">
-														<label>address</label>
-														<textarea type="address" name="addr" class="form-control addr"
-															placeholder="Address"></textarea>
-													</div>
-													<div class="form-group">
-														<label>Occupation</label>
-														<input type="text" name="ocup" class="form-control oocup" list="occu">
-														<datalist id="occu">
-															<option>Cook</option>
-															<option>Delivery</option>
-															<option>Staff</option>
-															<option>Manager</option>
-														</datalist>
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary"
-															data-dismiss="modal">Close</button>
-														<button type="submit" name="updempy"
-															class="btn btn-primary">Update</button>
-													</div>
-											</form>
-
-										</div>
-									</div>
-								</div>
-								<!-- end modal -->
-							</div>
-						</div>
-					</div>
-
+	<div class="modal fade" id="editemp" tabindex="-1" role="dialog" aria-labelledby="editemp" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editemp">Update employee</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
-				<!-- /.container-fluid -->
+				<form action="" method="POST" enctype="multipart/form-data">
+
+					<div class="modal-body">
+						<input type="hidden" name="empid" id="stfid">
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" name="name" class="form-control name" placeholder="Enter Name">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" name="email" class="form-control email" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label>Phone</label>
+							<input type="tel" name="phone" maxlength="13" class="form-control tel"
+								pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})"
+								placeholder="Enter Phone(+911234567890)">
+						</div>
+						<div class="form-group">
+							<label>address</label>
+							<textarea type="address" name="addr" class="form-control addr"
+								placeholder="Address"></textarea>
+						</div>
+						<div class="form-group">
+							<label>Occupation</label>
+							<input type="text" name="ocup" class="form-control oocup" list="occu">
+							<datalist id="occu">
+								<option>Cook</option>
+								<option>Delivery</option>
+								<option>Staff</option>
+								<option>Manager</option>
+							</datalist>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" name="updempy" class="btn btn-primary">Update</button>
+						</div>
+				</form>
+
 			</div>
 		</div>
 	</div>
-	<!-- /.container-fluid -->
+	<!-- end modal -->
 </div>
 <!-- End of Main Content -->
 <?php include("common/footer.php") ?>

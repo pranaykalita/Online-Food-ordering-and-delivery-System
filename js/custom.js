@@ -28,7 +28,8 @@ $('.testimonial_slider').owlCarousel({
 
 $(window).scroll(function() {
   if ($(".navbar").offset().top > 1) {
-    $(".fixed-top").addClass("bg-light");
+    $(".fixed-top").addClass("bg-dark");
+    $(".fixed-top").removeClass("bg-light");
     $(".fixed-top").addClass("scrollbar");
       } else {
         $(".fixed-top").removeClass("bg-light");
@@ -70,8 +71,8 @@ const decreaseNumber = (incdec) => {
   }else{
     itemval.value = parseInt(itemval.value ) -1;
     
-    itemval.style.background = '#ff';
-    itemval.style.color = '#000';
+    itemval.style.background = '#000';
+    itemval.style.color = '#fff';
   }
 }
 
@@ -130,39 +131,120 @@ $(document).ready(function(){
       success: function(data){
         if(data != '0')
         {
-          $('#usermsg').html('<span class="text-danger">Username Not available</span>');
-          $('#submit').attr("disabled", true);
+          $('#usermsg').html('<span class="text-danger mb-3">Username Not available</span>');
+          // $(":submit").attr("disabled", true);
         }
         else
         {
-          $('#usermsg').html('<span class="text-success">Username available</span>');
-          $('#submit').attr("disabled", false);
+          $('#usermsg').html('<span class="text-success mb-3">Username available</span>');
+          // $(":submit").attr("disabled", false);
         }
       }
     })
   })
 });
 
+// check email
+
+$(document).ready(function(){
+  $('#email').blur(function(){
+    var email = $ (this).val();
+    $.ajax({
+      url: 'checkuser.php',
+      method: "POST",
+      data: {
+        user_email: email
+      },
+      success: function(data){
+        if(data != '0')
+        {
+          $('#Eusermsg').html('<span class="text-danger mb-3">email Not available</span>');
+          // $('#submit').attr("disabled", true);
+        }
+        else
+        {
+          $('#Eusermsg').html('<span class="text-success mb-3">email available</span>');
+          // $('#submit').attr("disabled", false);
+        }
+      }
+    })
+  })
+});
 
 // confirm password
 
-$(document).ready(function(){
 
-  $('#re_password').keyup(function(){
+// show upi 
 
-    var pwd = $('#password').val();
-    var cpwd = $('#re_password').val();
-    if(cpwd != pwd){
-      $('#passwordcnf').html('<span class="text-danger">Password Not Matching</span>');
-      return false;
-    }
-    else if(cpwd = pwd)
+$(document).ready(function () {
+  
+//  upi
+  $('#paymode').change(function()
+  {
+    var title = $(this).val();
+    if(title == "cash")
     {
-      $('#passwordcnf').html('');
-      return false;
+      $('#orderbtn').show();
     }
-    
+  });
+
+  $('#paymode').change(function()
+  {
+    var title = $(this).val();
+    if(title == "Upi")
+    {
+      $('#upiscan').modal('show');
+      $('#orderbtn').show();
+    }
+  });
+
+  // card
+  
+  $('#paymode').change(function()
+  {
+    var title = $(this).val();
+    if(title == "Card")
+    {
+      $('#cardscan').modal('show');
+      // disable button
+      $('#orderbtn').hide();
+    }
   });
 
 });
 
+// get process patment 
+
+$(document).ready(function () {
+  
+  var totl = $('#totalcart').html();
+ $('#carttotl').html(totl); 
+
+  $("#cardcnforder").click(function(e) {
+    // e.preventDefault();
+    $("[name='cnforder']")[0].click();
+  });
+
+});
+
+//  aitu just card empty hole pay button tu disable 
+// check if empty card
+
+$(document).ready(function(){
+  $('#cardholder, #cardnumber, #cmonth, #cyear, #cvv').bind('keyup', function() {
+    if(allFilled()) {
+      $('#cardcnforder').removeAttr('disabled');
+    }
+    else{
+      $('#cardcnforder').attr("disabled", 'disabled');
+    }
+});
+
+function allFilled() {
+    var filled = true;
+    $('#credit-card input').each(function() {
+        if($(this).val() == '') filled = false;
+    });
+    return filled;
+}
+});

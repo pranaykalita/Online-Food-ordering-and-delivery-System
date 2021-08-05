@@ -1,11 +1,48 @@
 <?php
-define("TITLE" , "Coders Cafe");
+define("TITLE" , "FOODZILLA");
 include('include/dbcon.php');
 include('include/head.php');
 ?>
 
 <!-- include custom stylesheet -->
 <link rel="stylesheet" href="css/main.css" />
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
+<style>
+	.categoryimg
+	{
+	max-width: 100%;
+	max-height: 150px;
+	overflow: hidden;
+	object-fit: cover;
+	}
+	.cattitle{
+		color:#ff6b6b;
+		font-size: 2rem;
+		font-family: 'Lobster', cursive;
+	}
+	.browsebtn{
+		font-family: 'Merienda', cursive;
+		background: #ff6b6b;
+		color: #fff;
+		height: 20%;
+		padding: 10px 20px 10px 20px;
+		border-radius: 26px;
+	}
+	.browsebtn:hover{
+		color: black;
+		background:#fff;
+		transform: scale(1.1);
+		border: 1px solid #000;
+		transition: .2s linear;
+	}
+	@media only screen and (max-width: 600px) {
+	.cattitle,.browsebtn{
+		display: flex;
+		justify-content: center;
+	}
+}
+</style>
 
 </head>
 
@@ -20,9 +57,13 @@ include('include/head.php');
 		$name = $_REQUEST['sname'];
 		$email = $_REQUEST['semail'];
 		$msg = $_REQUEST['smsg'];
+
+		$senddate = date("Y-m-d");
+		$sendtime = date("h:i:sa");
+
 		$escapemsg = $conn->real_escape_string(($msg));
 
-		$sql = "INSERT INTO `feedback_tb`(`msg_name`, `msg_email`, `msg_body`) VALUES ('$name','$email','$escapemsg')";
+		$sql = "INSERT INTO `feedback_tb`(`msg_name`, `msg_email`, `msg_body` ,`date`, `time`) VALUES ('$name','$email','$escapemsg','$senddate','$sendtime')";
 		// echo $sql;die();
 		$conn->query($sql);
 		echo '<script>
@@ -83,6 +124,54 @@ include('include/head.php');
 		</div>
 	</section>
 
+	<!-- category menu -->
+	<section id="menu">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center pt-5 menu_title">
+					<h1><span></span> Our Menu <span></span></h1>
+				</div>
+			</div>
+
+			<div class="row">
+					<?php
+					$sql = "SELECT * FROM `menucategory_tb` order by `cat_id` asc";
+					$data = $conn->query($sql);
+					while($row = $data->fetch_assoc())
+					{
+						echo '
+						<div class="col-xl-6 col-md-6 col-sm-12">
+							<div class="card my-3" >
+								<img
+									src='.catg_img.$row["cat_image"].'
+									class="card-img-top categoryimg"
+									alt=""
+								/>
+								<div class="card-body d-sm-flex align-items-center justify-content-between">
+									<h5 class="card-title cattitle">'.$row["cat_name"].'</h5>
+									<br>
+									<a href='."menu.php#".$row["cat_name"].' class="btn browsebtn">View Menu</a>
+								</div>
+								
+								
+								
+							</div>
+						</div>
+						';
+					}
+					?>
+				
+			</div>
+
+
+			<div class="row">
+				<div class="col text-center menubtn">
+					<a href="menu.php" class="btn">View Menu</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- about -->
 	<section id="about">
 		<div class="container">
@@ -110,45 +199,6 @@ include('include/head.php');
 		</div>
 	</section>
 
-	<!-- menu -->
-	<section id="menu">
-		<div class="container">
-			<div class="row">
-				<div class="col text-center menu_title">
-					<h1><span></span> Our Menu <span></span></h1>
-				</div>
-			</div>
-			<div class="row menu_itm text-center">
-				<?php
-				$sql = "SELECT * FROM `menucategory_tb` order by `cat_id` asc";
-				$data = $conn->query($sql);
-				while($row = $data->fetch_assoc()){
-					echo '
-					<div class="col-md py-2">
-					<div class="card">
-						<div class="image">
-							<img src='.catg_img.$row["cat_image"].' alt="" srcset="">
-						</div>
-						<div class="menucontent">
-							<div class="title">'.$row["cat_name"].'</div>
-							<div class="bottom">
-								<a href='."menu.php#".$row["cat_name"].' class="btn btn-primary">Browse</a>
-							</div>
-						</div>
-					</div>
-				</div>';
-				} 
-				?>
-			</div>
-
-			<div class="row">
-				<div class="col text-center menubtn">
-					<a href="menu.php" class="btn">View Menu</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- testimonial -->
 	<section id="testimonial">
 		<div class="container">
@@ -159,7 +209,7 @@ include('include/head.php');
 					<div class="item">
 						<div class="container">
 							<div class="caption text-center">
-								<p class="medium-color"> Had lunch with some of my colleagues at coderscafe. The service was excellent..</p>
+								<p class="medium-color"> Had lunch with some of my colleagues at FoodZilla. The service was excellent..</p>
 								<span>Rahul Kalita</span>
 								<p class="medium-text">Jorhat</p>
 							</div>

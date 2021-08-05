@@ -5,7 +5,7 @@ if(isset($_POST['chek_viewBtn']))
 {
     $id = $_POST['ord_ifBtn'];
     
-    $query = "SELECT * FROM `allorders_tb` where `ord_id` = '{$id}'";
+    $query = "SELECT * FROM `allorders_tb` where `invid` = '{$id}'";
     
 	$data = $conn->query($query);
 	$row = $data->fetch_assoc();
@@ -18,12 +18,11 @@ if(isset($_POST['chek_viewBtn']))
 	{
 		echo '
 		<tr>
-		<td>'.$value["Item_name"].'</td>
-		<td>'.$value["quantity"].'</td>
-		<td>'.$value["Item_price"].'</td>
+			<td>'.$value["Item_name"].'</td>
+			<td>'.$value["quantity"].'</td>
+			<td>'.$value["Item_price"].'</td>
 		</tr>';
 	}
-	
 	
 	
 }

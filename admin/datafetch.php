@@ -191,9 +191,34 @@ if(isset($_POST['vorddel']))
 		<tr>
 		<td>'.$value["Item_name"].'</td>
 		<td>'.$value["quantity"].'</td>
-		<td>'.$value["Item_price"].'</td>
+		<td>₹ '.$value["Item_price"].'</td>
 		</tr>';
 	}
 }
 
+// edit delivert details
+
+if(isset($_POST["getdata"]))
+{
+	$delid = $_POST["delid"];
+	$stored = [];
+
+	$sql = "SELECT * FROM `delivery_tb` WHERE `id` = '$delid'";
+	$data = $conn->query($sql);
+	
+	foreach($data as $row)
+	{
+		array_push($stored , $row);
+		header('content-type:application/json');
+		echo json_encode($stored);
+	}
+
+}
+
+// read notification
+if(isset($_POST["readdone"]))
+{
+    $sql = "UPDATE `allorders_tb` SET `not_status` = 1 WHERE `not_status`= 0 ";
+    $datax = $conn->query($sql);
+}
 

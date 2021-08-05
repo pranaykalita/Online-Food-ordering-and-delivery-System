@@ -83,7 +83,7 @@ ul {
 }
 
 .navbar-toggler span {
-	background: rgb(10, 10, 10);
+	background: #fff;
 	width: 30px;
 	height: 3px;
 	display: flex;
@@ -160,7 +160,7 @@ ul {
 /* scroll */
 
 .scrollbar a {
-	color: rgb(10, 10, 10) !important;
+	color: rgb(255, 255, 255) !important;
 }
 .scrollbar a:hover {
 	color: rgb(214, 48, 49) !important;
@@ -198,6 +198,7 @@ ul {
 }
 .remove_item p:hover{
 	transition: .2s;
+	cursor: pointer;
 	transform: scale(1.1);
 }
 

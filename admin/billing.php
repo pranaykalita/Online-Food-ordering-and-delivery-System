@@ -1,5 +1,5 @@
 <?php
-define("TITLE" , "Coders Cafe | ADMIN");
+define("TITLE" , "FOODZILLA | ADMIN");
 include('common/header.php');
 ?>
 
@@ -20,42 +20,35 @@ include('common/header.php');
         </div>
 
         <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Invoice Id</th>
+                            <th>order Date</th>
+                            <th>UserName</th>
+                            <th>Total Amount</th>
+                            <th>phone</th>
+                            <th>Action</th>
 
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                <!-- Main Content -->
-                <div id="content">
-
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
-
-
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Invoice Id</th>
-                                            <th>UserName</th>
-                                            <th>Total Amount</th>
-                                            <th>phone</th>
-                                            <th>Action</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    
-                                    <?php
-                                    $sql = "SELECT * FROM `allorders_tb` WHERE `ord_status` = '3' order by `invid` desc";
+                        <?php
+                                    $sql = "SELECT * FROM `allorders_tb`  order by `ord_id` desc";
                                     $res = $conn->query($sql);
                                     while($row = $res->fetch_assoc())
                                     {
+                                        $ord_date = strtotime($row["ord_date"]);
+										$ford_date = date("d-M-Y",$ord_date);
+
                                         echo '
                                         <tr>
                                             <td class="font-weight-bold">'.$row["invid"].'</td>
+                                            <td >'.$ford_date.'</td>
                                             <td >'.$row["ord_user"].'</td>
-                                            <td>'.$row["ord_totlprice"].'</td>
+                                            <td>₹ '.$row["ord_totlprice"].'</td>
                                             <td >'.$row["ord_phone"].'</td>
 
                                             <td>
@@ -77,19 +70,15 @@ include('common/header.php');
                                         </tr>';
                                     }
                                     ?>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-                <!-- /.container-fluid -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
+
+</div>
+<!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
 <?php include("common/footer.php") ?>

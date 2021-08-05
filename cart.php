@@ -1,5 +1,5 @@
 <?php
-define("TITLE" , "coders Cafe | Cart");
+define("TITLE" , "FOODZILLA | Cart");
 include('include/dbcon.php');
 include('include/head.php'); 
 ?>
@@ -120,7 +120,7 @@ include('include/head.php');
 
 												<button class="col-8 d-flex justify-content-between remove_item"
 													name="remove_item">
-													<p><i class="fas fa-trash"></i> Remove Item</p>
+													<p><i class="fas fa-trash text-danger"></i> Remove Item</p>
 												</button>
 												<input type="hidden" name="itmname"
 													value="<?php echo $value['Item_name']; ?>">
